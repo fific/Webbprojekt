@@ -28,7 +28,7 @@ public class UserController {
 //    private DeleteUserBB delBB;
     
    
-    public void newProduct() {
+    public void newUser() {
 //        LOG.log(Level.INFO, "Backin bean " + addBB);
 //        User p = new User(addBB.getName(), Double.valueOf(addBB.getPrice()));
 //        school.getUserList().create(p);
@@ -36,12 +36,12 @@ public class UserController {
 //        LOG.log(Level.INFO, "New value " + ps.get(0));
     }
 
-    public void updateProduct() {
+    public void updateUser() {
 //       User p = new User(editBB.getId(), editBB.getName(), Double.valueOf(editBB.getPrice()));
 //       school.getUserList().update(p);    
     }
 
-    public void deleteProduct() {
+    public void deleteUser() {
 //       String id = delBB.getId();
 //       school.getUserList().delete(id);
     }
@@ -62,7 +62,7 @@ public class UserController {
 //    }
 
     @Inject
-    public void setShop(SingletonSchool ss) {
+    public void setSchool(SingletonSchool ss) {
         this.school = ss.getSchool();
     }
 
