@@ -1,17 +1,19 @@
 
-package com.united.view;
+package com.united.view.courses;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+/**
+ *
+         Backing bean
 
-@Named("editCourse")
+ */
+@Named("deleteCourse")
 @RequestScoped 
-public class EditCourseBB {
+public class DeleteCourseBB {
 
-    
     private Long id;
     
     @Size(min = 4, max = 20, message = "{course.name}")
@@ -39,6 +41,6 @@ public class EditCourseBB {
     
     @Override
     public String toString() {
-        return "EditProductBB{" + "name=" + name + '}';
+        return "DeleteProductBB{" + "name=" + name + '}';
     }  
 }

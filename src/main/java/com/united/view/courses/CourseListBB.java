@@ -1,4 +1,4 @@
-package com.united.view;
+package com.united.view.courses;
 
 import com.united.core.School;
 import com.united.core.SingletonSchool;

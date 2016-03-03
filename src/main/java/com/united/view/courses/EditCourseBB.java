@@ -1,22 +1,20 @@
 
-package com.united.view;
+package com.united.view.courses;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-/**
- *
-         Backing bean
 
- */
-@Named("deleteCourse")
+@Named("editCourse")
 @RequestScoped 
-public class DeleteCourseBB {
+public class EditCourseBB {
 
+    
     private Long id;
     
-    @Size(min = 4, max = 20, message = "{product.name}")
+    @Size(min = 4, max = 20, message = "{course.name}")
     private String name;
     
     // Hopeless to validate numbers (?!?!) because, user possibly enters non-digits
@@ -41,6 +39,6 @@ public class DeleteCourseBB {
     
     @Override
     public String toString() {
-        return "DeleteProductBB{" + "name=" + name + '}';
+        return "EditProductBB{" + "name=" + name + '}';
     }  
 }

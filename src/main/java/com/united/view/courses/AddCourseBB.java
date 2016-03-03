@@ -1,5 +1,5 @@
 
-package com.united.view;
+package com.united.view.courses;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

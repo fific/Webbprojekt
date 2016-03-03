@@ -11,12 +11,11 @@
 header {
     //background-image:  url(../img/banner.jpg);
     //background-position: center;
-    
     border-radius: 2px;
     box-shadow: 8px 8px 5px gainsboro;
     vertical-align: middle;
     background: #6699ff;
-    padding: 1pc;
+    padding: 2pc;
      
 }
 
@@ -64,7 +63,7 @@ footer {
 // for columns
 //    -webkit-column-count: 3; /* Chrome, Safari, Opera */
 //    -moz-column-count: 3; /* Firefox */
-//    column-count: 5;
+//    column-count: 3;
 
 /*
 #userbanner {

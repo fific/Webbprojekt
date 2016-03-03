@@ -4,9 +4,9 @@ package com.united.ctrl;
 
 import com.united.core.School;
 import com.united.core.SingletonSchool;
-import com.united.view.AddCourseBB;
-import com.united.view.DeleteCourseBB;
-import com.united.view.EditCourseBB;
+import com.united.view.courses.AddCourseBB;
+import com.united.view.courses.DeleteCourseBB;
+import com.united.view.courses.EditCourseBB;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +19,7 @@ import javax.inject.Named;
 
  @author Linn
  */
-@Named("courseCtrl")
+@Named("courseController")
 @RequestScoped
 public class CourseController {
 

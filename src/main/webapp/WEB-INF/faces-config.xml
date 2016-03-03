@@ -15,6 +15,10 @@
     </navigation-case>
       
     <navigation-case>
+        <from-outcome>register</from-outcome>
+        <to-view-id>/partials/users/addUser.xhtml</to-view-id>
+    </navigation-case>
+    <navigation-case>
         <from-outcome>students</from-outcome>
         <to-view-id>/partials/students/studentList.xhtml</to-view-id>
     </navigation-case>
