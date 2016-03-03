@@ -8,13 +8,20 @@
 
     
     <h:head>
-        <title>Courses</title>
+        <title>Kurser</title>
     </h:head>  
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
-                <h3>Courses</h3>
-                <h:link outcome="addCourse.xhtml" >New Course</h:link>
+                
+                <nav class="navbar navbar-default" role="navigation">
+                    <h:link value="Elever" class="navbar-brand" outcome="students" />
+                    <h:link value="Kurser" class="navbar-brand" outcome="courses" />
+                    <h:link value="Statistik" class="navbar-brand" outcome="statistics" />  
+                </nav>
+                
+                <h3>Dina skapade kurser</h3>
+                <h:link outcome="addCourse.xhtml" >Ny kurs</h:link>
                 <h:form>
                     
                     <h:commandButton value="Prev" actionListener="#{courseList.prev()}">
@@ -33,7 +40,7 @@
                         <h:column><h:outputText value="#{course.id}"/></h:column>
                         <h:column><h:outputText value="#{course.name}"/></h:column>
                         <!--<h:column><h:outputText value="#{course.price}"/></h:column>-->
-
+                        
                         <h:column>
                             <h:link value="Edit" outcome="editCourse.xhtml">
                                 <f:param name="id" value="#{course.id}" />
