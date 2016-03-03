@@ -1,5 +1,5 @@
 
-package com.united.auth;
+package com.united.persistence;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.united.auth;
+package com.united.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
