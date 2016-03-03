@@ -3,17 +3,20 @@
 */
 
 
+.container {
+    //background-image: url(../img/banner.jpg);
+    
+}
 
 header {
-    background-image:  url(resources/img/banner.jpg);
-    background-position: center;
+    //background-image:  url(../img/banner.jpg);
+    //background-position: center;
     
-    border-radius: 10px;
+    border-radius: 2px;
     box-shadow: 8px 8px 5px gainsboro;
     vertical-align: middle;
     background: #6699ff;
     padding: 1pc;
-    margin: 1pc;
      
 }
 
@@ -30,11 +33,11 @@ header h1{
 }
 
 footer {
-    
-    border-radius:10px;
+    margin-top: 1pc;
+    padding: 1em;
+    border-radius: 2px;
     box-shadow: 8px 8px 5px gainsboro;
     //border: black solid medium;
-    margin-top: 10pc;
     alignment-adjust: middle;
     text-align: center;     
 }
@@ -43,16 +46,41 @@ footer {
     color:  red;
 }
 
-div.loginbox {
+#content {
+    padding: 1pc;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section {
     text-align: center;
 }
 
+.loginbox {
+    text-align: center;
+    
+}
+
+// for columns
+//    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+//    -moz-column-count: 3; /* Firefox */
+//    column-count: 5;
+
+/*
+#userbanner {
+position: fixed;
+height: 30px;
+width: 100%;
+border-top: 5px solid #a1cb2f;
+background: #fff;
+box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+z-index: 999999;
+}*/
 
 .partial-form {
     
-    border-radius:10px;
+    border-radius: 5px;
     box-shadow: 8px 8px 5px gainsboro;
     max-width: 20pc;
 }
-
 

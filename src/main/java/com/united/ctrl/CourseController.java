@@ -4,6 +4,9 @@ package com.united.ctrl;
 
 import com.united.core.School;
 import com.united.core.SingletonSchool;
+import com.united.view.AddCourseBB;
+import com.united.view.DeleteCourseBB;
+import com.united.view.EditCourseBB;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,16 +19,16 @@ import javax.inject.Named;
 
  @author Linn
  */
-@Named("courseController")
+@Named("courseCtrl")
 @RequestScoped
 public class CourseController {
 
     private static final Logger LOG = Logger.getLogger(CourseController.class.getSimpleName());
     private School school;
     
-//    private AddCourseBB addBB;
-//    private EditCourseBB editBB;
-//    private DeleteCourseBB delBB;
+    private AddCourseBB addBB;
+    private EditCourseBB editBB;
+    private DeleteCourseBB delBB;
     
    
     public void newCourse() {
@@ -46,20 +49,20 @@ public class CourseController {
 //       school.getCourseList().delete(id);
     }
 
-//    @Inject
-//    public void setAddBB(AddCourseBB addBB) {
-//        this.addBB = addBB;
-//    }
-//    
-//    @Inject
-//    public void setEditBB(EditCourseBB editBB) {
-//        this.editBB = editBB;
-//    }
-//    
-//    @Inject
-//    public void setDelBB(DeleteCourseBB delBB) {
-//        this.delBB = delBB;
-//    }
+    @Inject
+    public void setAddBB(AddCourseBB addBB) {
+        this.addBB = addBB;
+    }
+    
+    @Inject
+    public void setEditBB(EditCourseBB editBB) {
+        this.editBB = editBB;
+    }
+    
+    @Inject
+    public void setDelBB(DeleteCourseBB delBB) {
+        this.delBB = delBB;
+    }
 
     @Inject
     public void setSchool(SingletonSchool ss) {

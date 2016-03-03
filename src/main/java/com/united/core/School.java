@@ -39,4 +39,8 @@ public class School {
     public UserList getUserList() {
         return userList;
     }
+
+    public SingletonSchool getSchool() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
