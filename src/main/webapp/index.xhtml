@@ -5,13 +5,45 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="resources/css/default.css"/>
         <title>Skolsystem</title>
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
+                
+                 <section>
+                    <div class="loginbox">
+                        <div class="inputField">
+                            Användarnamn:
+                            <br></br>
+                            <input type="text" name="TxtInpName" value="" />
+                        </div>
+
+                        <div class="inputField">
+                            Lösenord:
+                            <br></br>
+                            <input type="password" name="TxtInputPwd" value="" />
+                        </div>
+
+                        <br></br>    
+                        <input type="submit" value="Logga in" />
+                        <!--<p><h:link outcome="/partials/users/register.xhtml" >Registera nytt konto</h:link></p>-->
+                        
+                        <br></br>
+                        Registera nytt konto
+
+                    </div>
+                     
+                 </section>
+ 
+                <section> 
                 <p><h:link outcome="/partials/teachers/teacherView.xhtml" >Testa lärare vy</h:link></p>
                 <p><h:link outcome="/partials/students/studentView.xhtml" >Testa elev vy</h:link></p>
+                </section>
+                
             </ui:define>
         </ui:composition>
     </h:body>

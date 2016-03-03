@@ -5,8 +5,9 @@
 
 
 header {
-    //background-image:  url(../img/banner.jpg);
-    //background-position: center;
+    background-image:  url(resources/img/banner.jpg);
+    background-position: center;
+    
     border-radius: 10px;
     box-shadow: 8px 8px 5px gainsboro;
     vertical-align: middle;
@@ -43,9 +44,9 @@ footer {
 }
 
 div.loginbox {
-    
-    alignment-adjust: middle;
+    text-align: center;
 }
+
 
 .partial-form {
     
