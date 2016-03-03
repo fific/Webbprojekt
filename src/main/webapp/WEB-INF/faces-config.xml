@@ -16,7 +16,7 @@
       
     <navigation-case>
         <from-outcome>students</from-outcome>
-        <to-view-id>/partials/teachers/studentList.xhtml</to-view-id>
+        <to-view-id>/partials/students/studentList.xhtml</to-view-id>
     </navigation-case>
      <navigation-case>
         <from-outcome>courses</from-outcome>

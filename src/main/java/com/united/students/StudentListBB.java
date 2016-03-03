@@ -1,36 +1,31 @@
 /*package com.united.students;
 
+import com.united.auth.AuthDAO;
+import com.united.auth.User;
 import java.io.Serializable;
 import java.util.List;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 
 @Named("studentList")
 @RequestScoped
 public class StudentListBB implements Serializable {
 
-    private static final Logger LOG = Logger.getLogger(StudentListBB.class.getName());
+    private static final Logger LOG = Logger.getLogger(StudentListBB.class.getSimpleName());
+    private static final long serialVersionUID = 1L;
 
-    private transient IShop shop;
+    private String id;
+    private String password;
     private int currentPage;
     private int pageSize = 4;  // Items on a listing (hard coded :-(  )
     private int count;
 
-    // Must have default ctor so use setter injection
-    @Inject
-    public void setShop(SingletonShop ss) {
-        this.shop = ss.getShop();
-    }
+    @Inject // Bad use setter or constructor injection
+    private AuthDAO authDAO;
 
     public List<User> findRange() {
         return authDAO.findRange(currentPage * pageSize, pageSize);
@@ -38,7 +33,7 @@ public class StudentListBB implements Serializable {
 
     @PostConstruct
     public void post() {
-        count = shop.getProductCatalogue().count();
+        count = authDAO.count();
     }
 
     public void next() {
