@@ -6,8 +6,8 @@ package com.united.auth;
  * @author hajo
  */
 public enum Groups {
-    USER,
-    ADMIN,
+    STUDENT,
+    TEACHER,
    // POWERUSER,
  
 }

@@ -1,7 +1,6 @@
 
 package com.united.auth;
 
-
 import com.united.persistence.AbstractDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,22 +11,22 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author hajo
+ * @author Linn
  */
 @Stateless
-public class AuthDAO extends AbstractDAO<User, String> {
-    private static final Logger LOG = Logger.getLogger(AuthDAO.class.getName());
+public class UserList extends AbstractDAO<User, String> {
+    private static final Logger LOG = Logger.getLogger(UserList.class.getName());
 
-    @PersistenceContext//(unitName = "jee_auth_pu")
+    @PersistenceContext//(unitName = "school_pu")
     protected EntityManager em;
 
-    public AuthDAO() {
+    public UserList() {
         super(User.class);
     }
 
      @PostConstruct
     public void post() {
-        LOG.log(Level.INFO, "authDAO alive");
+        LOG.log(Level.INFO, "UserList alive");
     }
     
     @Override
