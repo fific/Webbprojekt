@@ -2,11 +2,9 @@
 package com.united.view.users;
 
 import com.united.auth.Groups;
-import com.united.view.courses.*;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**

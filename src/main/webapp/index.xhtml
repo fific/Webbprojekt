@@ -16,37 +16,35 @@
 
                 <section>
                     <div class="loginbox"> 
-                        <div class="inputfield">
-                            Användarnamn:
-                            <br></br>
-                            <input type="text" name="TxtInpName" value="" />
-                        </div>
-
-                        <div class="inputfield">
-                            Lösenord:
-                            <br></br>
-                            <input type="password" name="TxtInputPwd" value="" />
-
-                        </div>
-
-
-
-                        <br></br>    
-                        <input type="submit" value="Logga in" />
+                        <h:form>                    
+                            <h:panelGrid columns="2">
+                            <h:outputText value="Användarnamn: " />
+                            <h:inputText id="username" value="#{login.user}"></h:inputText>
+                            <h:message for="username"></h:message>
+                            <br/>
+                            <h:outputText value="Lösenord: " />
+                            <h:inputSecret id="password" value="#{login.pwd}"></h:inputSecret>
+                            <h:message for="password"></h:message>
+                            <br/><br/>
+                            <h:commandButton action="#{login.login}"
+                                value="Logga in"></h:commandButton>
+                            </h:panelGrid>
+                        </h:form>
+                        
                         <p><h:link outcome="register" >Registera nytt konto</h:link></p>
 
                         <br></br>
 
-                        </div>
+                    </div>
 
-                    </section>
+                </section>
 
-                    <section> 
-                        <br></br>
-                        <p><h:link outcome="/partials/teachers/teacherView.xhtml" >Testa lärare vy</h:link></p>
-                    <p><h:link outcome="/partials/students/studentView.xhtml" >Testa elev vy</h:link></p>
-                        <br></br>
-                    </section>
+                <section> 
+                    <br></br>
+                    <p><h:link outcome="/partials/teachers/teacherView.xhtml" >Testa lärare vy</h:link></p>
+                <p><h:link outcome="/partials/students/studentView.xhtml" >Testa elev vy</h:link></p>
+                    <br></br>
+                </section>
 
             </ui:define>
         </ui:composition>

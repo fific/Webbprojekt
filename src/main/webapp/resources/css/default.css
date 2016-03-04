@@ -11,17 +11,17 @@
 header {
     //background-image:  url(../img/banner.jpg);
     //background-position: center;
-    border-radius: 2px;
+    //border-radius: 2px;
     box-shadow: 8px 8px 5px gainsboro;
     vertical-align: middle;
-    background: #6699ff;
+    background: #4aa3df;
     padding: 2pc;
      
 }
 
 header h1{  
     margin: 1em;
-    font-size: xx-large;
+    font-size: x-large;
     font-family: sans-serif;
     //font-style: italic;
     font-weight: 900;
@@ -31,8 +31,10 @@ header h1{
     vertical-align: middle;
 }
 
-footer {
-    margin-top: 1pc;
+footer {    
+    color: white;
+    background: #16a085;
+    margin-top: 2pc;
     padding: 1em;
     border-radius: 2px;
     box-shadow: 8px 8px 5px gainsboro;
@@ -46,18 +48,20 @@ footer {
 }
 
 #content {
-    padding: 1pc;
-    margin-left: auto;
-    margin-right: auto;
+    padding-top: 2pc;
+    padding-bottom: 20pc;
+    box-shadow: 8px 8px 5px gainsboro;
 }
 
 .section {
+    background: #2c3e50;
     text-align: center;
 }
 
 .loginbox {
-    text-align: center;
-    
+    //text-align: center;
+    //margin-left: auto;
+    //margin-right: auto;
 }
 
 // for columns
@@ -77,9 +81,8 @@ z-index: 999999;
 }*/
 
 .partial-form {
-    
     border-radius: 5px;
     box-shadow: 8px 8px 5px gainsboro;
-    max-width: 20pc;
+    //max-width: 20pc;
 }
 
