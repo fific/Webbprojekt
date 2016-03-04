@@ -7,7 +7,7 @@
 
    <!-- TODO --> 
     <f:metadata>
-        <f:viewParam name="id" value="#{editProduct.id}"  />
+        <f:viewParam name="id" value="#{editStudent.id}"  />
         <f:viewParam name="name" value="#{editStudent.name}"  />
     </f:metadata>
    
@@ -19,20 +19,15 @@
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
                 <h3>Ändra elev</h3>
-
-                 <!-- TODO --> 
-                 
-                 <p>Id set by application (database)</p>
+                
                 <h:form class="partial-form">
 
-                    
                     <h:panelGrid columns="2" class="table">
-                        <h:outputLabel value="Id"/>
-                        <h:outputText value="#{editProduct.id}"/> 
-                        <h:outputLabel value="Name" />
+                        <h:outputLabel value="id"/>
+                        <h:outputText value="#{editStudent.id}"/> 
+                        <h:outputLabel value="name" />
                         <h:inputText value="#{editStudent.name}"/> 
                     </h:panelGrid>
-                    
                     
                     <div class="btn-group">
                         <h:commandButton value="Cancel" immediate="true" class="btn btn-default"

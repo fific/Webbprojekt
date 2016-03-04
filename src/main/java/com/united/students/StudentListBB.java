@@ -1,8 +1,11 @@
-/*package com.united.students;
+package com.united.students;
 
-import com.united.auth.AuthDAO;
 import com.united.auth.User;
+import com.united.auth.UserList;
+import com.united.core.School;
+import com.united.core.SingletonSchool;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import java.util.logging.Logger;
@@ -23,17 +26,17 @@ public class StudentListBB implements Serializable {
     private int currentPage;
     private int pageSize = 4;  // Items on a listing (hard coded :-(  )
     private int count;
-
-    @Inject // Bad use setter or constructor injection
-    private AuthDAO authDAO;
+    
+    @Inject
+    private UserList users;
 
     public List<User> findRange() {
-        return authDAO.findRange(currentPage * pageSize, pageSize);
+        return users.findRange(currentPage * pageSize, pageSize);
     }
 
     @PostConstruct
     public void post() {
-        count = authDAO.count();
+        count = users.count();
     }
 
     public void next() {
@@ -48,4 +51,4 @@ public class StudentListBB implements Serializable {
         }
     }
 
-}*/
+}

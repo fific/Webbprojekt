@@ -16,23 +16,23 @@
                 <h3>Dina elever</h3>
                 <h:link outcome="addStudent.xhtml" >Lägga till</h:link>
                 <h:form>
-                    <h:commandButton value="Prev" actionListener="#{studentList.prev()}">
+                    <h:commandButton value="Föregående" actionListener="#{studentList.prev()}">
                         <f:ajax execute="@form" render="productPanel" />
                     </h:commandButton>
 
-                    <h:commandButton value="Next" actionListener="#{studentList.next()}">
+                    <h:commandButton value="Nästa" actionListener="#{studentList.next()}">
                         <f:ajax execute="@form" render="productPanel" />
                     </h:commandButton>
                     
                     <h:panelGroup id="productPanel" >
                         <h:dataTable var="student" value="#{studentList.findRange()}"
                                      class="table table-striped">
-                        <h:column><h:outputText value="#{student.name}"/></h:column>
+                        <h:column><h:outputText value="#{student.id}"/></h:column>
                         <h:column><h:outputText value="#{student.passwd}"/></h:column>
                         
 
                         <h:column>
-                            <h:link value="Edit" outcome="editStudent.xhtml">
+                            <h:link value="Redigera" outcome="editStudent.xhtml">
                                 <f:param name="id" value="#{student.id}" />
                                 <f:param name="name" value="#{student.passwd}" />
                                 
@@ -40,7 +40,7 @@
                          </h:column>   
                         
                         <h:column>
-                            <h:link value="Del" outcome="deleteUser.xhtml">
+                            <h:link value="Ta bort" outcome="deleteStudent.xhtml">
                                 <f:param name="id" value="#{student.id}" />
                                 <f:param name="name" value="#{student.passwd}" />
                                 
