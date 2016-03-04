@@ -1,5 +1,7 @@
 package com.united.core;
 
+import com.united.auth.CourseList;
+import com.united.auth.MomentList;
 import com.united.auth.UserList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,11 +26,12 @@ public class School {
     // If interfaces removed it will work
      @EJB
      private UserList userList;
-//    @EJB
-//    private CourseList courseList;
+     
+     @EJB
+     private CourseList courseList;
     
-//    @EJB
-//    private MomentList momentList;
+    @EJB
+    private MomentList momentList;
 
      
     
@@ -39,6 +42,14 @@ public class School {
     public UserList getUserList() {
         return userList;
     }
+    
+    public CourseList getCourseList() {
+        return courseList;
+        }
+    
+    public MomentList getMomentList() {
+        return momentList;
+        }
 
     public SingletonSchool getSchool() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

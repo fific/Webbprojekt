@@ -3,6 +3,9 @@
   <persistence-unit name="school_pu" transaction-type="JTA">
     <jta-data-source>jdbc/school</jta-data-source>
     <class>com.united.auth.User</class>
+    <class>com.united.auth.Course</class>
+    <class>com.united.auth.Message</class>
+    <class>com.united.auth.Moment</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
