@@ -35,11 +35,11 @@ public class Message implements Serializable {
     protected String id;
     @Column(nullable = false)
     protected String text;
-    @ElementCollection(fetch = FetchType.LAZY)
+    //@ElementCollection(fetch = FetchType.LAZY)
    /*@CollectionTable(name = "MESSAGES_GROUPS", 
             joinColumns = @JoinColumn(name = "id"))
     @Enumerated(EnumType.STRING)*/
-    protected List<Groups> groups = new ArrayList<>();
+    //protected List<Groups> groups = new ArrayList<>();
 
     public Message() {
     }

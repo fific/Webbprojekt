@@ -35,11 +35,11 @@ public class Moment implements Serializable {
     protected String id;
     //@Column(nullable = false)
     //protected String passwd;
-    @ElementCollection(fetch = FetchType.LAZY)
+    /*@ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "MOMENTS_GROUPS", 
             joinColumns = @JoinColumn(name = "id"))
-    @Enumerated(EnumType.STRING)
-    protected List<Groups> groups = new ArrayList<>();
+    @Enumerated(EnumType.STRING)*/
+    //protected List<Groups> groups = new ArrayList<>();
 
     public Moment() {
     }
