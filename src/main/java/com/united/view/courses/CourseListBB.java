@@ -1,5 +1,6 @@
 package com.united.view.courses;
 
+import com.united.auth.Course;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
 import java.io.Serializable;
@@ -23,7 +24,7 @@ public class CourseListBB implements Serializable {
 
     private transient School school;
     private int currentPage;
-    private int pageSize = 4;  // Items on a listing (hard coded :-(  )
+    private int pageSize = 10;  // Items on a listing (hard coded :-(  )
     private int count;
 
     // Must have default ctor so use setter injection
@@ -32,14 +33,14 @@ public class CourseListBB implements Serializable {
         this.school = s.getSchool();
     }
 
-    public List<String> findRange() {
-        //return school.getProductCatalogue().findRange(currentPage * pageSize, pageSize);
+    public List<Course> findRange() {
+        //return school.getCourseList().findRange(currentPage * pageSize, pageSize);
         return new ArrayList<>();
     }
 
     @PostConstruct
     public void post() {
-        //count = shop.getProductCatalogue().count();
+        //count = school.getCourseList().count();
     }
 
     public void next() {

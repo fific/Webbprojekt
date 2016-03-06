@@ -25,11 +25,11 @@
                         <h:message for="passwd"/>
                         
                         <h:outputLabel value="Role" />
-                        <select name="Role">
+                        <select name="Role" value="#{addUser.groups}">
                             <option>Teacher</option>
                             <option>Student</option>
                         </select>
-                        <h:message for="group"/>
+                        <h:message for="groups"/>
 
                     </h:panelGrid>
                     <div class="btn-group">
