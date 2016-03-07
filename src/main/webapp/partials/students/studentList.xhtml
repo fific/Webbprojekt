@@ -13,7 +13,7 @@
     <h:body>
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                <h3>Dina elever</h3>
+                <h3>Elever</h3>
                 <h:form>
                     <h:commandButton value="Föregående" actionListener="#{studentList.prev()}">
                         <f:ajax execute="@form" render="productPanel" />

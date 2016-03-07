@@ -11,27 +11,24 @@
     </f:metadata>
    
     <h:head>
-        <title>Edit course</title>
+        <title>Redigera kurs</title>
     </h:head>  
     <h:body>
 
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
-                <h3>Edit course</h3>
+                <h3>Redigera kurs</h3>
                  
-                 <p>Id set by application (database)</p>
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
-                        <h:outputLabel value="Id"/>
-                        <h:outputText value="#{editCourse.id}"/> 
-                        <h:outputLabel value="Name" />
+                        <h:outputLabel value="Nytt kursnamn" />
                         <h:inputText value="#{editCourse.name}"/> 
                     </h:panelGrid>
                     
                     <div class="btn-group">
-                        <h:commandButton value="Cancel" immediate="true" class="btn btn-default"
+                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
                                          action="courseList?faces-redirect=true" />
-                        <h:commandButton value="Save" actionListener="#{courseCtrl.updateCourse()}" 
+                        <h:commandButton value="Spara" actionListener="#{courseController.updateCourse()}" 
                                          action="courseList?faces-redirect=true" 
                                          class="btn btn-default"/>
                     </div>

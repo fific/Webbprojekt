@@ -11,7 +11,7 @@
         <ui:composition template="/WEB-INF/template.xhtml">
 
             <ui:define name="content">
-                <h3>Add course</h3>
+                <h3>Lägg till kurs</h3>
                 
                 <p>Id set by application (database)</p>
                 <h:form class="partial-form">
@@ -27,9 +27,9 @@
 
                     </h:panelGrid>
                     <div class="btn-group">
-                        <h:commandButton value="Cancel" immediate="true" class="btn btn-default"
+                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
                                          action="courseList?faces-redirect=true" />
-                        <h:commandButton value="Save" actionListener="#{courseController.newCourse()}" 
+                        <h:commandButton value="Spara" actionListener="#{courseController.newCourse()}" 
                                          action="courseList?faces-redirect=true" 
                                          class="btn btn-default"/>
                     </div>

@@ -11,26 +11,26 @@
     </f:metadata>
     
     <h:head>
-        <title>Delete course</title>
+        <title>Ta bort kurs</title>
     </h:head>  
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content">
-                <h3>Delete course</h3>
+                <h3>Ta bort kurs</h3>
                 
                 <p>Id set by application (database)</p>
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
-                        <h:outputLabel value="Id"/>
+                        <h:outputLabel value="Kurskod"/>
                         <h:outputText value="#{deleteCourse.id}"/> 
-                        <h:outputLabel value="Name" />
+                        <h:outputLabel value="Kursnamn" />
                         <h:outputText id="name" value="#{deleteCourse.name}"/>
                     </h:panelGrid>
                     
                     <div class="btn-group">
-                        <h:commandButton value="Cancel" immediate="true" class="btn btn-default"
+                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
                                          action="courseList?faces-redirect=true" />
-                        <h:commandButton value="Delete" actionListener="#{courseCtrl.deleteCourse()}" 
+                        <h:commandButton value="Ta bort" actionListener="#{courseController.deleteCourse()}" 
                                          action="courseList?faces-redirect=true" 
                                          class="btn btn-default"/>
                     </div>

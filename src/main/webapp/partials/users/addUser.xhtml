@@ -5,38 +5,38 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Add user</title>
+        <title>Skapa användare</title>
     </h:head>   
     <h:body>
         
         <ui:composition template="/WEB-INF/template.xhtml">
 
             <ui:define name="content">
-                <h3>Add user</h3>
+                <h3>Skapa användare</h3>
                 
                 <h:form class="partial-form">
                     <h:panelGrid columns="3" class="table">
                    
-                        <h:outputLabel value="Username" />
+                        <h:outputLabel value="Användarnamn" />
                         <h:inputText id="id" value="#{addUser.id}"/>
                         <h:message for="id"/>
                         
-                        <h:outputLabel value="Password" />
+                        <h:outputLabel value="Lösenord" />
                         <h:inputText id="passwd" value="#{addUser.passwd}"/>
                         <h:message for="passwd"/>
                         
                         
-                        <label for="role">Role</label>
+                        <label for="role">Roll</label>
                         <h:selectOneMenu value="#{addUser.groups}">
-                            <f:selectItem itemValue="STUDENT" itemLabel="Student"/>
-                            <f:selectItem itemValue="TEACHER" itemLabel="Teacher"/>
+                            <f:selectItem itemValue="STUDENT" itemLabel="Elev"/>
+                            <f:selectItem itemValue="TEACHER" itemLabel="Lärare"/>
                         </h:selectOneMenu>
 
                     </h:panelGrid>
                     <div class="btn-group">
-                        <h:commandButton value="Back" immediate="true" class="btn btn-default"
+                        <h:commandButton value="Tillbaka" immediate="true" class="btn btn-default"
                                          action="userList?faces-redirect=true" />
-                        <h:commandButton value="Register" actionListener="#{userController.newUser()}" 
+                        <h:commandButton value="Registrera" actionListener="#{userController.newUser()}" 
                                          class="btn btn-default"/>
                         <!--action="userList?faces-redirect=true"-->
                     </div>
