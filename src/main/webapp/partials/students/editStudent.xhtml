@@ -16,12 +16,10 @@
     </h:head>  
     <h:body>
 
-        <ui:composition template="/WEB-INF/template.xhtml">
+        <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
                 <h3>Ändra elev</h3>
-                
                 <h:form class="partial-form">
-
                     <h:panelGrid columns="2" class="table">
                         <h:outputLabel value="id"/>
                         <h:outputText value="#{editStudent.id}"/> 
