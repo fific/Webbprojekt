@@ -5,6 +5,8 @@ import com.united.auth.Groups;
 import com.united.auth.User;
 import com.united.core.Course;
 import com.united.core.CourseList;
+import com.united.core.FinishedMoment;
+import com.united.core.FinishedMomentList;
 import com.united.core.Message;
 import com.united.core.MessageList;
 import com.united.core.Moment;
@@ -48,10 +50,13 @@ public class DefaultData {
     @Inject
     private RegistrationList regList;
     
+    @Inject
+    private FinishedMomentList finMomentList;
+    
     @PostConstruct
     public void post() {
         LOG.log(Level.INFO, "*** Default data alive");
-      createTestData();   // KOMMENTERA UT första Run, dvs om inga tables finns än.
+//      createTestData();   // KOMMENTERA UT första Run, dvs om inga tables finns än.
                             //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
                             //Samma sak nere i clearTestData();
     }
@@ -59,7 +64,7 @@ public class DefaultData {
     @PreDestroy
     public void destroy() {
         LOG.log(Level.INFO, "*** Default data will be destroyed");
-        clearTestData();    // KOMMENTERA UT första Run, dvs om inga tables finns än.
+//        clearTestData();    // KOMMENTERA UT första Run, dvs om inga tables finns än.
                             //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
     }
 
@@ -116,8 +121,11 @@ public class DefaultData {
         q = new Question("86", "2 * 5", "10");
         qAuthDAO.create(q);
         
-        Registration r = new Registration(u, c);
-        regList.create(r);
+//        Registration r = new Registration(u, c);
+//        regList.create(r);
+//        
+//        FinishedMoment fm = new FinishedMoment(u, m);
+//        finMomentList.create(fm);
 
     }
 
@@ -128,7 +136,8 @@ public class DefaultData {
         authDAO.delete("test2");
         authDAO.delete("test3");
         
-        regList.delete(1l);
+//        regList.delete(1l);
+//        finMomentList.delete(2l);
         
          mAuthDAO.delete("56");
         mAuthDAO.delete("57"); 

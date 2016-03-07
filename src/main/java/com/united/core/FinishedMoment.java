@@ -10,40 +10,37 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 
 /**
  * Many to many
- * Many users can be registered on many courses, and many courses can have
- * many registered users.
- * This class connects users and courses.
- * Every row in the table must be unique = the same registration cant
- * be made twice.
+ * Many users can have finished many moments, and many moments can have
+ * many users who finished them.
+ * This class connects users and moments.
+ * 
  * @author Linn
  */
 @Entity
-@Table(name = "REGISTRATIONS", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"USER_ID", "COURSE_ID"})
-})
-public class Registration implements Serializable {
-
+@Table(name = "FINISHEDMOMENTS")
+public class FinishedMoment implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     @ManyToOne(targetEntity = User.class, cascade = CascadeType.REMOVE)
     private User user;
 
+    //@ManyToOne(cascade = javax.persistence.CascadeType.ALL)
     @ManyToOne
-    private Course course;
+    private Moment moment;
 
-    public Registration(User user, Course course) {
+    public FinishedMoment(User user, Moment moment) {
         this.user = user;
-        this.course = course;
+        this.moment = moment;
     }
 
-    public Registration() {
+    public FinishedMoment() {
     }
     
     public Long getId() {
@@ -62,12 +59,12 @@ public class Registration implements Serializable {
         this.user = user;
     }
     
-    public Course getCourse() {
-        return course;
+    public Moment getMoment() {
+        return moment;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setMoment(Moment moment) {
+        this.moment = moment;
     }
     
         @Override
@@ -85,7 +82,7 @@ public class Registration implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Registration other = (Registration) obj;
+        final FinishedMoment other = (FinishedMoment) obj;
         return Objects.equals(this.id, other.id);
     }
 }
