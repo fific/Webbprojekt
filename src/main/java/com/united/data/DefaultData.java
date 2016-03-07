@@ -112,13 +112,13 @@ public class DefaultData {
         me = new Message("86", "Vem?????");
         meAuthDAO.create(me);
         
-        Question q = new Question("89", "0 * 5", "0");
+        Question q = new Question(89, "0 * 5", "0");
         qAuthDAO.create(q);
         
-        q = new Question("87", "1 * 5", "5");
+        q = new Question(87, "1 * 5", "5");
         qAuthDAO.create(q);
         
-        q = new Question("86", "2 * 5", "10");
+        q = new Question(86, "2 * 5", "10");
         qAuthDAO.create(q);
         
 //        Registration r = new Registration(u, c);
@@ -152,9 +152,9 @@ public class DefaultData {
         meAuthDAO.delete("87");
         meAuthDAO.delete("86");
         
-        qAuthDAO.delete("89");
-        qAuthDAO.delete("87");
-        qAuthDAO.delete("86");
+        qAuthDAO.delete(89);
+        qAuthDAO.delete(87);
+        qAuthDAO.delete(86);
         
 
     }

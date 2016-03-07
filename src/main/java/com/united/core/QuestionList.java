@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
  */
 
 @Stateless
-public class QuestionList extends AbstractDAO<Question, String> {
+public class QuestionList extends AbstractDAO<Question, Integer> {
     private static final Logger LOG = Logger.getLogger(QuestionList.class.getName());
 
     @PersistenceContext//(unitName = "school_pu")

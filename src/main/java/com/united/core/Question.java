@@ -28,7 +28,7 @@ public class Question implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(nullable = false)  // unique is implied
-    protected String id;
+    protected int id;
     @Column(nullable = false)
     protected String question;
     @Column(nullable = false)
@@ -37,17 +37,17 @@ public class Question implements Serializable {
     public Question() {
     }
 
-    public Question(String id, String question, String answer) {
+    public Question(int id, String question, String answer) {
         this.id = id;
         this.question = question;
         this.answer = answer;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
