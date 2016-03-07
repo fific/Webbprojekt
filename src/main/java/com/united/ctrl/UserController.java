@@ -22,7 +22,10 @@ import javax.inject.Named;
 public class UserController {
 
     private static final Logger LOG = Logger.getLogger(UserController.class.getSimpleName());
+
+    @Inject
     private School school;
+    //    private School school;
     
     private AddUserBB addBB;
 //    private EditUserBB editBB;
@@ -30,12 +33,10 @@ public class UserController {
     
    
     public void newUser() {
-        LOG.log(Level.INFO, "Backin bean " + addBB);
+        System.out.println("***trying to create user");
+        System.out.println("***id: " + addBB.getId() + " groups: " + addBB.getGroups());
         User p = new User(addBB.getId(), addBB.getPasswd(), addBB.getGroups());
-        System.out.println("School:" + school + "| Userlist: "+ school.getUserList());
         school.getUserList().create(p);
-        //List<User> ps = school.getUserList().getByName(addBB.getName());      
-        //LOG.log(Level.INFO, "New value " + ps.get(0));
     }
 
     public void updateUser() {
@@ -52,7 +53,7 @@ public class UserController {
     public void setAddBB(AddUserBB addBB) {
         this.addBB = addBB;
     }
-//    
+    
 //    @Inject
 //    public void setEditBB(EditUserBB editBB) {
 //        this.editBB = editBB;
@@ -63,9 +64,9 @@ public class UserController {
 //        this.delBB = delBB;
 //    }
 
-    @Inject
-    public void setSchool(SingletonSchool ss) {
-        this.school = ss.getSchool();
-    }
+//    @Inject
+//    public void setSchool(SingletonSchool ss) {
+//        this.school = ss.getSchool();
+//    }
 
 }

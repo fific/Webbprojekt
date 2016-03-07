@@ -21,6 +21,7 @@ public class AddUserBB {
     
     private String passwd;
     
+//    private Groups groups;
     private Groups groups;
     
     public String getId() {
@@ -39,14 +40,21 @@ public class AddUserBB {
         this.passwd = passwd;
     }
 
-    public Groups getGroups() {
+//    public Groups getGroups() {
+//        return groups;
+//    }
+//
+//    public void setGroups(Groups groups) {
+//        this.groups = groups;
+//    }
+
+        public Groups getGroups() {
         return groups;
     }
 
     public void setGroups(Groups groups) {
         this.groups = groups;
     }
-
  
     
 

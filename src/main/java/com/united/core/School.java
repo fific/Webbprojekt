@@ -23,7 +23,7 @@ import javax.naming.NamingException;
 public class School {
     //@Inject will not work!!! Because of interfaces+EBJs or similar
     // If interfaces removed it will work
-     @EJB
+     @Inject
      private UserList userList;
      
      @EJB
@@ -58,6 +58,6 @@ public class School {
         }
 
     public SingletonSchool getSchool() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 }
