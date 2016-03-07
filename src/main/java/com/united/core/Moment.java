@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.united.auth;
+package com.united.core;
 
+import com.united.auth.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +27,8 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="COURSES")
-public class Course implements Serializable {
+@Table(name="MOMENTS")
+public class Moment implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -35,30 +36,30 @@ public class Course implements Serializable {
     protected String id;
     //@Column(nullable = false)
     //protected String passwd;
-    //@ElementCollection(fetch = FetchType.LAZY)
-    /*@CollectionTable(name = "COURSES_GROUPS", 
+    /*@ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "MOMENTS_GROUPS", 
             joinColumns = @JoinColumn(name = "id"))
     @Enumerated(EnumType.STRING)*/
     //protected List<Groups> groups = new ArrayList<>();
 
-    public Course() {
+    public Moment() {
     }
 
-    public Course(String id/*, String passwd, Groups group*/) {
+    public Moment(String id/*, String passwd, Groups group*/) {
         this.id = id;
         //this.passwd = passwd;
         //groups.add(group);
     }
-
-    /*public void addGroup(Groups group) {
+/*
+    public void addGroup(Groups group) {
         groups.add(group);
-    }*/
+    }
 
-    /*public void removeGroup(Groups group) {
+    public void removeGroup(Groups group) {
         groups.remove(group);
-    }*/
+    }
 
-    /*public List<Groups> getGroups() {
+    public List<Groups> getGroups() {
         return groups;
     }*/
 
@@ -69,7 +70,7 @@ public class Course implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
-
+    /*
     public String getPasswd() {
         return null; //passwd;
     }
@@ -77,6 +78,7 @@ public class Course implements Serializable {
     public void setPasswd(String passwd) {
         //this.passwd = passwd;
     }
+    */
 
     @Override
     public int hashCode() {
@@ -93,7 +95,7 @@ public class Course implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final User other = (User) obj;
+        final Moment other = (Moment) obj;
         return Objects.equals(this.id, other.id);
     }
 

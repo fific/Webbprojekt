@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.united.auth;
+package com.united.core;
 
+import com.united.auth.*;
 import com.united.persistence.AbstractDAO;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,19 +21,19 @@ import javax.persistence.PersistenceContext;
  */
 
 @Stateless
-public class MessageList extends AbstractDAO<Message, String> {
-    private static final Logger LOG = Logger.getLogger(MessageList.class.getName());
+public class MomentList extends AbstractDAO<Moment, String> {
+    private static final Logger LOG = Logger.getLogger(MomentList.class.getName());
 
     @PersistenceContext//(unitName = "school_pu")
     protected EntityManager em;
 
-    public MessageList() {
-        super(Message.class);
+    public MomentList() {
+        super(Moment.class);
     }
 
      @PostConstruct
     public void post() {
-        LOG.log(Level.INFO, "MessageList alive");
+        LOG.log(Level.INFO, "MomentList alive");
     }
     
     @Override
@@ -40,9 +41,9 @@ public class MessageList extends AbstractDAO<Message, String> {
         return em;
     }
     
-    public List<Message> getByName(String id) {
-        String jpql = "select m from Message m where m.id=:id";
-        return em.createQuery(jpql, Message.class).
+    public List<Moment> getByName(String id) {
+        String jpql = "select m from Moment m where m.id=:id";
+        return em.createQuery(jpql, Moment.class).
                 setParameter("id", id).getResultList();
     }
 }

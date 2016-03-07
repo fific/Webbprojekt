@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.united.auth;
+package com.united.core;
 
+import com.united.auth.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,39 +27,39 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="MOMENTS")
-public class Moment implements Serializable {
+@Table(name="COURSES")
+public class Course implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Column(nullable = false)  // unique is implied
     protected String id;
-    //@Column(nullable = false)
-    //protected String passwd;
-    /*@ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "MOMENTS_GROUPS", 
+    @Column(nullable = false)
+    protected String name;
+    //@ElementCollection(fetch = FetchType.LAZY)
+    /*@CollectionTable(name = "COURSES_GROUPS", 
             joinColumns = @JoinColumn(name = "id"))
     @Enumerated(EnumType.STRING)*/
     //protected List<Groups> groups = new ArrayList<>();
 
-    public Moment() {
+    public Course() {
     }
 
-    public Moment(String id/*, String passwd, Groups group*/) {
+    public Course(String id, String name/*, Groups group*/) {
         this.id = id;
-        //this.passwd = passwd;
+        this.name = name;
         //groups.add(group);
     }
-/*
-    public void addGroup(Groups group) {
+
+    /*public void addGroup(Groups group) {
         groups.add(group);
-    }
+    }*/
 
-    public void removeGroup(Groups group) {
+    /*public void removeGroup(Groups group) {
         groups.remove(group);
-    }
+    }*/
 
-    public List<Groups> getGroups() {
+    /*public List<Groups> getGroups() {
         return groups;
     }*/
 
@@ -69,15 +70,14 @@ public class Moment implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
-    /*
-    public String getPasswd() {
-        return null; //passwd;
+
+    public String getName() {
+        return name;
     }
 
-    public void setPasswd(String passwd) {
-        //this.passwd = passwd;
+    public void setName(String name) {
+        this.name = name;
     }
-    */
 
     @Override
     public int hashCode() {
@@ -94,7 +94,7 @@ public class Moment implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Moment other = (Moment) obj;
+        final Course other = (Course) obj;
         return Objects.equals(this.id, other.id);
     }
 

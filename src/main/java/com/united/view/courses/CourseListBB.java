@@ -1,6 +1,7 @@
 package com.united.view.courses;
 
-import com.united.auth.Course;
+
+import com.united.core.Course;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
 import java.io.Serializable;

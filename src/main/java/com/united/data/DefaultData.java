@@ -1,15 +1,16 @@
 package com.united.data;
 
 
-import com.united.auth.Course;
-import com.united.auth.CourseList;
+
 import com.united.auth.UserList;
 import com.united.auth.Groups;
-import com.united.auth.Message;
-import com.united.auth.MessageList;
-import com.united.auth.Moment;
-import com.united.auth.MomentList;
 import com.united.auth.User;
+import com.united.core.Course;
+import com.united.core.CourseList;
+import com.united.core.Message;
+import com.united.core.MessageList;
+import com.united.core.Moment;
+import com.united.core.MomentList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -79,14 +80,14 @@ public class DefaultData {
         m = new Moment("59");
         mAuthDAO.create(m);
         
-        Course c = new Course("66");
+        Course c = new Course("66", "Gångertabell_1");
        
         cAuthDAO.create(c);
         
-        c = new Course("67");
+        c = new Course("67", "Gångertabell_2");
         cAuthDAO.create(c);
         
-        c = new Course("68");
+        c = new Course("68", "Gångertabell_3");
         cAuthDAO.create(c);
         
         Message me = new Message("89", "Hallå?????");

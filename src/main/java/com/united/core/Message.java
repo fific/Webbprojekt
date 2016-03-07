@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.united.auth;
+package com.united.core;
 
+import com.united.auth.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,7 +94,7 @@ public class Message implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final User other = (User) obj;
+        final Message other = (Message) obj;
         return Objects.equals(this.id, other.id);
     }
 

@@ -1,7 +1,6 @@
 package com.united.core;
 
-import com.united.auth.CourseList;
-import com.united.auth.MomentList;
+
 import com.united.auth.UserList;
 import java.util.logging.Level;
 import java.util.logging.Logger;

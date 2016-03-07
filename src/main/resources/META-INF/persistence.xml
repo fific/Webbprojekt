@@ -6,6 +6,9 @@
     <class>com.united.auth.Course</class>
     <class>com.united.auth.Message</class>
     <class>com.united.auth.Moment</class>
+    <class>com.united.core.Course</class>
+    <class>com.united.core.Message</class>
+    <class>com.united.core.Moment</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>

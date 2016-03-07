@@ -2,7 +2,8 @@ package com.united.ctrl;
 
 
 
-import com.united.auth.Course;
+
+import com.united.core.Course;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
 import com.united.view.courses.AddCourseBB;
@@ -35,15 +36,15 @@ public class CourseController {
    
      public void newCourse() {
        LOG.log(Level.INFO, "Backing bean " + addBB);
-       Course p = new Course(addBB.getName()/*, Double.valueOf(addBB.getPrice()*/);
-        school.getCourseList().create(p);
+       //Course p = new Course(addBB.getName()/*, Double.valueOf(addBB.getPrice()*/);
+        //school.getCourseList().create(p);
         //List<Course> ps = school.getCourseList().getByName(addBB.getName());      
         //LOG.log(Level.INFO, "New value " + ps.get(0));
     }
 
      public void updateCourse() {
-       Course p = new Course(Objects.toString(editBB.getId())/*, editBB.getName(), Double.valueOf(editBB.getPrice())*/);
-       school.getCourseList().update(p);    
+       //Course p = new Course(Objects.toString(editBB.getId())/*, editBB.getName(), Double.valueOf(editBB.getPrice())*/);
+       //school.getCourseList().update(p);    
     }
 
     public void deleteCourse() {
