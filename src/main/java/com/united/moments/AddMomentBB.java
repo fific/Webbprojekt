@@ -1,27 +1,23 @@
-package com.united.students;
+package com.united.moments;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-
-@Named("editStudent")
+@Named("addMoment")
 @RequestScoped 
-public class EditStudentBB {
-
+public class AddMomentBB {
+    
+    @Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "{student.id}")
     private String id;
     
     @Size(min = 4, max = 20, message = "Använd mellan 4 och 20 tecken.")
     private String name;
-    
-     // Hopeless to validate numbers (?!?!) because, user possibly enters non-digits
-    @Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "{student.passwd}")
-    private String password;
 
     @Override
     public String toString() {
-        return "EditStudentBB{" + "name=" + name + ", passwd=" + password + '}';
+        return "AddMomentBB{" + "id=" + id + "name=" + name + '}';
     }  
     
     public String getId() {
@@ -38,13 +34,5 @@ public class EditStudentBB {
 
     public void setName(String name) {
         this.name = name;
-    }
-    
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }
