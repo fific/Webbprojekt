@@ -19,14 +19,14 @@
                         <h:form>                    
                             <h:panelGrid columns="2">
                             <h:outputText value="Användarnamn: " />
-                            <h:inputText id="username" value="#{login.user}"></h:inputText>
+                            <h:inputText id="username" value="#{login.id}"></h:inputText>
                             <h:message for="username"></h:message>
                             <br/>
                             <h:outputText value="Lösenord: " />
-                            <h:inputSecret id="password" value="#{login.pwd}"></h:inputSecret>
+                            <h:inputSecret id="password" value="#{login.password}"></h:inputSecret>
                             <h:message for="password"></h:message>
                             <br/><br/>
-                            <h:commandButton action="#{login.login}"
+                            <h:commandButton action="#{login.login()}"
                                 value="Logga in"></h:commandButton>
                             </h:panelGrid>
                         </h:form>

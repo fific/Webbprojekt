@@ -32,6 +32,7 @@ public class UserController {
     public void newUser() {
         LOG.log(Level.INFO, "Backin bean " + addBB);
         User p = new User(addBB.getId(), addBB.getPasswd(), addBB.getGroups());
+        System.out.println("School:" + school + "| Userlist: "+ school.getUserList());
         school.getUserList().create(p);
         //List<User> ps = school.getUserList().getByName(addBB.getName());      
         //LOG.log(Level.INFO, "New value " + ps.get(0));

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author Linn
  */
-@Named("loginBean")
+@Named("login")
 @RequestScoped
 public class LoginBean implements Serializable {
 
