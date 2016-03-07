@@ -27,39 +27,42 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="MOMENTS")
-public class Moment implements Serializable {
+@Table(name="QUESTIONS")
+public class Question implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Column(nullable = false)  // unique is implied
     protected String id;
     @Column(nullable = false)
-    protected String name;
-    /*@ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "MOMENTS_GROUPS", 
+    protected String question;
+    @Column(nullable = false)
+    protected String answer;
+    //@ElementCollection(fetch = FetchType.LAZY)
+    /*@CollectionTable(name = "COURSES_GROUPS", 
             joinColumns = @JoinColumn(name = "id"))
     @Enumerated(EnumType.STRING)*/
     //protected List<Groups> groups = new ArrayList<>();
 
-    public Moment() {
+    public Question() {
     }
 
-    public Moment(String id, String name/*, Groups group*/) {
+    public Question(String id, String question, String answer/*, Groups group*/) {
         this.id = id;
-        this.name = name ;
+        this.question = question;
+        this.answer = answer;
         //groups.add(group);
     }
-/*
-    public void addGroup(Groups group) {
+
+    /*public void addGroup(Groups group) {
         groups.add(group);
-    }
+    }*/
 
-    public void removeGroup(Groups group) {
+    /*public void removeGroup(Groups group) {
         groups.remove(group);
-    }
+    }*/
 
-    public List<Groups> getGroups() {
+    /*public List<Groups> getGroups() {
         return groups;
     }*/
 
@@ -70,15 +73,22 @@ public class Moment implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
-    
-    public String getName() {
-        return name;
+
+    public String getQuestion() {
+        return question;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setQuestion(String question) {
+        this.question = question;
     }
     
+       public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
     @Override
     public int hashCode() {
@@ -95,7 +105,7 @@ public class Moment implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Moment other = (Moment) obj;
+        final Question other = (Question) obj;
         return Objects.equals(this.id, other.id);
     }
 

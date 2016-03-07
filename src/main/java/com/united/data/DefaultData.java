@@ -1,7 +1,5 @@
 package com.united.data;
 
-
-
 import com.united.auth.UserList;
 import com.united.auth.Groups;
 import com.united.auth.User;
@@ -11,6 +9,8 @@ import com.united.core.Message;
 import com.united.core.MessageList;
 import com.united.core.Moment;
 import com.united.core.MomentList;
+import com.united.core.Question;
+import com.united.core.QuestionList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -40,6 +40,9 @@ public class DefaultData {
     @Inject
     private CourseList cAuthDAO;
     
+    @Inject
+    private QuestionList qAuthDAO;
+    
     @PostConstruct
     public void post() {
         LOG.log(Level.INFO, "*** Default data alive");
@@ -68,16 +71,16 @@ public class DefaultData {
          u = new User("test3", "222", Groups.STUDENT);
         authDAO.create(u);
         
-        Moment m = new Moment("56");
+        Moment m = new Moment("56", "1");
         mAuthDAO.create(m);
         
-        m = new Moment("57");
+        m = new Moment("57", "2");
         mAuthDAO.create(m);
         
-        m = new Moment("58");
+        m = new Moment("58", "3");
         mAuthDAO.create(m);
         
-        m = new Moment("59");
+        m = new Moment("59", "4");
         mAuthDAO.create(m);
         
         Course c = new Course("66", "Gångertabell_1");
@@ -98,6 +101,15 @@ public class DefaultData {
         
         me = new Message("86", "Vem?????");
         meAuthDAO.create(me);
+        
+        Question q = new Question("89", "0 * 5", "0");
+        qAuthDAO.create(q);
+        
+        q = new Question("87", "1 * 5", "5");
+        qAuthDAO.create(q);
+        
+        q = new Question("86", "2 * 5", "10");
+        qAuthDAO.create(q);
 
     }
 
@@ -120,6 +132,10 @@ public class DefaultData {
         meAuthDAO.delete("89");
         meAuthDAO.delete("87");
         meAuthDAO.delete("86");
+        
+        qAuthDAO.delete("89");
+        qAuthDAO.delete("87");
+        qAuthDAO.delete("86");
         
 
     }

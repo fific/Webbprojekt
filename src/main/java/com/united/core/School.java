@@ -31,6 +31,9 @@ public class School {
     
      @EJB
      private MomentList momentList;
+     
+     @EJB
+     private QuestionList questionList;
 
      
     
@@ -48,6 +51,10 @@ public class School {
     
     public MomentList getMomentList() {
         return momentList;
+        }
+    
+     public QuestionList getQuestionList() {
+        return questionList;
         }
 
     public SingletonSchool getSchool() {
