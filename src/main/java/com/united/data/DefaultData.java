@@ -11,6 +11,8 @@ import com.united.core.Moment;
 import com.united.core.MomentList;
 import com.united.core.Question;
 import com.united.core.QuestionList;
+import com.united.core.Registration;
+import com.united.core.RegistrationList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -42,6 +44,9 @@ public class DefaultData {
     
     @Inject
     private QuestionList qAuthDAO;
+    
+    @Inject
+    private RegistrationList regList;
     
     @PostConstruct
     public void post() {
@@ -110,6 +115,9 @@ public class DefaultData {
         
         q = new Question("86", "2 * 5", "10");
         qAuthDAO.create(q);
+        
+        Registration r = new Registration(u, c);
+        regList.create(r);
 
     }
 
@@ -119,6 +127,8 @@ public class DefaultData {
         authDAO.delete("test1");
         authDAO.delete("test2");
         authDAO.delete("test3");
+        
+        regList.delete(1l);
         
          mAuthDAO.delete("56");
         mAuthDAO.delete("57"); 

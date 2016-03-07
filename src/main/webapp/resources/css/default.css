@@ -4,14 +4,14 @@
 
 
 .container {
-    //background-image: url(../img/banner.jpg);
+    /*background-image: url(../img/banner.jpg);*/
     
 }
 
 header {
-    //background-image:  url(../img/banner.jpg);
-    //background-position: center;
-    //border-radius: 2px;
+    /*background-image:  url(../img/banner.jpg);*/
+/*    background-position: center;
+    border-radius: 2px;*/
     box-shadow: 8px 8px 5px gainsboro;
     vertical-align: middle;
     background: #4aa3df;
@@ -23,7 +23,7 @@ header h1{
     margin: 1em;
     font-size: x-large;
     font-family: sans-serif;
-    //font-style: italic;
+    /*font-style: italic;*/
     font-weight: 900;
     font-variant: small-caps;
     color: white;
@@ -38,7 +38,7 @@ footer {
     padding: 1em;
     border-radius: 2px;
     box-shadow: 8px 8px 5px gainsboro;
-    //border: black solid medium;
+    /*border: black solid medium;*/
     alignment-adjust: middle;
     text-align: center;     
 }
@@ -59,15 +59,15 @@ footer {
 }
 
 .loginbox {
-    //text-align: center;
-    //margin-left: auto;
-    //margin-right: auto;
+/*    text-align: center;
+    margin-left: auto;
+    margin-right: auto;*/
 }
 
-// for columns
-//    -webkit-column-count: 3; /* Chrome, Safari, Opera */
-//    -moz-column-count: 3; /* Firefox */
-//    column-count: 3;
+/* for columns
+    -webkit-column-count: 3;  Chrome, Safari, Opera 
+    -moz-column-count: 3;  Firefox 
+    column-count: 3;*/
 
 /*
 #userbanner {
@@ -83,6 +83,6 @@ z-index: 999999;
 .partial-form {
     border-radius: 5px;
     box-shadow: 8px 8px 5px gainsboro;
-    //max-width: 20pc;
+    /*max-width: 20pc;*/
 }
 
