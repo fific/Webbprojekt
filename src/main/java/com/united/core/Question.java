@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.united.core;
 
 import com.united.auth.*;
@@ -38,33 +33,15 @@ public class Question implements Serializable {
     protected String question;
     @Column(nullable = false)
     protected String answer;
-    //@ElementCollection(fetch = FetchType.LAZY)
-    /*@CollectionTable(name = "COURSES_GROUPS", 
-            joinColumns = @JoinColumn(name = "id"))
-    @Enumerated(EnumType.STRING)*/
-    //protected List<Groups> groups = new ArrayList<>();
 
     public Question() {
     }
 
-    public Question(String id, String question, String answer/*, Groups group*/) {
+    public Question(String id, String question, String answer) {
         this.id = id;
         this.question = question;
         this.answer = answer;
-        //groups.add(group);
     }
-
-    /*public void addGroup(Groups group) {
-        groups.add(group);
-    }*/
-
-    /*public void removeGroup(Groups group) {
-        groups.remove(group);
-    }*/
-
-    /*public List<Groups> getGroups() {
-        return groups;
-    }*/
 
     public String getId() {
         return id;
