@@ -15,6 +15,9 @@ import javax.validation.constraints.Size;
 @RequestScoped 
 public class AddCourseBB {
 
+    @Size(min = 4, max = 20, message = "{course.id}")
+    private String id;
+    
     @Size(min = 4, max = 20, message = "{course.name}")
     private String name;
 
@@ -26,9 +29,14 @@ public class AddCourseBB {
         this.name = name;
     }
     
-    // Hopeless to validate numbers (?!?!) because, user possibly enters non-digits
-    //@Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "{product.price}")
-    //private String price;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
 
     @Override
     public String toString() {

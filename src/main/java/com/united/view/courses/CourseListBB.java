@@ -2,6 +2,7 @@ package com.united.view.courses;
 
 
 import com.united.core.Course;
+import com.united.core.CourseList;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
 import java.io.Serializable;
@@ -23,20 +24,25 @@ public class CourseListBB implements Serializable {
 
     private static final Logger LOG = Logger.getLogger(CourseListBB.class.getName());
 
-    private transient School school;
+//    private transient School school;
+    @Inject     //Is this an OK solution?
+    private School school;
+    
     private int currentPage;
     private int pageSize = 10;  // Items on a listing (hard coded :-(  )
     private int count;
 
     // Must have default ctor so use setter injection
-    @Inject
-    public void setSchool(SingletonSchool s) {
-        this.school = s.getSchool();
-    }
+//    @Inject
+//    public void setSchool(SingletonSchool s) {
+//        this.school = s.getSchool();
+//    }
+    
+
 
     public List<Course> findRange() {
-        //return school.getCourseList().findRange(currentPage * pageSize, pageSize);
-        return new ArrayList<>();
+        return school.getCourseList().findRange(currentPage * pageSize, pageSize);
+//        return new ArrayList<>();
     }
 
     @PostConstruct

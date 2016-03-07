@@ -27,6 +27,8 @@ import javax.inject.Named;
 public class CourseController {
 
     private static final Logger LOG = Logger.getLogger(CourseController.class.getSimpleName());
+    
+    @Inject
     private School school;
     
     private AddCourseBB addBB;
@@ -36,15 +38,13 @@ public class CourseController {
    
      public void newCourse() {
        LOG.log(Level.INFO, "Backing bean " + addBB);
-       //Course p = new Course(addBB.getName()/*, Double.valueOf(addBB.getPrice()*/);
-        //school.getCourseList().create(p);
-        //List<Course> ps = school.getCourseList().getByName(addBB.getName());      
-        //LOG.log(Level.INFO, "New value " + ps.get(0));
+       Course p = new Course(addBB.getId(), addBB.getName());
+        school.getCourseList().create(p);
     }
 
      public void updateCourse() {
-       //Course p = new Course(Objects.toString(editBB.getId())/*, editBB.getName(), Double.valueOf(editBB.getPrice())*/);
-       //school.getCourseList().update(p);    
+       Course p = new Course(Objects.toString(editBB.getId()), editBB.getName());
+       school.getCourseList().update(p);    
     }
 
     public void deleteCourse() {
@@ -67,9 +67,9 @@ public class CourseController {
         this.delBB = delBB;
     }
 
-    @Inject
-    public void setSchool(SingletonSchool ss) {
-        this.school = ss.getSchool();
-    }
+//    @Inject
+//    public void setSchool(SingletonSchool ss) {
+//        this.school = ss.getSchool();
+//    }
 
 }

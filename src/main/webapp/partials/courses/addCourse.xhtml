@@ -17,7 +17,11 @@
                 <h:form class="partial-form">
                     <h:panelGrid columns="3" class="table">
                    
-                        <h:outputLabel value="Name" />
+                        <h:outputLabel value="Kurskod" />
+                        <h:inputText id="id" value="#{addCourse.id}"/>
+                        <h:message for="id"/>
+                        
+                        <h:outputLabel value="Kursnamn" />
                         <h:inputText id="name" value="#{addCourse.name}"/>
                         <h:message for="name"/>
 

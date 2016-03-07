@@ -2,8 +2,11 @@ package com.united.ctrl;
 
 
 
+import com.united.core.Moment;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
+import com.united.moments.AddMomentBB;
+import com.united.moments.DeleteMomentBB;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,47 +26,44 @@ public class MomentController {
     private static final Logger LOG = Logger.getLogger(MomentController.class.getSimpleName());
     private School school;
     
-//    private AddMomentBB addBB;
+    private AddMomentBB addBB;
 //    private EditMomentBB editBB;
-//    private DeleteMomentBB delBB;
+    private DeleteMomentBB delBB;
     
    
     public void newMoment() {
-//        LOG.log(Level.INFO, "Backing bean " + addBB);
-//        Moment p = new Moment(addBB.getName(), Double.valueOf(addBB.getPrice()));
-//        school.getMomentList().create(p);
-//        List<Moment> ps = school.getMomentList().getByName(addBB.getName());      
-//        LOG.log(Level.INFO, "New value " + ps.get(0));
+        Moment p = new Moment(addBB.getId(), addBB.getName());
+        school.getMomentList().create(p);
     }
 
     public void updateMoment() {
-//       Moment p = new Moment(editBB.getId(), editBB.getName(), Double.valueOf(editBB.getPrice()));
+//       Moment p = new Moment(editBB.getId(), editBB.getName());
 //       school.getMomentList().update(p);    
     }
 
     public void deleteMoment() {
-//       String id = delBB.getId();
-//       school.getMomentList().delete(id);
+       String id = delBB.getId();
+       school.getMomentList().delete(id);
     }
 
-//    @Inject
-//    public void setAddBB(AddMomentBB addBB) {
-//        this.addBB = addBB;
-//    }
-//    
+    @Inject
+    public void setAddBB(AddMomentBB addBB) {
+        this.addBB = addBB;
+    }
+    
 //    @Inject
 //    public void setEditBB(EditMomentBB editBB) {
 //        this.editBB = editBB;
 //    }
-//    
-//    @Inject
-//    public void setDelBB(DeleteMomentBB delBB) {
-//        this.delBB = delBB;
-//    }
-
+    
     @Inject
-    public void setSchool(SingletonSchool ss) {
-        this.school = ss.getSchool();
+    public void setDelBB(DeleteMomentBB delBB) {
+        this.delBB = delBB;
     }
+
+//    @Inject
+//    public void setSchool(SingletonSchool ss) {
+//        this.school = ss.getSchool();
+//    }
 
 }

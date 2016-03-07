@@ -26,13 +26,13 @@ public class School {
      @Inject
      private UserList userList;
      
-     @EJB
+     @Inject
      private CourseList courseList;
     
-     @EJB
+     @Inject
      private MomentList momentList;
      
-     @EJB
+     @Inject
      private QuestionList questionList;
 
      

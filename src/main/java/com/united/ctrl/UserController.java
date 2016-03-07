@@ -25,7 +25,6 @@ public class UserController {
 
     @Inject
     private School school;
-    //    private School school;
     
     private AddUserBB addBB;
 //    private EditUserBB editBB;
@@ -33,8 +32,6 @@ public class UserController {
     
    
     public void newUser() {
-        System.out.println("***trying to create user");
-        System.out.println("***id: " + addBB.getId() + " groups: " + addBB.getGroups());
         User p = new User(addBB.getId(), addBB.getPasswd(), addBB.getGroups());
         school.getUserList().create(p);
     }

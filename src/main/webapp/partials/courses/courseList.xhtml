@@ -39,13 +39,13 @@
                                      class="table table-striped">
                         <h:column><h:outputText value="#{course.id}"/></h:column>
                         <h:column><h:outputText value="#{course.name}"/></h:column>
-                        <!--<h:column><h:outputText value="#{course.price}"/></h:column>-->
+
                         
                         <h:column>
                             <h:link value="Edit" outcome="editCourse.xhtml">
                                 <f:param name="id" value="#{course.id}" />
                                 <f:param name="name" value="#{course.name}" />
-                                <!--<f:param name="price" value="#{course.price}" />-->
+
                             </h:link>
                          </h:column>   
                         
@@ -53,7 +53,7 @@
                             <h:link value="Del" outcome="deleteCourse.xhtml">
                                 <f:param name="id" value="#{course.id}" />
                                 <f:param name="name" value="#{course.name}" />
-                                <!--<f:param name="price" value="#{course.price}" />-->
+
                             </h:link>
                          </h:column>   
                          
