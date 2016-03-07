@@ -68,5 +68,13 @@ public class UserController {
 //    public void setSchool(SingletonSchool ss) {
 //        this.school = ss.getSchool();
 //    }
+    
+    public List<User> getStudentList() {
+        return school.getUserList().getAllStudents();
+    }
+    
+    public List<User> getTeacherList() {
+        return school.getUserList().getAllTeachers();
+    }
 
 }

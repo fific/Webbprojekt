@@ -30,8 +30,12 @@ public class StudentListBB implements Serializable {
     @Inject
     private UserList users;
 
+//    public List<User> findRange() {
+//        return users.findRange(currentPage * pageSize, pageSize);
+//    }
+    
     public List<User> findRange() {
-        return users.findRange(currentPage * pageSize, pageSize);
+        return users.getAllStudents();
     }
 
     @PostConstruct
