@@ -37,8 +37,8 @@ public class CourseController {
        LOG.log(Level.INFO, "Backing bean " + addBB);
        Course p = new Course(addBB.getName()/*, Double.valueOf(addBB.getPrice()*/);
         school.getCourseList().create(p);
-        List<Course> ps = school.getCourseList().getByName(addBB.getName());      
-        LOG.log(Level.INFO, "New value " + ps.get(0));
+        //List<Course> ps = school.getCourseList().getByName(addBB.getName());      
+        //LOG.log(Level.INFO, "New value " + ps.get(0));
     }
 
      public void updateCourse() {
