@@ -1,5 +1,6 @@
 package com.united.auth;
 
+import com.united.core.Message;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -37,6 +39,14 @@ public class User implements Serializable {
             joinColumns = @JoinColumn(name = "id"))
     @Enumerated(EnumType.STRING)
     protected List<Groups> groups = new ArrayList<>();
+    
+    @OneToMany 
+    @JoinColumn(name = "SENT_FROM") 
+    private List<Message> sentMessages;
+    
+    @OneToMany 
+    @JoinColumn(name = "SENT_TO") 
+    private List<Message> receivedMessages;
 
     public User() {
     }
