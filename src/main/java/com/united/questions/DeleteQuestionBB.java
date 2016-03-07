@@ -1,7 +1,6 @@
 
 package com.united.questions;
 
-import com.united.view.courses.*;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.validation.constraints.Size;
@@ -11,33 +10,29 @@ import javax.validation.constraints.Size;
 @RequestScoped 
 public class DeleteQuestionBB {
 
+    @Size(min = 1, max = 20, message = "{question.id}")
     private int id;
     
-    @Size(min = 4, max = 20, message = "{question.name}")
-    private String name;
+    @Size(min = 1, max = 100, message = "{question.name}")
+    private String question;
     
-    // Hopeless to validate numbers (?!?!) because, user possibly enters non-digits
-    //@Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "{product.price}")
-    //private String price;
+    @Size(min = 1, max = 100, message = "{question.name}")
+    private String answer;
 
+    public String getQuestion() {
+        return question;
+    }
+    
+    public String getAnswer() {
+        return answer;
+    }
+    
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
     
     @Override
     public String toString() {
-        return "DeleteQuestionBB{" + "name=" + name + '}';
+        return "DeleteQuestionBB{" + "question=" + question + '}';
     }  
 }

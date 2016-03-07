@@ -26,11 +26,14 @@ import javax.persistence.Table;
 public class Question implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @Column(nullable = false)  // unique is implied
     protected int id;
+    
     @Column(nullable = false)
     protected String question;
+    
     @Column(nullable = false)
     protected String answer;
 

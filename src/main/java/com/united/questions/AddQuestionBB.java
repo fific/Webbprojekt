@@ -12,18 +12,29 @@ import javax.validation.constraints.Size;
 @RequestScoped 
 public class AddQuestionBB {
 
-    @Size(min = 4, max = 20, message = "{question.id}")
+    @Size(min = 1, max = 20, message = "{question.id}")
     private int id;
     
-    @Size(min = 4, max = 20, message = "{question.name}")
-    private String name;
+    @Size(min = 1, max = 100, message = "{question.name}")
+    private String question;
+    
+    @Size(min = 1, max = 100, message = "{question.name}")
+    private String answer;
 
-    public String getName() {
-        return name;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+    
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
     
     public int getId() {
@@ -37,7 +48,7 @@ public class AddQuestionBB {
 
     @Override
     public String toString() {
-        return "AddQuestionBB{" + "name=" + name + '}';
+        return "AddQuestionBB{" + "question=" + question + '}';
     }  
     
 

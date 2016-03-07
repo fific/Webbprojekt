@@ -1,9 +1,7 @@
 package com.united.questions;
 
 
-import com.united.view.courses.*;
-import com.united.core.Course;
-import com.united.core.CourseList;
+
 import com.united.core.Question;
 import com.united.core.School;
 import com.united.core.SingletonSchool;

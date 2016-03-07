@@ -13,15 +13,31 @@ import javax.validation.constraints.Size;
 public class EditQuestionBB {
 
     
+    @Size(min = 1, max = 20, message = "{question.id}")
     private int id;
     
-    @Size(min = 4, max = 20, message = "{question.name}")
-    private String name;
+    @Size(min = 1, max = 100, message = "{question.name}")
+    private String question;
     
-    // Hopeless to validate numbers (?!?!) because, user possibly enters non-digits
-    //@Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "{product.price}")
-    //private String price;
+    @Size(min = 1, max = 100, message = "{question.name}")
+    private String answer;
 
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+    
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+    
     public int getId() {
         return id;
     }
@@ -29,17 +45,9 @@ public class EditQuestionBB {
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
     
     @Override
     public String toString() {
-        return "EditQuestionBB{" + "name=" + name + '}';
+        return "EditQuestionBB{" + "question=" + question + '}';
     }  
 }
