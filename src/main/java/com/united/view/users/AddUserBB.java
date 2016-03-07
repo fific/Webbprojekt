@@ -21,7 +21,7 @@ public class AddUserBB {
     
     private String passwd;
     
-    private List<Groups> groups;
+    private Groups groups;
     
     public String getId() {
         return id;
@@ -39,11 +39,11 @@ public class AddUserBB {
         this.passwd = passwd;
     }
 
-    public List<Groups> getGroups() {
+    public Groups getGroups() {
         return groups;
     }
 
-    public void setGroups(List<Groups> groups) {
+    public void setGroups(Groups groups) {
         this.groups = groups;
     }
 

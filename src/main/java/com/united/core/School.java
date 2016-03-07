@@ -30,8 +30,8 @@ public class School {
      @EJB
      private CourseList courseList;
     
-    @EJB
-    private MomentList momentList;
+     @EJB
+     private MomentList momentList;
 
      
     
