@@ -1,6 +1,7 @@
 package com.united.ctrl;
 
 
+import com.united.auth.LoginBean;
 import com.united.auth.User;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
@@ -26,6 +27,7 @@ public class UserController {
     @Inject
     private School school;
     
+    
     private AddUserBB addBB;
 //    private EditUserBB editBB;
 //    private DeleteUserBB delBB;
@@ -34,6 +36,8 @@ public class UserController {
     public void newUser() {
         User p = new User(addBB.getId(), addBB.getPasswd(), addBB.getGroups());
         school.getUserList().create(p);
+        //Tried to login on new user as well
+        //loginB.login();
     }
 
     public void updateUser() {
@@ -68,6 +72,10 @@ public class UserController {
     
     public List<User> getStudentList() {
         return school.getUserList().getAllStudents();
+    }
+    
+    public int countStudentList() {
+        return school.getUserList().getAllStudents().size();
     }
     
     public List<User> getTeacherList() {
