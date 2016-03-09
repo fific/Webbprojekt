@@ -4,17 +4,27 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    
 
-    
+    <f:metadata>
+        <f:viewParam name="course_id" value="#{editCourse.id}"  />
+        <f:viewParam name="course_name" value="#{editCourse.name}"  />
+    </f:metadata>
+
     <h:head>
-        <title>Moment</title>
+        <title>Momenter</title>
     </h:head>  
     <h:body>
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                <h3>Moment</h3>
+                <h3><h:outputText value="#{editCourse.name}"/></h3>
+
+                <h:link value="Byta namn" outcome="/partials/courses/editCourse.xhtml">
+                    <f:param name="course_id" value="#{editCourse.id}" />
+                    <f:param name="course_name" value="#{editCourse.name}" />
+                </h:link>
+                &nbsp;
                 <h:link outcome="addMoment.xhtml" >Nytt moment</h:link>
+                
                 <h:form>
                     <h:commandButton value="Föregående" actionListener="#{momentList.prev()}">
                         <f:ajax execute="@form" render="momentPanel" />
@@ -23,29 +33,30 @@
                     <h:commandButton value="Nästa" actionListener="#{momentList.next()}">
                         <f:ajax execute="@form" render="momentPanel" />
                     </h:commandButton>
-                    
+
                     <h:panelGroup id="momentPanel" >
                         <h:dataTable var="moment" value="#{momentList.findRange()}"
                                      class="table table-striped">
-                        <h:column><h:outputText value="#{moment.id}"/></h:column>
-                        <h:column><h:outputText value="#{moment.name}"/></h:column>
-                        
+                            <h:column><h:outputText value="#{moment.id}"/></h:column>
+                            <h:column><h:outputText value="#{moment.name}"/></h:column>
 
-                        <h:column>
-                            <h:link value="Redigera" outcome="questionList.xhtml">
-                                <f:param name="id" value="#{moment.id}" />
-                                <f:param name="name" value="#{moment.name}" />
-                                
-                            </h:link>
-                         </h:column>   
-                        
-                        <h:column>
-                            <h:link value="Ta bort" outcome="deleteMoment.xhtml">
-                                <f:param name="id" value="#{moment.id}" />
-                                <f:param name="name" value="#{moment.name}" />
-                                
-                            </h:link>
-                         </h:column>   
+
+                            <h:column>
+                                <h:link value="Redigera" outcome="questionList.xhtml">
+                                    <f:param name="id" value="#{moment.id}" />
+                                    <f:param name="name" value="#{moment.name}" />
+                                </h:link>
+                            </h:column>   
+
+                            <h:column>
+                                <h:link value="Ta bort" outcome="deleteMoment.xhtml">
+                                    <f:param name="id" value="#{moment.id}" />
+                                    <f:param name="name" value="#{moment.name}" />
+                                    <f:param name="course_id" value="#{editCourse.id}" />
+                                    <f:param name="course_name" value="#{editCourse.name}" />
+
+                                </h:link>
+                            </h:column>   
                         </h:dataTable>                
                     </h:panelGroup>
                 </h:form>

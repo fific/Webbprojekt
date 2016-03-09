@@ -42,9 +42,9 @@
 
                         
                         <h:column>
-                            <h:link value="Redigera" outcome="editCourse.xhtml">
-                                <f:param name="id" value="#{course.id}" />
-                                <f:param name="name" value="#{course.name}" />
+                            <h:link value="Redigera" outcome="/partials/moments/momentList.xhtml">
+                                <f:param name="course_id" value="#{course.id}" />
+                                <f:param name="course_name" value="#{course.name}" />
 
                             </h:link>
                          </h:column>   

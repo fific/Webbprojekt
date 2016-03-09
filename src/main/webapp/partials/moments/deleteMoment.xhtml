@@ -8,8 +8,10 @@
     <f:metadata>
         <f:viewParam name="id" value="#{deleteMoment.id}"  />
         <f:viewParam name="name" value="#{deleteMoment.name}"  />
+        <f:viewParam name="courseid" value="#{deleteMoment.courseid}"  />
+        <f:viewParam name="coursename" value="#{deleteMoment.coursename}"  />
     </f:metadata>
-    
+
     <h:head>
         <title>Ta bort moment</title>
     </h:head>  
@@ -17,21 +19,21 @@
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
                 <h3>Ta bort moment</h3>
-                
+                <h:outputText value="#{deleteMoment.name}"/>
                 <p>Id set by application (database)</p>
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
-                        <h:outputLabel value="Id"/>
+                        <h:outputLabel value="id"/>
                         <h:outputText value="#{deleteMoment.id}"/> 
-                        <h:outputLabel value="Name" />
+                        <h:outputLabel value="name" />
                         <h:outputText id="name" value="#{deleteMoment.name}"/>
                     </h:panelGrid>
-                    
+
                     <div class="btn-group">
                         <h:commandButton value="Cancel" immediate="true" class="btn btn-default"
-                                         action="momentList?faces-redirect=true" />
+                                         action="#{deleteMoment.ForwardPage}" />
                         <h:commandButton value="Delete" actionListener="#{momentController.deleteMoment()}" 
-                                         action="momentList?faces-redirect=true" 
+                                         action="#{deleteMoment.ForwardPage}" 
                                          class="btn btn-default"/>
                     </div>
                 </h:form>
