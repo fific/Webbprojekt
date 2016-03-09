@@ -8,8 +8,6 @@
     <f:metadata>
         <f:viewParam name="id" value="#{deleteMoment.id}"  />
         <f:viewParam name="name" value="#{deleteMoment.name}"  />
-        <f:viewParam name="courseid" value="#{deleteMoment.courseid}"  />
-        <f:viewParam name="coursename" value="#{deleteMoment.coursename}"  />
     </f:metadata>
 
     <h:head>
@@ -19,7 +17,6 @@
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
                 <h3>Ta bort moment</h3>
-                <h:outputText value="#{deleteMoment.name}"/>
                 <p>Id set by application (database)</p>
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
@@ -31,9 +28,9 @@
 
                     <div class="btn-group">
                         <h:commandButton value="Cancel" immediate="true" class="btn btn-default"
-                                         action="#{deleteMoment.ForwardPage}" />
+                                         action="momentList?faces-redirect=true" />
                         <h:commandButton value="Delete" actionListener="#{momentController.deleteMoment()}" 
-                                         action="#{deleteMoment.ForwardPage}" 
+                                         action="momentList?faces-redirect=true" 
                                          class="btn btn-default"/>
                     </div>
                 </h:form>

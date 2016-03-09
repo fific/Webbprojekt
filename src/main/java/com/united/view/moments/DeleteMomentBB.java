@@ -1,6 +1,7 @@
 package com.united.view.moments;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedProperty;
 import javax.inject.Named;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -11,8 +12,6 @@ public class DeleteMomentBB {
 
     private String id;
     private String name;
-    private String courseid;
-    private String coursename;
 
     @Override
     public String toString() {
@@ -34,25 +33,4 @@ public class DeleteMomentBB {
     public void setName(String name) {
         this.name = name;
     }
-    
-    public String getCourseid() {
-        return courseid;
-    }
-
-    public void setCourseid(String courseid) {
-        this.courseid = courseid;
-    }
-    
-    public String getCoursename() {
-        return coursename;
-    }
-
-    public void setCoursename(String coursename) {
-        this.coursename = coursename;
-    }
-    
-    public String ForwardPage(){
-        return "momentList?course_id=" + courseid + "&course_name=" + coursename + "faces-redirect=true";
-    }
 }
-
