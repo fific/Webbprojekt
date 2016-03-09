@@ -20,16 +20,16 @@
                 <p>Id set by application (database)</p>
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
-                        <h:outputLabel value="id"/>
+                        <h:outputLabel value="Momentkod"/>
                         <h:outputText value="#{deleteMoment.id}"/> 
-                        <h:outputLabel value="name" />
+                        <h:outputLabel value="Momentnamn" />
                         <h:outputText id="name" value="#{deleteMoment.name}"/>
                     </h:panelGrid>
 
                     <div class="btn-group">
-                        <h:commandButton value="Cancel" immediate="true" class="btn btn-default"
+                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
                                          action="momentList?faces-redirect=true" />
-                        <h:commandButton value="Delete" actionListener="#{momentController.deleteMoment()}" 
+                        <h:commandButton value="Ta bort" actionListener="#{momentController.deleteMoment()}" 
                                          action="momentList?faces-redirect=true" 
                                          class="btn btn-default"/>
                     </div>
