@@ -64,21 +64,27 @@ footer {
     margin-right: auto;*/
 }
 
+.margin {
+    margin: 2pc;
+}
+
 /* for columns
     -webkit-column-count: 3;  Chrome, Safari, Opera 
     -moz-column-count: 3;  Firefox 
     column-count: 3;*/
 
-/*
+
 #userbanner {
-position: fixed;
-height: 30px;
-width: 100%;
-border-top: 5px solid #a1cb2f;
-background: #fff;
-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
-z-index: 999999;
-}*/
+    height: 2.5pc;
+    border-top: 5px solid gainsboro;
+    border-bottom: 2px solid #4aa3df;
+    background: #fff;
+    text-align: center;
+    
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+}
 
 .partial-form {
     border-radius: 5px;

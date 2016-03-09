@@ -14,21 +14,32 @@
         <link rel="stylesheet" type="text/css" href="#{res}/css/default.css"/>
         <link rel="icon" type="image/png" href="#{res}/img/favicon.png"/>
         <title>Skolsystem</title>
-    </h:head>
+    </h:head>   
 
     <h:body class="container" >
+
+        
+        <div id="userbanner"> 
+            <section> Inloggad som: (login.id:)#{login.id}.  
+                <h:link outcome="logout" onclick="#{login.logout()}" >Till startsida</h:link>
+            </section> 
+        </div>  
+        
         <header>
             <hgroup>
                 <h1>Skolsystem</h1>
                 <!--<h2>underrubrik</h2>-->
             </hgroup>
         </header>
+        
         <div id="content">
             <ui:insert name="content">Content</ui:insert>
         </div>
+        
         <footer>
             <p> Grupp 4 United</p> 
         </footer>
+        
     </h:body>
 
 </html>
