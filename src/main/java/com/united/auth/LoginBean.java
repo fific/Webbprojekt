@@ -2,6 +2,8 @@ package com.united.auth;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +32,7 @@ public class LoginBean implements Serializable {
    
     @Inject 
     private UserList userList;
+    
 
     public String login() {
         FacesContext context = FacesContext.getCurrentInstance();
@@ -40,8 +43,21 @@ public class LoginBean implements Serializable {
         // see if there is data in database
         User u =  userList.find("qqq"); //One of the users that should exist
         LOG.log(Level.INFO, "*** Found {0} {1}", new Object[]{u.getId(), u.getPasswd()});
-        
-        
+    
+        // Simple look up instead of using server realm
+        u = userList.find(id);
+        if(u != null && u.getPasswd().equals(password)) {
+            externalContext.getSessionMap().put("user", u);  // Store User in session
+            
+            // Return succesTeacher or successStudent depending on group
+            if(u.getGroups().contains(Groups.TEACHER)) {
+                return "successTeacher";
+            } else if(u.getGroups().contains(Groups.STUDENT)) {
+                return "successStudent";
+            }
+        }
+
+/*        
         try {
             request.login(id, password);
             LOG.log(Level.INFO, "*** Login success");
@@ -50,7 +66,8 @@ public class LoginBean implements Serializable {
             LOG.log(Level.INFO, "*** Is role user {0}", request.isUserInRole("user"));
           
             externalContext.getSessionMap().put("user", u);  // Store User in session
-            return "success";
+            // TODO return succesTeacher or successStudent depending on group
+            return "success"; 
         } catch (ServletException e) {
               LOG.log(Level.INFO, "*** Login fail");
             
@@ -63,6 +80,8 @@ public class LoginBean implements Serializable {
             externalContext.getFlash().setKeepMessages(true);
           
         }
+*/
+        LOG.log(Level.INFO, "*** Login fail"); //temp
         return "fail";
     }
     

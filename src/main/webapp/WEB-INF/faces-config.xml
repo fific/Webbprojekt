@@ -7,44 +7,95 @@
 
 <!-- Main router -->
 <!--ska bytas-->
- <navigation-rule>
-    <from-view-id>*</from-view-id>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+  
+        <navigation-case>
+            <from-action>#{login.login()}</from-action>
+            <from-outcome>successTeacher</from-outcome>
+            <to-view-id>/teacher/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
 
-      
-    <navigation-case>
-        <from-outcome>register</from-outcome>
-        <to-view-id>/partials/users/addUser.xhtml</to-view-id>
-    </navigation-case>
+        <navigation-case>
+            <from-action>#{login.login()}</from-action>
+            <from-outcome>successStudent</from-outcome>
+            <to-view-id>/student/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id> 
+        </navigation-case> 
+     
+     </navigation-rule>
+
+    <navigation-rule>
+       <from-view-id>*</from-view-id>
+
+       <navigation-case>
+           <from-action>home</from-action>
+           <to-view-id>/index</to-view-id> 
+            <redirect/>
+       </navigation-case>
+
+       <navigation-case>
+           <from-outcome>register</from-outcome>
+           <to-view-id>/partials/users/addUser.xhtml</to-view-id>
+       </navigation-case>
+
+       <navigation-case>
+           <from-outcome>logout</from-outcome>
+           <to-view-id>/index</to-view-id> 
+       </navigation-case>
+       <!--
+       <navigation-case>
+           <from-outcome>#{login.login()}</from-outcome>
+           <from-action>successTeacher</from-action>
+           <to-view-id>/teacher/index.xhtml    </to-view-id>
+       </navigation-case>
+
+       <navigation-case>
+           <from-outcome>#{login.login()}</from-outcome>
+           <from-action>successStudent</from-action>
+           <to-view-id>/student/index.xhtml</to-view-id>
+       </navigation-case>
+
+       <navigation-case>
+           <from-outcome>fail</from-outcome>
+           <to-view-id>/index</to-view-id> 
+       </navigation-case> -->
+
+       <!-- Temporary shortcut-->
+       <navigation-case>
+           <from-outcome>teacherlogin</from-outcome>
+           <to-view-id>/teacher/index</to-view-id>
+       </navigation-case>
+
+       <!-- Temporary shortcut-->
+       <navigation-case>
+           <from-outcome>studentlogin</from-outcome>
+           <to-view-id>/student/index</to-view-id>
+       </navigation-case>
+
+
+       <navigation-case>
+           <from-outcome>students</from-outcome>
+           <to-view-id>/partials/students/studentList.xhtml</to-view-id>
+       </navigation-case>
+
+        <navigation-case>
+           <from-outcome>courses</from-outcome>
+           <to-view-id>/partials/courses/courseList.xhtml</to-view-id>
+       </navigation-case>
+
+        <navigation-case>
+           <from-outcome>statistics</from-outcome>
+           <to-view-id>/teacher/statistics.xhtml</to-view-id>
+       </navigation-case>
     
-    <navigation-case>
-        <from-outcome>logout</from-outcome>
-        <to-view-id>/index</to-view-id> <!-- TODO INVALIDATE -->
-    </navigation-case>
-    
-    <navigation-case>
-        <from-outcome>teacherlogin</from-outcome>
-        <to-view-id>/teacher/index</to-view-id>
-    </navigation-case>
-    
-    <navigation-case>
-        <from-outcome>studentlogin</from-outcome>
-        <to-view-id>/student/index</to-view-id>
-    </navigation-case>
-    
-    
-    <navigation-case>
-        <from-outcome>students</from-outcome>
-        <to-view-id>/partials/students/studentList.xhtml</to-view-id>
-    </navigation-case>
-     <navigation-case>
-        <from-outcome>courses</from-outcome>
-        <to-view-id>/partials/courses/courseList.xhtml</to-view-id>
-    </navigation-case>
-    
-     <navigation-case>
-        <from-outcome>statistics</from-outcome>
-        <to-view-id>/partials/teachers/statistics.xhtml</to-view-id>
-    </navigation-case>
-    
-</navigation-rule>       
+    </navigation-rule>  
+
+
 </faces-config>

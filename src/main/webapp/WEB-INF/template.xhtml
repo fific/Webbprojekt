@@ -20,8 +20,8 @@
 
         
         <div id="userbanner"> 
-            <section> Inloggad som: (login.id:)#{login.id}.  
-                <h:link outcome="logout" onclick="#{login.logout()}" >Till startsida</h:link>
+            <section> Inloggad som: (login.id:)*#{login.id}*  (session user id:) *#{sessionScope.user.id}*
+                <h:link outcome="logout" onclick="#{login.logout()}" >Till startsida/Logga ut</h:link>
             </section> 
         </div>  
         

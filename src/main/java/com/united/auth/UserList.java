@@ -33,7 +33,7 @@ public class UserList extends AbstractDAO<User, String> {
     }
     
     @Override
-    protected EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return em;
     }
     
