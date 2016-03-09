@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 @RequestScoped 
 public class DeleteCourseBB {
 
-    private Long id;
+    private String id;
     
     @Size(min = 4, max = 20, message = "{course.name}")
     private String name;
@@ -23,11 +23,11 @@ public class DeleteCourseBB {
     //@Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "{product.price}")
     //private String price;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
