@@ -14,7 +14,7 @@ public class EditCourseBB {
     
     private String id;
     
-    @Size(min = 4, max = 20, message = "{course.name}")
+    @Size(min = 2, max = 100, message = "{course.name}")
     private String name;
     
     // Hopeless to validate numbers (?!?!) because, user possibly enters non-digits

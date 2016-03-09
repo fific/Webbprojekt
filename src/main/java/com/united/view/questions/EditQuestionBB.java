@@ -1,5 +1,5 @@
 
-package com.united.questions;
+package com.united.view.questions;
 
 import com.united.view.courses.*;
 import javax.enterprise.context.RequestScoped;

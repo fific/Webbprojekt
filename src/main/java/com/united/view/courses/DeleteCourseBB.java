@@ -16,7 +16,6 @@ public class DeleteCourseBB {
 
     private String id;
     
-    @Size(min = 4, max = 20, message = "{course.name}")
     private String name;
     
     // Hopeless to validate numbers (?!?!) because, user possibly enters non-digits

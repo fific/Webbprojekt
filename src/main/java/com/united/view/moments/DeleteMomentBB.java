@@ -1,23 +1,20 @@
-package com.united.moments;
+package com.united.view.moments;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-@Named("addMoment")
+@Named("deleteMoment")
 @RequestScoped 
-public class AddMomentBB {
-    
-    @Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "{student.id}")
+public class DeleteMomentBB {
+
     private String id;
-    
-    @Size(min = 4, max = 20, message = "Använd mellan 4 och 20 tecken.")
     private String name;
 
     @Override
     public String toString() {
-        return "AddMomentBB{" + "id=" + id + "name=" + name + '}';
+        return "DeleteStudentBB{" + "id=" + id + ", name=" + name + '}';
     }  
     
     public String getId() {
@@ -36,3 +33,4 @@ public class AddMomentBB {
         this.name = name;
     }
 }
+

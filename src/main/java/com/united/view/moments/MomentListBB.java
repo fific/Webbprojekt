@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.united.moments;
+package com.united.view.moments;
 
 import com.united.auth.User;
 import com.united.auth.UserList;

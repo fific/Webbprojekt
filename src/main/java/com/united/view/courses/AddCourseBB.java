@@ -15,10 +15,10 @@ import javax.validation.constraints.Size;
 @RequestScoped 
 public class AddCourseBB {
 
-    @Size(min = 4, max = 20, message = "{course.id}")
+    @Size(min = 2, max = 10, message = "{course.id}")
     private String id;
     
-    @Size(min = 4, max = 20, message = "{course.name}")
+    @Size(min = 2, max = 100, message = "{course.name}")
     private String name;
 
     public String getName() {
