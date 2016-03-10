@@ -90,7 +90,7 @@ public class LoginBean implements Serializable {
                 getExternalContext();
         externalContext.invalidateSession();
         LOG.log(Level.INFO, "*** Logout success");
-        return "success";
+        return "logout";
     }
 
     // ------------------------------

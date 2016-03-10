@@ -25,8 +25,10 @@
         </navigation-case>
 
         <navigation-case>
+            <from-action>#{login.login()}</from-action>
             <from-outcome>fail</from-outcome>
             <to-view-id>/index.xhtml</to-view-id> 
+            <redirect/>
         </navigation-case> 
      
      </navigation-rule>
@@ -49,24 +51,7 @@
            <from-outcome>logout</from-outcome>
            <to-view-id>/index</to-view-id> 
        </navigation-case>
-       <!--
-       <navigation-case>
-           <from-outcome>#{login.login()}</from-outcome>
-           <from-action>successTeacher</from-action>
-           <to-view-id>/teacher/index.xhtml    </to-view-id>
-       </navigation-case>
-
-       <navigation-case>
-           <from-outcome>#{login.login()}</from-outcome>
-           <from-action>successStudent</from-action>
-           <to-view-id>/student/index.xhtml</to-view-id>
-       </navigation-case>
-
-       <navigation-case>
-           <from-outcome>fail</from-outcome>
-           <to-view-id>/index</to-view-id> 
-       </navigation-case> -->
-
+       
        <!-- Temporary shortcut-->
        <navigation-case>
            <from-outcome>teacherlogin</from-outcome>

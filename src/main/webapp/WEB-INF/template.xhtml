@@ -13,21 +13,21 @@
         <link rel="stylesheet" type="text/css" href="#{res}/bower_components/bootstrap/dist/css/bootstrap.css"/>
         <link rel="stylesheet" type="text/css" href="#{res}/css/default.css"/>
         <link rel="icon" type="image/png" href="#{res}/img/favicon.png"/>
-        <title>Skolsystem</title>
+        <title>Like To Learn</title>
     </h:head>   
 
     <h:body class="container" >
 
         
-        <div id="userbanner"> 
-            <section> Inloggad som: (login.id:)*#{login.id}*  (session user id:) *#{sessionScope.user.id}*
-                <h:link outcome="logout" onclick="#{login.logout()}" >Till startsida/Logga ut</h:link>
+        <div id="userbanner">            
+            <section> Inloggad som #{sessionScope.user.id}
+                <h:form><h:commandLink action="#{login.logout()}">Logga ut</h:commandLink></h:form>
             </section> 
         </div>  
         
         <header>
             <hgroup>
-                <h1>Skolsystem</h1>
+                <h1>Like To Learn</h1>
                 <!--<h2>underrubrik</h2>-->
             </hgroup>
         </header>
