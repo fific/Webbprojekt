@@ -44,8 +44,8 @@ public class MomentController {
     }
 
     public void deleteMoment() {
-       String id = delBB.getId();
-       school.getMomentList().delete(id);
+        Long id = Long.parseLong(delBB.getId());
+        school.getMomentList().delete(id);
     }
 
     @Inject

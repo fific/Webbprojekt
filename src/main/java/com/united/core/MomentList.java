@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
  */
 
 @Stateless
-public class MomentList extends AbstractDAO<Moment, String> {
+public class MomentList extends AbstractDAO<Moment, Long> {
     private static final Logger LOG = Logger.getLogger(MomentList.class.getName());
 
     @PersistenceContext//(unitName = "school_pu")
@@ -36,9 +36,9 @@ public class MomentList extends AbstractDAO<Moment, String> {
         return em;
     }
     
-    public List<Moment> getByName(String id) {
+    public Moment getByName(String name) {
         String jpql = "select m from Moment m where m.id=:id";
         return em.createQuery(jpql, Moment.class).
-                setParameter("id", id).getResultList();
+                setParameter("name", name).getSingleResult();
     }
 }

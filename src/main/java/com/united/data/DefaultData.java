@@ -139,10 +139,12 @@ public class DefaultData {
 //        regList.delete(1l);
 //        finMomentList.delete(2l);
         
-         mAuthDAO.delete("56");
-        mAuthDAO.delete("57"); 
-        mAuthDAO.delete("58");
-        mAuthDAO.delete("59");
+
+        
+        mAuthDAO.delete(mAuthDAO.getByName("1").getId());
+        mAuthDAO.delete(mAuthDAO.getByName("2").getId());
+        mAuthDAO.delete(mAuthDAO.getByName("3").getId());
+        mAuthDAO.delete(mAuthDAO.getByName("4").getId());
         
         cAuthDAO.delete("66");
         cAuthDAO.delete("67");
