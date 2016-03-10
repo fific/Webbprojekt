@@ -6,52 +6,30 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <h:head>
-        <title>Elev vy</title>
+        <title>Ditt konto</title>
     </h:head>  
     <h:body>
-        <ui:composition template="/WEB-INF/template.xhtml">
+        <ui:composition template="/WEB-INF/studentTemplate.xhtml">
             <ui:define name="content">
-                <h3>Dina registrerade kurser</h3>
-                <h:link outcome="/partials/courses/addCourse.xhtml" >Ny kurs</h:link>
-                <h:form>
+                <h3>Ditt konto</h3>
+                <h:form class="partial-form">
+                    <h:panelGrid columns="2" class="table">
+                        <h:outputLabel value="Id"/>
+                        <h:outputText value="#{sessionScope.user.id}"/> 
+                        <h:outputLabel value="Identitet" />
+                        <h:outputText value="#{sessionScope.user.groups}"/> 
+                        <h:outputLabel value="Namn" />
+                        <h:inputText value="#{sessionScope.user.name}"/> 
+                        <h:outputLabel value="Lösenord" />
+                        <h:inputText value="#{sessionScope.user.passwd}"/> 
+                    </h:panelGrid>
                     
-                    <h:commandButton value="Prev" actionListener="#{courseList.prev()}">
-                        <f:ajax execute="@form" render="coursePanel" />
-                    </h:commandButton>
-
-                    <h:commandButton value="Next" actionListener="#{courseList.next()}">
-                        <f:ajax execute="@form" render="coursePanel" />
-                    </h:commandButton>
-                    
-                    <!-- Must have this to get an id for the ajax render attribute -->
-                    <h:panelGroup id="coursePanel" >
-                        <!-- TODO -->
-                        <h:dataTable var="course" value="#{courseList.findRange()}"
-                                     class="table table-striped">
-                        <h:column><h:outputText value="#{course.id}"/></h:column>
-                        <h:column><h:outputText value="#{course.name}"/></h:column>
-                        
-                        <h:column>
-                            <h:link value="Edit" outcome="/partials/courses/editCourse.xhtml">
-                                <f:param name="id" value="#{course.id}" />
-                                <f:param name="name" value="#{course.name}" />
-                            </h:link>
-                         </h:column>   
-                        
-                        <h:column>
-                            <h:link value="Del" outcome="/partials/courses/deleteCourse.xhtml">
-                                <f:param name="id" value="#{course.id}" />
-                                <f:param name="name" value="#{course.name}" />
-                            </h:link>
-                         </h:column>   
-                         
-                            
-                            
-                            
-                        </h:dataTable>                
-                    </h:panelGroup>
+                    <div class="btn-group">
+                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default" />
+                        <h:commandButton value="Spara" actionListener="#{userController.updateUser()}" 
+                                         class="btn btn-default"/>
+                    </div>
                 </h:form>
-
             </ui:define>
         </ui:composition>
     </h:body>

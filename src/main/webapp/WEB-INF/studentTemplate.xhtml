@@ -22,19 +22,18 @@
                 <h:form><h:commandLink action="#{login.logout()}">Logga ut</h:commandLink></h:form>
             </section> 
         </div>  
-        
+
         <header>
             <hgroup>
                 <h1>Like To Learn</h1>
                 <!--<h2>underrubrik</h2>-->
             </hgroup>
         </header>
+
         <div id="content">
             <nav class="navbar navbar-default" id="banner" role="navigation">
-                <h:link value="Elever" class="navbar-brand" outcome="students" />
-                <h:link value="Kurser" class="navbar-brand" outcome="courses" />
-                <h:link value="Statistik" class="navbar-brand" outcome="statistics" />  
-                <h:link value="Konto" class="navbar-brand" outcome="teacherlogin" />  
+                <h:link value="Kurser" class="navbar-brand" outcome="studentcourses" />
+                <h:link value="Konto" class="navbar-brand" outcome="studentlogin" />  
             </nav>
             <ui:insert name="content">Content</ui:insert>
         </div>
