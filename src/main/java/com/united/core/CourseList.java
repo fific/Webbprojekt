@@ -2,6 +2,7 @@ package com.united.core;
 
 import com.united.auth.*;
 import com.united.persistence.AbstractDAO;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,6 +43,15 @@ public class CourseList extends AbstractDAO<Course, String> {
         return em.createQuery(jpql, Course.class).
                 setParameter("id", id).getResultList();
     }
+    /*
+    public List<User> getAllStudents() {
+        String jpql = "SELECT p FROM User p WHERE p.groups=:group";
+        List<Groups> groupList  = new ArrayList<>();
+        groupList.add(Groups.STUDENT);
+        return em.createQuery(jpql, User.class).setParameter("group", groupList).getResultList();
+    }*/
+    
+    
     
     
 }
