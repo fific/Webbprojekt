@@ -6,8 +6,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <f:metadata>
-        <f:viewParam name="id" value="#{deleteStudent.id}"  />
-        <f:viewParam name="name" value="#{deleteStudent.name}"  />
+        <f:viewParam name="id" value="#{deleteUser.id}"  />
+        <f:viewParam name="name" value="#{deleteUser.name}"  />
     </f:metadata>
     
     <!--  TODO -->
@@ -22,9 +22,9 @@
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
                         <h:outputLabel value="Elevid"/>
-                        <h:outputText value="#{deleteStudent.id}"/> 
+                        <h:outputText value="#{deleteUser.id}"/> 
                         <h:outputLabel value="Elevnamn" />
-                        <h:outputText id="name" value="#{deleteStudent.name}"/>
+                        <h:outputText id="name" value="#{deleteUser.name}"/>
                     </h:panelGrid>
                     <div class="btn-group">
                         <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"

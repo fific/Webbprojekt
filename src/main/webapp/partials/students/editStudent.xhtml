@@ -7,8 +7,8 @@
 
    <!-- TODO --> 
     <f:metadata>
-        <f:viewParam name="id" value="#{editStudent.id}"  />
-        <f:viewParam name="name" value="#{editStudent.name}"  />
+        <f:viewParam name="id" value="#{editUser.id}"  />
+        <f:viewParam name="name" value="#{editUser.name}"  />
     </f:metadata>
    
     <h:head>
@@ -22,9 +22,9 @@
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
                         <h:outputLabel value="Elevid"/>
-                        <h:outputText value="#{editStudent.id}"/> 
+                        <h:outputText value="#{editUser.id}"/> 
                         <h:outputLabel value="Elevnamn" />
-                        <h:inputText value="#{editStudent.name}"/> 
+                        <h:inputText value="#{editUser.name}"/> 
                     </h:panelGrid>
                     
                     <div class="btn-group">

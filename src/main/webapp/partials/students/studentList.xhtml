@@ -8,7 +8,7 @@
 
     
     <h:head>
-        <title>Elever</title>
+        <title>Dina Elever</title>
     </h:head>  
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
@@ -22,23 +22,23 @@
                 
                 <h3>Elever</h3>
                 <h:form>
-                    <h:commandButton value="Föregående" actionListener="#{studentList.prev()}">
+                    <h:commandButton value="Föregående" actionListener="#{userList.prev()}">
                         <f:ajax execute="@form" render="productPanel" />
                     </h:commandButton>
 
-                    <h:commandButton value="Nästa" actionListener="#{studentList.next()}">
+                    <h:commandButton value="Nästa" actionListener="#{userList.next()}">
                         <f:ajax execute="@form" render="productPanel" />
                     </h:commandButton>
                     
                     <h:panelGroup id="productPanel" >
-                        <h:dataTable var="student" value="#{studentList.findRange()}"
+                        <h:dataTable var="student" value="#{userList.findStudentRange()}"
                                      class="table table-striped">
                         <h:column><h:outputText value="#{student.id}"/></h:column>
                         <h:column><h:outputText value="#{student.passwd}"/></h:column>
                         
 
                         <h:column>
-                            <h:link value="Redigera" outcome="editStudent.xhtml">
+                            <h:link value="Redigera elev" outcome="editStudent.xhtml">
                                 <f:param name="id" value="#{student.id}" />
                                 <f:param name="name" value="#{student.passwd}" />
                                 
@@ -46,10 +46,9 @@
                          </h:column>   
                         
                         <h:column>
-                            <h:link value="Ta bort" outcome="deleteStudent.xhtml">
+                            <h:link value="Ta bort elev" outcome="deleteStudent.xhtml">
                                 <f:param name="id" value="#{student.id}" />
                                 <f:param name="name" value="#{student.passwd}" />
-                                
                             </h:link>
                          </h:column>   
                         </h:dataTable>                

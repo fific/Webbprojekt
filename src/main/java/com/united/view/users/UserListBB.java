@@ -1,4 +1,4 @@
-package com.united.students;
+package com.united.view.users;
 
 import com.united.auth.User;
 import com.united.auth.UserList;
@@ -14,27 +14,27 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named("studentList")
+@Named("userList")
 @RequestScoped
-public class StudentListBB implements Serializable {
+public class UserListBB implements Serializable {
 
-    private static final Logger LOG = Logger.getLogger(StudentListBB.class.getSimpleName());
+    private static final Logger LOG = Logger.getLogger(UserListBB.class.getSimpleName());
     private static final long serialVersionUID = 1L;
 
     private String id;
     private String password;
     private int currentPage;
-    private int pageSize = 4;  // Items on a listing (hard coded :-(  )
+    private int pageSize = 10;  // Items on a listing (hard coded :-(  )
     private int count;
     
     @Inject
     private UserList users;
 
-//    public List<User> findRange() {
-//        return users.findRange(currentPage * pageSize, pageSize);
-//    }
-    
     public List<User> findRange() {
+        return users.findRange(currentPage * pageSize, pageSize);
+    }
+    
+    public List<User> findStudentRange() {
         return users.getAllStudents();
     }
 
@@ -56,3 +56,4 @@ public class StudentListBB implements Serializable {
     }
 
 }
+
