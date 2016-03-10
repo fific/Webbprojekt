@@ -15,6 +15,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -32,6 +33,10 @@ public class Course implements Serializable {
     protected String id;
     @Column(nullable = false)
     protected String name;
+    
+    @OneToMany 
+    @JoinColumn(name = "CONTAINS") 
+    private List<Moment> containedMoments;
   
 
     public Course() {
