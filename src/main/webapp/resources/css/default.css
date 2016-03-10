@@ -50,20 +50,20 @@ footer {
 #content {
     padding-top: 2pc;
     padding-bottom: 5pc;
-    box-shadow: 8px 8px 5px gainsboro;
 }
 
 .section {
-    background: #2c3e50;
-    text-align: center;
+    padding: 0.5pc;
+    text-align: left;
+    box-shadow: 8px 8px 5px gainsboro;
     
 }
-
+/*
 .loginbox {
-/*    text-align: center;
+    text-align: center;
     margin-left: auto;
-    margin-right: auto;*/
-}
+    margin-right: auto;
+}*/
 
 .margin {
     margin: 2pc;

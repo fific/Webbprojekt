@@ -14,7 +14,7 @@
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
 
-                <section>
+                <section class="section">
                     <div class="loginbox"> 
                         <h:form>                    
                             <h:panelGrid columns="2">
@@ -36,33 +36,26 @@
                         <br></br>
 
                     </div>
-
-                </section>
-
-                <section> 
-                    <!--<br></br>
-                    <p><h:link outcome="/partials/teachers/teacherView.xhtml" >Testa lärare vy</h:link></p>
-                    <p><h:link outcome="/partials/students/studentView.xhtml" >Testa elev vy</h:link></p>
-                    <br></br>-->
-                <div style="float: right; margin: 1pc">
-                    <object type="application/x-shockwave-flash" style="width:450px; height:366px;" 
-                            data="//www.youtube.com/v/eNFml7vFP4s?color2=FBE9EC&amp;border=1&amp;rel=0&amp;showsearch=0&amp;version=3&amp;modestbranding=1">
-                        <param name="movie" value="//www.youtube.com/v/eNFml7vFP4s?color2=FBE9EC&amp;border=1&amp;rel=0&amp;showsearch=0&amp;version=3&amp;modestbranding=1" />
-                        <param name="allowFullScreen" value="true" />
-                        <param name="allowscriptaccess" value="always" />
-                        </object>
-                </div>
-        
                 </section>
                 
-                <section>
-                    <!-- TODO make login actually choose one of these outcomes? -->
+                <section class="section">
+                    <b>Debugging</b>
+                    <br/>
+                    <!--OLD<br></br>
+                    <p><h:link outcome="/partials/teachers/teacherView.xhtml" >Testa lärare vy</h:link></p>
+                    <p><h:link outcome="/partials/students/studentView.xhtml" >Testa elev vy</h:link></p>-->
+                    Saker man kan fixa (högst prioritet först):<br/>
+                    Lägga till moment i kurs redigera-sida.<br/>
+                    Lägga till frågor i moments redigera-sida.<br/>
+                    Använda sessionScope.user.id (sparas nu på inloggning, ses upp till höger på sidan) för att filtrera ut rätt kurser samt elever.<br/>
+                    Hantera "transaction aborted" när man försöker registrera existerande key.<br/>    
+                    <br/><br/><br/>
+                
                     <p><h:link outcome="studentlogin" >Testa logga in som student</h:link></p>
                     <p><h:link outcome="teacherlogin" >Testa logga in som lärare</h:link></p>
-
                 </section>
                 
-                <section> 
+                <section class="section"> 
                     <div style="text-align: center"><b>Om spelet</b></div>
                     <p><b>Sammanfattning</b>
                     <br/>
@@ -75,6 +68,14 @@
                     <br/>
                     Spelets syfte är att främja bättre studieresultat. Tanken är att det helt ska kunna ersätta det traditionella “läxförhörs-tragglandet” med dess tillhörande förhör och bakläxor. Spelet ger repetition av det som läraren bestämt och anpassar frågorna efter elevens individuella nivå. Den repetition som förr kunde kännas som ett “nödvändigt ont” ska nu kunna vändas till en uppskattad lek.
                     </p>
+                    <div style=" margin: 1pc">
+                        <object type="application/x-shockwave-flash" style="width:450px; height:366px;" 
+                                data="//www.youtube.com/v/eNFml7vFP4s?color2=FBE9EC&amp;border=1&amp;rel=0&amp;showsearch=0&amp;version=3&amp;modestbranding=1">
+                            <param name="movie" value="//www.youtube.com/v/eNFml7vFP4s?color2=FBE9EC&amp;border=1&amp;rel=0&amp;showsearch=0&amp;version=3&amp;modestbranding=1" />
+                            <param name="allowFullScreen" value="true" />
+                            <param name="allowscriptaccess" value="always" />
+                        </object>
+                    </div>
                 </section>
             </ui:define>
         </ui:composition>
