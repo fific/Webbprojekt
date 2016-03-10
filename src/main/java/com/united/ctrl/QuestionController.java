@@ -1,9 +1,6 @@
 package com.united.ctrl;
 
 
-
-
-
 import com.united.core.Question;
 import com.united.core.School;
 import com.united.core.SingletonSchool;

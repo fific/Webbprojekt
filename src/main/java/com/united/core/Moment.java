@@ -42,7 +42,7 @@ public class Moment implements Serializable {
     
     @OneToMany 
     @JoinColumn(name = "HAS") 
-    private List<Question> Questions;
+    private List<Question> questions;
 
     public Moment() {
     }
@@ -65,6 +65,18 @@ public class Moment implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+      public void addQuestion(Question question) {
+        questions.add(question);
+    }
+
+    public void removeQuestion(Question question) {
+        questions.remove(question);
+    }
+    
+    public List<Question> getContainedQuestionss() {
+        return questions;
     }
     
 

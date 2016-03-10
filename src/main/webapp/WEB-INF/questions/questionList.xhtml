@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    
+    <f:metadata>
+        <f:viewParam name="moment_id" value="#{questiontList.momentId}"  />
+    </f:metadata>
+    
+    <h:head>
+        <title>Frågor</title>
+    </h:head>  
+    <h:body>
+        <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
+            <ui:define name="content">
+                <h3>Frågorna</h3>
+
+                <!--<h:link outcome="addMoment.xhtml" >Nytt moment</h:link>-->
+                
+                <h:link outcome="addQuestion.xhtml" >Ny fråga
+                    <f:param name="moment_id" value="#{questionList.momentId}" />
+                </h:link>
+                
+                <!--<h:link value="Nytt moment" outcome="addMoment.xhtml" >Nytt moment</h:link>-->
+                
+                <!--
+                            <h:link value="Redigera kurs" outcome="editCourse.xhtml">
+                                <f:param name="course_id" value="#{course.id}" />
+                                <f:param name="course_name" value="#{course.name}" />
+
+                            </h:link>-->
+
+
+                <h:form>
+                    <h:commandButton value="Föregående" actionListener="#{questionList.prev()}">
+                        <f:ajax execute="@form" render="momentPanel" />
+                    </h:commandButton>
+
+                    <h:commandButton value="Nästa" actionListener="#{questionList.next()}">
+                        <f:ajax execute="@form" render="momentPanel" />
+                    </h:commandButton>
+
+                    <h:panelGroup id="questionPanel" >
+                        <h:dataTable var="question" value="#{questionList.findRange()}"
+                                     class="table table-striped">
+                            <h:column><h:outputText value="#{question.id}"/></h:column>
+                            <h:column><h:outputText value="#{question.name}"/></h:column>
+
+                            <h:column>
+                                <h:link value="Hantera frågor" outcome="/partials/questions/questionList.xhtml">
+                                </h:link>
+                            </h:column>   
+
+                            <h:column>
+                                <h:link value="Redigera fråga" outcome="editQuestion.xhtml">
+                                    <f:param name="id" value="#{question.id}" />
+                                    <f:param name="name" value="#{question.name}" />
+                                </h:link>
+                            </h:column>   
+
+                            <h:column>
+                                <h:link value="Ta bort fråga" outcome="deleteQuestion.xhtml">
+                                    <f:param name="id" value="#{question.id}" />
+                                    <f:param name="name" value="#{question.name}" />
+                                </h:link>
+                            </h:column>   
+                        </h:dataTable>                
+                    </h:panelGroup>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
