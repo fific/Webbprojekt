@@ -2,6 +2,7 @@ package com.united.ctrl;
 
 
 
+import com.united.core.Course;
 import com.united.core.Moment;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
@@ -34,10 +35,13 @@ public class MomentController {
     
    
     public void newMoment(String courseId) {
-        System.out.println("*******courseId is: " + courseId);
         Moment p = new Moment(addBB.getName());
         school.getMomentList().create(p);
-        school.getCourseList().getById(courseId).addMoment(p);
+        Course c = school.getCourseList().getById(courseId);
+        System.out.println("*******returned courseId is: " + c.getId());
+        System.out.println("*******course contains: " + c.getContainedMoments());
+        c.addMoment(p);
+        System.out.println("*******course now contains: " + c.getContainedMoments());
     }
 
     public void updateMoment() {

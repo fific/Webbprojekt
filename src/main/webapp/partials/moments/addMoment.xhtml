@@ -27,11 +27,10 @@
                     </h:panelGrid>
                     <div class="btn-group">
                         <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
-                                         action="#{addMoment.redirectWithParam()}">
-                            <f:param name="course_id" value="#{addMoment.courseId}" />
+                                         action="/partials/courses/courseList?faces-redirect=true">
                         </h:commandButton>
                         <h:commandButton value="Spara" actionListener="#{momentController.newMoment(addMoment.courseId)}" 
-                                         action="momentList?faces-redirect=true" 
+                                         action="/partials/courses/courseList?faces-redirect=true"
                                          class="btn btn-default"/>
                     </div>
                 </h:form>

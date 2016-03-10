@@ -49,6 +49,7 @@ public class AddMomentBB {
     
     public String redirectWithParam(){
         System.out.println("---courseID: " + courseId);
+//        return "momentList?faces-redirect=true&includeViewParams=true"; 
         return "momentList?faces-redirect=true&includeViewParams=true"; 
     }
     
