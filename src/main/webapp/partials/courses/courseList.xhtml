@@ -42,7 +42,7 @@
 
                         
                         <h:column>
-                            <h:link value="Byta namn" outcome="editCourse.xhtml">
+                            <h:link value="Byt namn" outcome="editCourse.xhtml">
                                 <f:param name="course_id" value="#{course.id}" />
                                 <f:param name="course_name" value="#{course.name}" />
 
@@ -50,12 +50,12 @@
                          </h:column>   
                         
                         <h:column>
-                            <h:link value="Redigera" outcome="/partials/moments/momentList.xhtml">
+                            <h:link value="Hantera moment" outcome="/partials/moments/momentList.xhtml">
                             </h:link>
                          </h:column>   
                         
                         <h:column>
-                            <h:link value="Ta bort" outcome="deleteCourse.xhtml">
+                            <h:link value="Ta bort kurs" outcome="deleteCourse.xhtml">
                                 <f:param name="id" value="#{course.id}" />
                                 <f:param name="name" value="#{course.name}" />
 

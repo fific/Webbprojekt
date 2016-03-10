@@ -24,6 +24,8 @@ import javax.inject.Named;
 public class MomentController {
 
     private static final Logger LOG = Logger.getLogger(MomentController.class.getSimpleName());
+
+    @Inject
     private School school;
     
     private AddMomentBB addBB;
@@ -32,7 +34,7 @@ public class MomentController {
     
    
     public void newMoment() {
-        Moment p = new Moment(addBB.getId(), addBB.getName());
+        Moment p = new Moment(addBB.getName());
         school.getMomentList().create(p);
     }
 
@@ -61,9 +63,5 @@ public class MomentController {
         this.delBB = delBB;
     }
 
-//    @Inject
-//    public void setSchool(SingletonSchool ss) {
-//        this.school = ss.getSchool();
-//    }
 
 }
