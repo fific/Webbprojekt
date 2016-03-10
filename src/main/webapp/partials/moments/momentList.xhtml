@@ -30,16 +30,20 @@
                             <h:column><h:outputText value="#{moment.id}"/></h:column>
                             <h:column><h:outputText value="#{moment.name}"/></h:column>
 
+                            <h:column>
+                                <h:link value="Hantera frågor" outcome="/partials/questions/questionList.xhtml">
+                                </h:link>
+                            </h:column>   
 
                             <h:column>
-                                <h:link value="Redigera" outcome="questionList.xhtml">
+                                <h:link value="Redigera moment" outcome="editMoment.xhtml">
                                     <f:param name="id" value="#{moment.id}" />
                                     <f:param name="name" value="#{moment.name}" />
                                 </h:link>
                             </h:column>   
 
                             <h:column>
-                                <h:link value="Ta bort" outcome="deleteMoment.xhtml">
+                                <h:link value="Ta bort moment" outcome="deleteMoment.xhtml">
                                     <f:param name="id" value="#{moment.id}" />
                                     <f:param name="name" value="#{moment.name}" />
                                 </h:link>

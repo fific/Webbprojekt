@@ -41,11 +41,11 @@ public class LoginBean implements Serializable {
         LOG.log(Level.INFO, "*** Try login {0} {1}", new Object[]{id, password});
         
         // see if there is data in database
-        User u =  userList.find("qqq"); //One of the users that should exist
-        LOG.log(Level.INFO, "*** Found {0} {1}", new Object[]{u.getId(), u.getPasswd()});
+//        User u =  userList.find("qqq"); //One of the users that should exist
+//        LOG.log(Level.INFO, "*** Found {0} {1}", new Object[]{u.getId(), u.getPasswd()});
     
         // Simple look up instead of using server realm
-        u = userList.find(id);
+        User u = userList.find(id);
         if(u != null && u.getPasswd().equals(password)) {
             externalContext.getSessionMap().put("user", u);  // Store User in session
             
