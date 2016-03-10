@@ -34,9 +34,19 @@ public class Course implements Serializable {
     @Column(nullable = false)
     protected String name;
     
+//    @OneToMany 
+//    @JoinColumn(name = "IN_COURSE") 
+//    private List<Moment> containedMoments;
+    
+//    @OneToMany 
+//    @JoinColumn(name = "IN_COURSE") 
+//    private List<Moment> containedMoments  = new ArrayList<>();
+    
     @OneToMany 
-    @JoinColumn(name = "CONTAINS") 
-    private List<Moment> containedMoments;
+    @CollectionTable(name = "COURSES_MOMENTS", 
+            joinColumns = @JoinColumn(name = "id"))
+    private List<Moment> containedMoments = new ArrayList<>();
+    
   
 
     public Course() {
@@ -61,6 +71,18 @@ public class Course implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public void addMoment(Moment moment) {
+        containedMoments.add(moment);
+    }
+
+    public void removeMoment(Moment moment) {
+        containedMoments.remove(moment);
+    }
+    
+    public List<Moment> getContainedMoments() {
+        return containedMoments;
     }
 
     @Override

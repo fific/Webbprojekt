@@ -38,10 +38,10 @@ public class CourseList extends AbstractDAO<Course, String> {
     }
     
      
-    public List<Course> getByName(String id) {
+    public Course getById(String id) {
         String jpql = "select c from Course c where c.id=:id";
         return em.createQuery(jpql, Course.class).
-                setParameter("id", id).getResultList();
+                setParameter("id", id).getSingleResult();
     }
     /*
     public List<User> getAllStudents() {

@@ -51,8 +51,10 @@
                         
                         <h:column>
                             <h:link value="Hantera moment" outcome="/partials/moments/momentList.xhtml">
+                                <f:param name="course_id" value="#{course.id}" />
                             </h:link>
                          </h:column>   
+                        
                         
                         <h:column>
                             <h:link value="Ta bort kurs" outcome="deleteCourse.xhtml">

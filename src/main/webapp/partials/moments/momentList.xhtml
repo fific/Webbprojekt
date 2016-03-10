@@ -5,6 +5,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
+    
+    <f:metadata>
+        <f:viewParam name="course_id" value="#{momentList.courseId}"  />
+    </f:metadata>
+    
     <h:head>
         <title>Momenter</title>
     </h:head>  
@@ -13,7 +18,21 @@
             <ui:define name="content">
                 <h3>Dina momenter</h3>
 
-                <h:link outcome="addMoment.xhtml" >Nytt moment</h:link>
+                <!--<h:link outcome="addMoment.xhtml" >Nytt moment</h:link>-->
+                
+                <h:link outcome="addMoment.xhtml" >Nytt moment
+                    <f:param name="course_id" value="#{momentList.courseId}" />
+                </h:link>
+                
+                <!--<h:link value="Nytt moment" outcome="addMoment.xhtml" >Nytt moment</h:link>-->
+                
+                <!--
+                            <h:link value="Redigera kurs" outcome="editCourse.xhtml">
+                                <f:param name="course_id" value="#{course.id}" />
+                                <f:param name="course_name" value="#{course.name}" />
+
+                            </h:link>-->
+
 
                 <h:form>
                     <h:commandButton value="Föregående" actionListener="#{momentList.prev()}">

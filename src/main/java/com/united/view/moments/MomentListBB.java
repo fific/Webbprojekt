@@ -7,6 +7,8 @@ package com.united.view.moments;
 
 import com.united.auth.User;
 import com.united.auth.UserList;
+import com.united.core.Course;
+import com.united.core.CourseList;
 import com.united.core.Moment;
 import com.united.core.MomentList;
 import com.united.core.School;
@@ -28,6 +30,7 @@ public class MomentListBB implements Serializable {
     private static final Logger LOG = Logger.getLogger(MomentListBB.class.getSimpleName());
     private static final long serialVersionUID = 1L;
 
+    private String courseId;
     private String id;
     private String name;
     private int currentPage;
@@ -36,9 +39,30 @@ public class MomentListBB implements Serializable {
     
     @Inject
     private MomentList moments;
+    
+    @Inject
+    private CourseList courses;
+    
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
+    }
 
     public List<Moment> findRange() {
-        return moments.findRange(currentPage * pageSize, pageSize);
+        Course selectedCourse = courses.getById(courseId);
+        return selectedCourse.getContainedMoments();
+//        return moments.findRange(currentPage * pageSize, pageSize);
     }
 
     @PostConstruct
