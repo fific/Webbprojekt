@@ -34,6 +34,8 @@ public class User implements Serializable {
     protected String id;
     @Column(nullable = false)
     protected String passwd;
+    @Column(nullable = false)
+    protected String name;
     
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "USERS_GROUPS", 
@@ -52,9 +54,10 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String id, String passwd, Groups group) {
+    public User(String id, String passwd, String name, Groups group) {
         this.id = id;
         this.passwd = passwd;
+        this.name = name;
         System.out.println("***trying to add group in User constructor. groups: " + groups);
         groups.add(group);
     }

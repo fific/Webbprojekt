@@ -16,13 +16,14 @@ import javax.validation.constraints.Size;
 @RequestScoped 
 public class AddUserBB {
 
+    
     @Size(min = 4, max = 20, message = "{user.name}")
     private String id;
     
     private String passwd;
-    
-//    private Groups groups;
+    private String name;
     private Groups groups;
+    
     
     public String getId() {
         return id;
@@ -39,16 +40,16 @@ public class AddUserBB {
     public void setPasswd(String passwd) {
         this.passwd = passwd;
     }
+    
+    public String getName() {
+        return name;
+    }
 
-//    public Groups getGroups() {
-//        return groups;
-//    }
-//
-//    public void setGroups(Groups groups) {
-//        this.groups = groups;
-//    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public Groups getGroups() {
+    public Groups getGroups() {
         return groups;
     }
 

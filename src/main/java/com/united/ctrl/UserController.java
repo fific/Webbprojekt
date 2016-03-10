@@ -34,7 +34,8 @@ public class UserController {
     
    
     public void newUser() {
-        User p = new User(addBB.getId(), addBB.getPasswd(), addBB.getGroups());
+        System.out.println("-------getId: " + addBB.getId() + ". getName: " + addBB.getName());
+        User p = new User(addBB.getId(), addBB.getPasswd(), addBB.getName(), addBB.getGroups());
         school.getUserList().create(p);
         //Tried to login on new user as well
         //loginB.login();

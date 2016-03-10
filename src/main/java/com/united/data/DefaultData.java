@@ -70,15 +70,15 @@ public class DefaultData {
 
     private void createTestData() {
         LOG.log(Level.INFO, "*** Add default data");
-        User u = new User("qqq", "111", Groups.TEACHER);
+        User u = new User("qqq", "111","111", Groups.TEACHER);
         authDAO.create(u);
-        u = new User("www", "222", Groups.STUDENT);
+        u = new User("www", "222","111", Groups.STUDENT);
         authDAO.create(u);
-        u = new User("test1", "222", Groups.STUDENT);
+        u = new User("test1", "222","111", Groups.STUDENT);
         authDAO.create(u);
-        u = new User("test2", "222", Groups.TEACHER);
+        u = new User("test2", "222","111", Groups.TEACHER);
         authDAO.create(u);
-         u = new User("test3", "222", Groups.STUDENT);
+         u = new User("test3", "222","111", Groups.STUDENT);
         authDAO.create(u);
         
         Moment m = new Moment("1");
