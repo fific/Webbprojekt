@@ -90,6 +90,14 @@ public class User implements Serializable {
         this.passwd = passwd;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
