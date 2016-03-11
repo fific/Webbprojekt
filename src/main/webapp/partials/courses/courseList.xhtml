@@ -11,15 +11,8 @@
         <title>Kurser</title>
     </h:head>  
     <h:body>
-        <ui:composition template="/WEB-INF/template.xhtml">
+        <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                
-                <nav class="navbar navbar-default" role="navigation">
-                    <h:link value="Elever" class="navbar-brand" outcome="students" />
-                    <h:link value="Kurser" class="navbar-brand" outcome="courses" />
-                    <h:link value="Statistik" class="navbar-brand" outcome="statistics" />  
-                </nav>
-                
                 <h3>Dina kurser</h3>
                 <h:link outcome="addCourse.xhtml" >Ny kurs</h:link>
                 <h:form>
