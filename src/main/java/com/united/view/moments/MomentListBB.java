@@ -61,7 +61,7 @@ public class MomentListBB implements Serializable {
 
     public List<Moment> findRange() {
         Course selectedCourse = courses.getById(courseId);
-        return selectedCourse.getContainedMoments();
+        return selectedCourse.getMoments();
 //        return moments.findRange(currentPage * pageSize, pageSize);
     }
 

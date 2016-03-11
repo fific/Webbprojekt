@@ -34,14 +34,12 @@ public class MomentController {
     private DeleteMomentBB delBB;
     
    
-    public void newMoment(String courseId) {
+    public void newMoment(String courseId) {        
         Moment p = new Moment(addBB.getName());
-        school.getMomentList().create(p);
         Course c = school.getCourseList().getById(courseId);
-        System.out.println("*******returned courseId is: " + c.getId());
-        System.out.println("*******course contains: " + c.getContainedMoments());
-        c.addMoment(p);
-        System.out.println("*******course now contains: " + c.getContainedMoments());
+        
+        c.addToMoments(p);
+        school.getCourseList().update(c);
     }
 
     public void updateMoment() {

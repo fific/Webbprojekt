@@ -81,17 +81,17 @@ public class DefaultData {
          u = new User("test3", "222","111", Groups.STUDENT);
         authDAO.create(u);
         
-        Moment m = new Moment("1");
-        mAuthDAO.create(m);
-        
-        m = new Moment("2");
-        mAuthDAO.create(m);
-        
-        m = new Moment("3");
-        mAuthDAO.create(m);
-        
-        m = new Moment("4");
-        mAuthDAO.create(m);
+//        Moment m = new Moment("1");
+//        mAuthDAO.create(m);
+//        
+//        m = new Moment("2");
+//        mAuthDAO.create(m);
+//        
+//        m = new Moment("3");
+//        mAuthDAO.create(m);
+//        
+//        m = new Moment("4");
+//        mAuthDAO.create(m);
         
         Course c = new Course("66", "Gångertabell_1");
        

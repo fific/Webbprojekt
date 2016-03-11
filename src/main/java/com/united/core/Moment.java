@@ -16,12 +16,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  *
- * @author jenny
+ * @author jenny & linn
  */
 
 @Entity
@@ -40,9 +41,14 @@ public class Moment implements Serializable {
     @Column(nullable = false)
     protected String name;
     
+    @ManyToOne
+    @JoinColumn(name = "incourse")
+    private Course course;
+    
     @OneToMany 
     @JoinColumn(name = "HAS") 
     private List<Question> questions;
+    
 
     public Moment() {
     }
@@ -65,6 +71,14 @@ public class Moment implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
     
       public void addQuestion(Question question) {

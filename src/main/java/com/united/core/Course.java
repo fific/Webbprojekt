@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -20,7 +21,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author jenny
+ * @author jenny & linn
  */
 
 @Entity
@@ -34,19 +35,10 @@ public class Course implements Serializable {
     @Column(nullable = false)
     protected String name;
     
-//    @OneToMany 
-//    @JoinColumn(name = "IN_COURSE") 
-//    private List<Moment> containedMoments;
-    
-    @OneToMany 
-    @JoinColumn(name = "IN_COURSE") 
-    private List<Moment> containedMoments;
-    
-    //    @OneToMany 
-//    @ElementCollection(fetch = FetchType.LAZY)
-//    @CollectionTable(name = "COURSES_MOMENTS", 
-//            joinColumns = @JoinColumn(name = "id"))
-//    private List<Moment> containedMoments;
+
+    @OneToMany(orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY)
+    private List<Moment> containedMoments = new ArrayList<>();
     
   
 
@@ -56,8 +48,7 @@ public class Course implements Serializable {
     public Course(String id, String name) {
         this.id = id;
         this.name = name;
-        containedMoments = new ArrayList<>();
-        System.out.println("------course created with: " + getContainedMoments());
+//        containedMoments = new ArrayList<>();
     }
 
     public String getId() {
@@ -76,16 +67,18 @@ public class Course implements Serializable {
         this.name = name;
     }
     
-    public void addMoment(Moment moment) {
-        containedMoments.add(moment);
-    }
 
     public void removeMoment(Moment moment) {
         containedMoments.remove(moment);
     }
     
-    public List<Moment> getContainedMoments() {
+    public List<Moment> getMoments() {
         return containedMoments;
+    }
+    
+    public void addToMoments(Moment moment){
+        moment.setCourse(this);
+        this.containedMoments.add(moment);
     }
 
     @Override
