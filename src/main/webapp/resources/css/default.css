@@ -5,7 +5,9 @@
 
 .container {
     /*background-image: url(../img/banner.jpg);*/
-    
+    color: black;
+    padding-top: 10px;
+    /*padding-top: 70px;  For fixed top navbar*/
 }
 
 header {
@@ -34,7 +36,6 @@ header h1{
 footer {    
     color: white;
     background: #16a085;
-    margin-top: 2pc;
     padding: 1em;
     border-radius: 2px;
     box-shadow: 8px 8px 5px gainsboro;
@@ -49,7 +50,7 @@ footer {
 
 #content {
     padding-top: 2pc;
-    padding-bottom: 5pc;
+    padding-bottom: 4pc;
 }
 
 .section {
@@ -58,30 +59,30 @@ footer {
     box-shadow: 8px 8px 5px gainsboro;
     
 }
-/*
-.loginbox {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}*/
 
-.margin {
-    margin: 2pc;
+.loginbox {
+    /*
+    text-align: center;
+    align-content: center;
+    */
 }
 
-/* for columns
-    -webkit-column-count: 3;  Chrome, Safari, Opera 
-    -moz-column-count: 3;  Firefox 
-    column-count: 3;*/
+.btn-group {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 
+.navbar-fixed-top {
+    border-bottom: 2px solid #4aa3df;
+    background: #fff;
+    text-align: center;
+}
 
 #userbanner {
-    height: 3pc;
-    border-top: 5px solid gainsboro;
     border-bottom: 2px solid #4aa3df;
     background: #fff;
     text-align: right;
-    /*
+    /* for columns
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
@@ -90,7 +91,7 @@ footer {
 
 .partial-form {
     border-radius: 5px;
-    box-shadow: 8px 8px 5px gainsboro;
+    /*box-shadow: 8px 8px 5px gainsboro;*/
     /*max-width: 20pc;*/
 }
 

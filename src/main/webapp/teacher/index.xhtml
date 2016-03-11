@@ -13,22 +13,22 @@
             
             <ui:define name="content">                
                 <h3>Ditt konto</h3>
-                <h:form class="partial-form">
+                <h:form>
                     <h:panelGrid columns="2" class="table">
                         <h:outputLabel value="Id"/>
                         <h:outputText value="#{sessionScope.user.id}"/> 
                         <h:outputLabel value="Identitet" />
                         <h:outputText value="#{sessionScope.user.groups}"/> 
                         <h:outputLabel value="Namn" />
-                        <h:inputText value="#{sessionScope.user.name}"/> 
+                        <h:inputText class="form-control" value="#{sessionScope.user.name}"/> 
                         <h:outputLabel value="Lösenord" />
-                        <h:inputText value="#{sessionScope.user.passwd}"/> 
+                        <h:inputText class="form-control" value="#{sessionScope.user.passwd}"/> 
                     </h:panelGrid>
                     
-                    <div class="btn-group">
-                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default" />
+                    <div class="btn-group" style="margin-left: auto">
+                        <!--<h:commandButton value="Avbryt" immediate="true" class="btn btn-default" />-->
                         <h:commandButton value="Spara" actionListener="#{userController.updateUser()}" 
-                                         class="btn btn-default"/>
+                                         class="btn btn-primary"/>
                     </div>
                 </h:form>
             </ui:define>

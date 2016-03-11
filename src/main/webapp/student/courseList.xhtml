@@ -26,8 +26,7 @@
                     </div>
                     
                     <!-- Must have this to get an id for the ajax render attribute -->
-                    <h:panelGroup id="coursePanel" >
-                        <!-- TODO -->
+                    <h:panelGroup id="coursePanel">
                         <h:dataTable var="course" value="#{courseList.findRange()}"
                                      class="table table-striped">
                         <h:column><h:outputText value="#{course.id}"/></h:column>

@@ -14,19 +14,19 @@
         <ui:composition template="/WEB-INF/template.xhtml">
             <ui:define name="content"> 
 
-                <section class="section">
+                <div>
                     <div class="loginbox"> 
                         <h:form>                    
                             <h:panelGrid columns="2">
-                            <h:outputText value="Användarnamn " />
-                            <h:inputText class="input-sm"  id="username" value="#{login.id}"></h:inputText>
+                            <h:outputLabel value="Användarnamn " />
+                            <h:inputText class="form-control"  id="username" value="#{login.id}"></h:inputText>
                             <h:message for="username"></h:message>
                             <br/>
-                            <h:outputText value="Lösenord " />
-                            <h:inputSecret class="input-sm" id="password" value="#{login.password}"></h:inputSecret>
+                            <h:outputLabel value="Lösenord " />
+                            <h:inputSecret class="form-control" id="password" value="#{login.password}"></h:inputSecret>
                             <h:message for="password"></h:message>
                             <br/><br/>
-                        <h:commandButton class="btn btn-default" action="#{login.login()}"
+                        <h:commandButton class="btn btn-primary" action="#{login.login()}"
                                 value="Logga in"></h:commandButton>
                             </h:panelGrid>
                         </h:form>
@@ -36,10 +36,11 @@
                         <br/>
 
                     </div>
-                </section>
+                </div>
                 
-                <section class="section">
-                    <b>Debugging</b>
+                <!--Temporary div!-->
+                <div>
+                    <p><b>Debugging</b></p>
                     <br/>
                     <!--OLD<br></br>
                     <p><h:link outcome="/partials/teachers/teacherView.xhtml" >Testa lärare vy</h:link></p>
@@ -53,10 +54,10 @@
                 
                     <p><h:link outcome="studentlogin" >Testa logga in som student</h:link></p>
                     <p><h:link outcome="teacherlogin" >Testa logga in som lärare</h:link></p>
-                </section>
+                </div>
                 
-                <section class="section"> 
-                    <div style="text-align: center"><b>Om spelet</b></div>
+                <div class="jumbotron"> 
+                    <p style="text-align: center"><b>Om spelet</b></p>
                     <p><b>Sammanfattning</b>
                     <br/>
                     Vår tanke är att utveckla ett spel i 3D som uppmuntrar eleverna till eget skapande. Spelet är främst tänkt för barn i lågstadie-/mellanstadieåldern. De ska kunna använda sin egen fantasi för att skapa samtidigt som de övar på till exempel läxan. Spelet ska vara dynamiskt på det sättet att läraren kan lägga in olika kurser med olika frågor. Spelet håller själv reda på hur långt varje elev har kommit i kursen.
@@ -68,15 +69,14 @@
                     <br/>
                     Spelets syfte är att främja bättre studieresultat. Tanken är att det helt ska kunna ersätta det traditionella “läxförhörs-tragglandet” med dess tillhörande förhör och bakläxor. Spelet ger repetition av det som läraren bestämt och anpassar frågorna efter elevens individuella nivå. Den repetition som förr kunde kännas som ett “nödvändigt ont” ska nu kunna vändas till en uppskattad lek.
                     </p>
-                    <div style=" margin: 1pc">
-                        <object type="application/x-shockwave-flash" style="width:450px; height:366px;" 
-                                data="//www.youtube.com/v/eNFml7vFP4s?color2=FBE9EC&amp;border=1&amp;rel=0&amp;showsearch=0&amp;version=3&amp;modestbranding=1">
-                            <param name="movie" value="//www.youtube.com/v/eNFml7vFP4s?color2=FBE9EC&amp;border=1&amp;rel=0&amp;showsearch=0&amp;version=3&amp;modestbranding=1" />
-                            <param name="allowFullScreen" value="true" />
-                            <param name="allowscriptaccess" value="always" />
-                        </object>
+
+                    <!--Embed video-->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="//www.youtube.com/v/eNFml7vFP4s"></iframe>
                     </div>
-                </section>
+    
+                    
+                </div>
             </ui:define>
         </ui:composition>
     </h:body>
