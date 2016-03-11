@@ -1,10 +1,12 @@
 package com.united.auth;
 
 import com.united.core.Message;
+import com.united.core.Moment;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -43,13 +45,20 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     protected List<Groups> groups = new ArrayList<>();
     
-    @OneToMany 
-    @JoinColumn(name = "SENT_FROM") 
-    private List<Message> sentMessages;
     
-    @OneToMany 
-    @JoinColumn(name = "SENT_TO") 
-    private List<Message> receivedMessages;
+    //The "one" side of the relation
+    //The "many" side can be found in Message
+    @OneToMany(orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY)
+    private List<Message> sentMessages = new ArrayList<>();
+    
+    //The "one" side of the relation
+    //The "many" side can be found in Message
+    @OneToMany(orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY)
+    private List<Message> receivedMessages = new ArrayList<>();
+    
+    
 
     public User() {
     }

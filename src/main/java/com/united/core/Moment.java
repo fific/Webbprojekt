@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -41,13 +42,17 @@ public class Moment implements Serializable {
     @Column(nullable = false)
     protected String name;
     
+    //The "many" side of the relation
+    //The "one" side can be found in Course
     @ManyToOne
-    @JoinColumn(name = "incourse")
+    @JoinColumn(name = "IN_COURSE")
     private Course course;
     
-    @OneToMany 
-    @JoinColumn(name = "HAS") 
-    private List<Question> questions;
+    
+    @OneToMany(orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
+            fetch = FetchType.LAZY)
+    private List<Question> questions = new ArrayList<>();
+    
     
 
     public Moment() {
@@ -81,15 +86,16 @@ public class Moment implements Serializable {
         this.course = course;
     }
     
-      public void addQuestion(Question question) {
-        questions.add(question);
+    public void addToQuestions(Question question){
+//        question.setMoment(this);
+//        this.questions.add(question);
     }
 
     public void removeQuestion(Question question) {
         questions.remove(question);
     }
     
-    public List<Question> getContainedQuestionss() {
+    public List<Question> getQuestionss() {
         return questions;
     }
     

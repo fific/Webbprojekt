@@ -14,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -31,6 +32,18 @@ public class Message implements Serializable {
     protected String id;
     @Column(nullable = false)
     protected String text;
+    
+    //The "many" side of the relation
+    //The "one" side can be found in User
+    @ManyToOne
+    @JoinColumn(name = "SENT_FROM")
+    private User sender;
+    
+    //The "many" side of the relation
+    //The "one" side can be found in User
+    @ManyToOne
+    @JoinColumn(name = "SENT_TO")
+    private User recipient;
 
     public Message() {
     }

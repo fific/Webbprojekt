@@ -36,11 +36,12 @@ public class Course implements Serializable {
     protected String name;
     
 
+    //The "one" side of the relation
+    //The "many" side can be found in Moment
     @OneToMany(orphanRemoval = true, cascade = {CascadeType.PERSIST, CascadeType.REMOVE},
             fetch = FetchType.LAZY)
     private List<Moment> containedMoments = new ArrayList<>();
     
-  
 
     public Course() {
     }
@@ -48,7 +49,6 @@ public class Course implements Serializable {
     public Course(String id, String name) {
         this.id = id;
         this.name = name;
-//        containedMoments = new ArrayList<>();
     }
 
     public String getId() {
@@ -67,7 +67,6 @@ public class Course implements Serializable {
         this.name = name;
     }
     
-
     public void removeMoment(Moment moment) {
         containedMoments.remove(moment);
     }
