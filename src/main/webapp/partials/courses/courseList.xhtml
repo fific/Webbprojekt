@@ -17,14 +17,16 @@
                 <h:link outcome="addCourse.xhtml" >Ny kurs</h:link>
                 <h:form>
                     
-                    <h:commandButton value="Föregående" actionListener="#{courseList.prev()}">
+                    <div class="btn-group">
+                    <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{courseList.prev()}">
                         <f:ajax execute="@form" render="coursePanel" />
                     </h:commandButton>
 
-                    <h:commandButton value="Nästa" actionListener="#{courseList.next()}">
+                    <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{courseList.next()}">
                         <f:ajax execute="@form" render="coursePanel" />
                     </h:commandButton>
-                    
+                    </div>
+                        
                     <!-- Must have this to get an id for the ajax render attribute -->
                     <h:panelGroup id="coursePanel" >
                         <!-- TODO -->

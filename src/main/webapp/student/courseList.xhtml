@@ -15,13 +15,15 @@
                 <h:link outcome="/partials/courses/addCourse.xhtml" >Ny kurs</h:link>
                 <h:form>
                     
-                    <h:commandButton value="Prev" actionListener="#{courseList.prev()}">
-                        <f:ajax execute="@form" render="coursePanel" />
-                    </h:commandButton>
+                    <div class="btn-group">
+                        <h:commandButton class="btn btn-default" value="Prev" actionListener="#{courseList.prev()}">
+                            <f:ajax execute="@form" render="coursePanel" />
+                        </h:commandButton>
 
-                    <h:commandButton value="Next" actionListener="#{courseList.next()}">
-                        <f:ajax execute="@form" render="coursePanel" />
-                    </h:commandButton>
+                        <h:commandButton class="btn btn-default" value="Next" actionListener="#{courseList.next()}">
+                            <f:ajax execute="@form" render="coursePanel" />
+                        </h:commandButton>
+                    </div>
                     
                     <!-- Must have this to get an id for the ajax render attribute -->
                     <h:panelGroup id="coursePanel" >

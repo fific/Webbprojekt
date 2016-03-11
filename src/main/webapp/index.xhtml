@@ -18,22 +18,22 @@
                     <div class="loginbox"> 
                         <h:form>                    
                             <h:panelGrid columns="2">
-                            <h:outputText value="Användarnamn: " />
-                            <h:inputText id="username" value="#{login.id}"></h:inputText>
+                            <h:outputText value="Användarnamn " />
+                            <h:inputText class="input-sm"  id="username" value="#{login.id}"></h:inputText>
                             <h:message for="username"></h:message>
                             <br/>
-                            <h:outputText value="Lösenord: " />
-                            <h:inputSecret id="password" value="#{login.password}"></h:inputSecret>
+                            <h:outputText value="Lösenord " />
+                            <h:inputSecret class="input-sm" id="password" value="#{login.password}"></h:inputSecret>
                             <h:message for="password"></h:message>
                             <br/><br/>
-                            <h:commandButton action="#{login.login()}"
+                        <h:commandButton class="btn btn-default" action="#{login.login()}"
                                 value="Logga in"></h:commandButton>
                             </h:panelGrid>
                         </h:form>
-                        
+                        <br/>
                         <p><h:link outcome="register" >Registera nytt konto</h:link></p>
 
-                        <br></br>
+                        <br/>
 
                     </div>
                 </section>

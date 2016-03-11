@@ -35,13 +35,16 @@
 
 
                 <h:form>
-                    <h:commandButton value="Föregående" actionListener="#{questionList.prev()}">
-                        <f:ajax execute="@form" render="momentPanel" />
-                    </h:commandButton>
+                    
+                    <div class="btn-group">
+                        <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{questionList.prev()}">
+                            <f:ajax execute="@form" render="momentPanel" />
+                        </h:commandButton>
 
-                    <h:commandButton value="Nästa" actionListener="#{questionList.next()}">
-                        <f:ajax execute="@form" render="momentPanel" />
-                    </h:commandButton>
+                        <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{questionList.next()}">
+                            <f:ajax execute="@form" render="momentPanel" />
+                        </h:commandButton>
+                    </div>
 
                     <h:panelGroup id="questionPanel" >
                         <h:dataTable var="question" value="#{questionList.findRange()}"

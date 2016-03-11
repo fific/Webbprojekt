@@ -15,13 +15,16 @@
             <ui:define name="content">
                 <h3>Elever</h3>
                 <h:form>
-                    <h:commandButton value="Föregående" actionListener="#{userList.prev()}">
-                        <f:ajax execute="@form" render="productPanel" />
-                    </h:commandButton>
+                    
+                    <div class="btn-group">
+                        <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{userList.prev()}">
+                            <f:ajax execute="@form" render="productPanel" />
+                        </h:commandButton>
 
-                    <h:commandButton value="Nästa" actionListener="#{userList.next()}">
-                        <f:ajax execute="@form" render="productPanel" />
-                    </h:commandButton>
+                        <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{userList.next()}">
+                            <f:ajax execute="@form" render="productPanel" />
+                        </h:commandButton>
+                    </div>
                     
                     <h:panelGroup id="productPanel" >
                         <h:dataTable var="student" value="#{userList.findStudentRange()}"
