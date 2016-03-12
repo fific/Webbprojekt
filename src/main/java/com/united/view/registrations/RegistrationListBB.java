@@ -1,6 +1,7 @@
 package com.united.view.registrations;
 
 
+import com.united.auth.User;
 import com.united.view.courses.*;
 import com.united.core.Course;
 import com.united.core.CourseList;
@@ -10,8 +11,12 @@ import com.united.core.SingletonSchool;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
@@ -36,7 +41,11 @@ public class RegistrationListBB implements Serializable {
     
     public List<Registration> findRange() {
         return school.getRegistrationList().findRange(currentPage * pageSize, pageSize);
-//        return new ArrayList<>();
+        
+    }
+    
+    public List<Registration> getRegistrations() {
+        return school.getRegistrationList().getAllRegistrationsForUsername();
     }
 
     @PostConstruct

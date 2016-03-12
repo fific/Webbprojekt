@@ -3,14 +3,18 @@ package com.united.ctrl;
 
 
 
+import com.united.auth.User;
 import com.united.core.Registration;
 import com.united.core.School;
 import com.united.view.registrations.AddRegistrationBB;
 import com.united.view.registrations.DeleteRegistrationBB;
+import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -33,8 +37,12 @@ public class RegistrationController {
    
      public void newRegistration() {
        LOG.log(Level.INFO, "Backing bean " + addBB);
-       Registration p = new Registration(addBB.getUser(), addBB.getCourse());
-        school.getRegistrationList().create(p);
+       ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+       Map<String, Object> sessionMap = externalContext.getSessionMap();
+       User u = (User) sessionMap.get("user");
+        
+       Registration p = new Registration(u, addBB.getCourse());
+       school.getRegistrationList().create(p);
     }
 
     public void deleteRegistration() {

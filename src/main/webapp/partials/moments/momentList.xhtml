@@ -16,13 +16,13 @@
     <h:body>
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                <h3>Dina moment</h3>
+                <h3>Moment #{course.id}</h3>
 
                 <!--<h:link outcome="addMoment.xhtml" >Nytt moment</h:link>-->
                 
-                <h:link outcome="addMoment.xhtml" >Nytt moment
+                <!--<h:link outcome="addMoment.xhtml" >Nytt moment
                     <f:param name="course_id" value="#{momentList.courseId}" />
-                </h:link>
+                </h:link>-->
                 
                 <!--<h:link value="Nytt moment" outcome="addMoment.xhtml" >Nytt moment</h:link>-->
                 
@@ -35,13 +35,16 @@
 
 
                 <h:form>
-                    <h:commandButton value="Föregående" actionListener="#{momentList.prev()}">
-                        <f:ajax execute="@form" render="momentPanel" />
-                    </h:commandButton>
+                    
+                    <div class="btn-group">
+                        <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{momentList.prev()}">
+                            <f:ajax execute="@form" render="momentPanel" />
+                        </h:commandButton>
 
-                    <h:commandButton value="Nästa" actionListener="#{momentList.next()}">
-                        <f:ajax execute="@form" render="momentPanel" />
-                    </h:commandButton>
+                        <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{momentList.next()}">
+                            <f:ajax execute="@form" render="momentPanel" />
+                        </h:commandButton>
+                    </div>
 
                     <h:panelGroup id="momentPanel" >
                         <h:dataTable var="moment" value="#{momentList.findRange()}"
@@ -69,6 +72,10 @@
                             </h:column>   
                         </h:dataTable>                
                     </h:panelGroup>
+                    
+                     <h:button class="btn btn-primary" outcome="addMoment.xhtml"
+                                value="Skapa moment"></h:button>
+
                 </h:form>
 
             </ui:define>

@@ -14,7 +14,7 @@
         <ui:composition template="/WEB-INF/studentTemplate.xhtml">
             <ui:define name="content">
                 <h3>Dina registrerade kurser</h3>
-                <h:link outcome="addRegistration.xhtml" >Gå med i kurs</h:link>
+                
                 <h:form>
                     
                     <div class="btn-group">
@@ -30,31 +30,32 @@
                     <!-- Must have this to get an id for the ajax render attribute -->
                     <h:panelGroup id="registrationPanel" >
                         <!-- TODO -->
-                        <h:dataTable var="registration" value="#{registrationList.findRange()}"
+                        <h:dataTable var="registration" value="#{registrationList.getRegistrations()}"
                                      class="table table-striped">
-                        <h:column><h:outputText value="#{registration.id}"/></h:column>
-                        <h:column><h:outputText value="#{registration.name}"/></h:column>
+                            <h:column><h:outputText value="#{registration.course.id}"/></h:column>
+                            <h:column><h:outputText value="#{registration.course.name}"/></h:column>
                         
                         <h:column>
                             <h:link value="Se moment" outcome="/partials/moments/momentList.xhtml">
                                 <f:param name="registration_id" value="#{registration.id}" />
+                                <f:param name="registration_name" value="#{registration.course.id}" />
                             </h:link>
                          </h:column>   
                         
                         
                         <h:column>
-                            <h:link value="Ta bort kurs" outcome="deleteRegistration.xhtml">
+                            <h:link value="Lämna kurs" outcome="deleteRegistration.xhtml">
                                 <f:param name="id" value="#{registration.id}" />
-                                <f:param name="name" value="#{registration.name}" />
 
                             </h:link>
                          </h:column>   
-                         
-                            
-                            
                             
                         </h:dataTable>                
                     </h:panelGroup>
+                    
+                   <h:button class="btn btn-primary" outcome="addRegistration.xhtml"
+                                value="Lägg till kurs"></h:button>
+                    
                 </h:form>
 
             </ui:define>

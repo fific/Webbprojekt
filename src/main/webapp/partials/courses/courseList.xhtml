@@ -14,7 +14,7 @@
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
                 <h3>Dina kurser</h3>
-                <h:link outcome="addCourse.xhtml" >Ny kurs</h:link>
+
                 <h:form>
                     
                     <div class="btn-group">
@@ -29,7 +29,7 @@
                         
                     <!-- Must have this to get an id for the ajax render attribute -->
                     <h:panelGroup id="coursePanel" >
-                        <!-- TODO -->
+                        <!-- TODO Get created courses-->
                         <h:dataTable var="course" value="#{courseList.findRange()}"
                                      class="table table-striped">
                         <h:column><h:outputText value="#{course.id}"/></h:column>
@@ -64,6 +64,10 @@
                             
                         </h:dataTable>                
                     </h:panelGroup>
+                    
+                        <h:button class="btn btn-primary" outcome="addCourse.xhtml"
+                                value="Skapa kurs"></h:button>
+                    
                 </h:form>
 
             </ui:define>

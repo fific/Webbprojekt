@@ -1,11 +1,16 @@
 package com.united.core;
 
+import com.united.auth.User;
 import com.united.persistence.AbstractDAO;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -42,10 +47,14 @@ public class RegistrationList extends AbstractDAO<Registration, Long> {
                 setParameter("id", id).getResultList();
     }
     //untested
-    public List<Registration> getAllRegistrationsForUsername(String userName) {
-        String jpql = "select * from Registration r where r.user_id=:userName";
+    public List<Registration> getAllRegistrationsForUsername() {
+       ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+       Map<String, Object> sessionMap = externalContext.getSessionMap();
+       User u = (User) sessionMap.get("user");
+        
+        String jpql = "select r from Registration r where r.user=:user";
         return em.createQuery(jpql, Registration.class).
-                setParameter("user_id", userName).getResultList();
+                setParameter("user", u).getResultList();
     }
     
     
