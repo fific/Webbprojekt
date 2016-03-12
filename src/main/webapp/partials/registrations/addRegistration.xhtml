@@ -31,8 +31,8 @@
                         <!-- Alla kurser som är skapad -->
                         <h:dataTable var="course" value="#{courseList.findRange()}"
                                      class="table table-striped">
-                        <h:column><h:outputText value="#{course.id}"/></h:column>
-                        <h:column><h:outputText value="#{course.name}"/></h:column>  
+                        <h:column><f:facet name="header">Kurskod</f:facet><h:outputText value="#{course.id}"/></h:column>
+                        <h:column><f:facet name="header">Kursnamn</f:facet><h:outputText value="#{course.name}"/></h:column>  
                         <!--<h:column><h:commandButton value="Anslut till #{course.id}" actionListener="#{registrationController.newRegistration()}" 
                                          action="registrationList?faces-redirect=true" 
                                          class="btn btn-default"/></h:column>-->

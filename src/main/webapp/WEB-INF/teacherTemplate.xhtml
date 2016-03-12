@@ -18,7 +18,7 @@
 
     <h:body class="container" >
         <div id="userbanner">            
-            <div> Inloggad som #{sessionScope.user.id}
+            <div>
                 <h:form><h:commandLink action="#{login.logout()}">Logga ut</h:commandLink></h:form>
             </div> 
         </div>  
@@ -34,7 +34,9 @@
                 <h:link value="Kurser" class="navbar-brand" outcome="courses" />
                 <h:link value="Statistik" class="navbar-brand" outcome="statistics" />  
                 <h:link value="Konto" class="navbar-brand" outcome="teacherlogin" />  
-            </nav>
+                <p class="navbar-text">Välkommen #{sessionScope.user.name}</p>
+                <p class="navbar-text navbar-right">Inloggad som <a href="#" class="navbar-link">#{sessionScope.user.id}</a></p>
+            </nav>  
             <ui:insert name="content">Content</ui:insert>
         </div>
         <footer>

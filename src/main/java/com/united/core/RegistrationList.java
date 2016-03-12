@@ -46,7 +46,7 @@ public class RegistrationList extends AbstractDAO<Registration, Long> {
         return em.createQuery(jpql, Registration.class).
                 setParameter("id", id).getResultList();
     }
-    //untested
+    
     public List<Registration> getAllRegistrationsForUsername() {
        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
        Map<String, Object> sessionMap = externalContext.getSessionMap();

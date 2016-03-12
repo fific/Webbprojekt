@@ -20,11 +20,16 @@
             <ui:define name="content">
                 <h3>Ändra elev</h3>
                 <h:form class="partial-form">
-                    <h:panelGrid columns="2" class="table">
-                        <h:outputLabel value="Elevid"/>
+                    <h:panelGrid columns="3" class="table">
+                        <h:outputLabel value="Användarnamn"/>
                         <h:outputText value="#{editUser.id}"/> 
-                        <h:outputLabel value="Elevnamn" />
+                        <h:message for="id"/>
+                        <h:outputLabel value="Namn" />
                         <h:inputText class="form-control" value="#{editUser.name}"/> 
+                        <h:message for="name"/>
+                        <h:outputLabel value="Lösenord" />
+                        <h:inputText class="form-control" value="#{editUser.password}"/> 
+                        <h:message for="password"/>
                     </h:panelGrid>
                     
                     <div class="btn-group">

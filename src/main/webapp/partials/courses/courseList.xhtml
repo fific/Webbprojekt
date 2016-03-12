@@ -32,8 +32,8 @@
                         <!-- TODO Get created courses-->
                         <h:dataTable var="course" value="#{courseList.findRange()}"
                                      class="table table-striped">
-                        <h:column><h:outputText value="#{course.id}"/></h:column>
-                        <h:column><h:outputText value="#{course.name}"/></h:column>
+                        <h:column><f:facet name="header">Kurskod</f:facet><h:outputText value="#{course.id}"/></h:column>
+                        <h:column><f:facet name="header">Kursnamn</f:facet><h:outputText value="#{course.name}"/></h:column>
 
                         
                         <h:column>

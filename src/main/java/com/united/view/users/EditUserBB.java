@@ -13,11 +13,9 @@ public class EditUserBB {
 
     private String id;
     
-    @Size(min = 4, max = 20, message = "Använd mellan 4 och 20 tecken.")
+    //@Size(min = 4, max = 20, message = "Använd mellan 4 och 20 tecken.")
     private String name;
     
-     // Hopeless to validate numbers (?!?!) because, user possibly enters non-digits
-    @Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "{student.passwd}")
     private String password;
     
     private Groups groups;
