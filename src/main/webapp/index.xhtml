@@ -15,8 +15,8 @@
             <ui:define name="content"> 
 
                 <div>
-                    <div class="loginbox"> 
-                        <h:form>                    
+                    <div class="loginbox pull-right "> 
+                        <h:form class="partial-form">                        
                             <h:panelGrid columns="2">
                             <h:outputLabel value="Användarnamn " />
                             <h:inputText class="form-control"  id="username" value="#{login.id}"></h:inputText>
@@ -25,16 +25,13 @@
                             <h:outputLabel value="Lösenord " />
                             <h:inputSecret class="form-control" id="password" value="#{login.password}"></h:inputSecret>
                             <h:message for="password"></h:message>
-                            <br/><br/>
-                        <h:commandButton class="btn btn-primary" action="#{login.login()}"
+                            <br/>
+                            <h:commandButton class="btn btn-primary" action="#{login.login()}"
                                 value="Logga in"></h:commandButton>
+                            <h:link class="btn btn-link btn-block" outcome="register" >Registera nytt konto</h:link>
                             </h:panelGrid>
                         </h:form>
                         <br/>
-                        <p><h:link outcome="register" >Registera nytt konto</h:link></p>
-
-                        <br/>
-
                     </div>
                 </div>
                 
@@ -57,16 +54,15 @@
                 </div>
                 
                 <div class="jumbotron"> 
-                    <p style="text-align: center"><b>Om spelet</b></p>
-                    <p><b>Sammanfattning</b>
+                    <h2 style="text-align: center"><b>Om spelet</b></h2>
+                    <p>
                     <br/>
                     Vår tanke är att utveckla ett spel i 3D som uppmuntrar eleverna till eget skapande. Spelet är främst tänkt för barn i lågstadie-/mellanstadieåldern. De ska kunna använda sin egen fantasi för att skapa samtidigt som de övar på till exempel läxan. Spelet ska vara dynamiskt på det sättet att läraren kan lägga in olika kurser med olika frågor. Spelet håller själv reda på hur långt varje elev har kommit i kursen.
                     Särskilda vyer ska göras för lärare, elever och föräldrar.
                     Spelet är tänkt att utvecklas för Android, iOS och PC.
                     </p>
                     <br/>
-                    <p><b>Syfte och Mål</b>
-                    <br/>
+                    <p>
                     Spelets syfte är att främja bättre studieresultat. Tanken är att det helt ska kunna ersätta det traditionella “läxförhörs-tragglandet” med dess tillhörande förhör och bakläxor. Spelet ger repetition av det som läraren bestämt och anpassar frågorna efter elevens individuella nivå. Den repetition som förr kunde kännas som ett “nödvändigt ont” ska nu kunna vändas till en uppskattad lek.
                     </p>
 

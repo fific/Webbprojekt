@@ -30,14 +30,16 @@
                         <h:message for="passwd"/>
                         
                         <label for="role">Roll</label>
-                        <h:selectOneMenu class="" value="#{addUser.groups}">
-                            <f:selectItem itemValue="STUDENT" itemLabel="Elev"/>
-                            <f:selectItem itemValue="TEACHER" itemLabel="Lärare"/>
+                        <h:selectOneMenu class="btn btn-default dropdown-toggle" value="#{addUser.groups}">
+                            <ul class="dropdown-menu">
+                                <li><f:selectItem itemValue="STUDENT" itemLabel="Elev"/></li>
+                                <li><f:selectItem itemValue="TEACHER" itemLabel="Lärare"/></li>
+                            </ul>
                         </h:selectOneMenu>
-
                     </h:panelGrid>
+                    
                     <div class="btn-group">
-                        <h:commandButton value="Tillbaka" immediate="true" class="btn btn-default"
+                        <h:commandButton value="Tillbaka" immediate="true" class="btn btn-default "
                                          action="home" />
                         <h:commandButton value="Registrera" actionListener="#{userController.newUser()}" 
                                          class="btn btn-default"/>

@@ -11,36 +11,37 @@
     <h:body>
         <ui:composition template="/WEB-INF/studentTemplate.xhtml">
             <ui:define name="content">
-                <h3>Dina registrerade kurser</h3>
-                <h:link outcome="/partials/courses/addCourse.xhtml" >Ny kurs</h:link>
-                <h:form>
-                    
+                <h3>Dina registrerade kurser</h3>   
+                
+                <h:form>   
                     <div class="btn-group">
-                        <h:commandButton class="btn btn-default" value="Prev" actionListener="#{courseList.prev()}">
+                        <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{courseList.prev()}">
                             <f:ajax execute="@form" render="coursePanel" />
                         </h:commandButton>
 
-                        <h:commandButton class="btn btn-default" value="Next" actionListener="#{courseList.next()}">
+                        <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{courseList.next()}">
                             <f:ajax execute="@form" render="coursePanel" />
                         </h:commandButton>
                     </div>
                     
                     <!-- Must have this to get an id for the ajax render attribute -->
                     <h:panelGroup id="coursePanel">
+                        <h:outputText>Kurskod</h:outputText>
+                        <h:outputText>Kursnamn</h:outputText>
                         <h:dataTable var="course" value="#{courseList.findRange()}"
                                      class="table table-striped">
                         <h:column><h:outputText value="#{course.id}"/></h:column>
                         <h:column><h:outputText value="#{course.name}"/></h:column>
                         
                         <h:column>
-                            <h:link value="Edit" outcome="/partials/courses/editCourse.xhtml">
+                            <h:link value="Redigera " outcome="/partials/courses/editCourse.xhtml">
                                 <f:param name="id" value="#{course.id}" />
                                 <f:param name="name" value="#{course.name}" />
                             </h:link>
                          </h:column>   
                         
                         <h:column>
-                            <h:link value="Del" outcome="/partials/courses/deleteCourse.xhtml">
+                            <h:link value="Ta bort" outcome="/partials/courses/deleteCourse.xhtml">
                                 <f:param name="id" value="#{course.id}" />
                                 <f:param name="name" value="#{course.name}" />
                             </h:link>
@@ -51,6 +52,8 @@
                             
                         </h:dataTable>                
                     </h:panelGroup>
+                    <h:button class="btn btn-primary" outcome="/partials/courses/addCourse.xhtml"
+                        value="Lägg till kurs"></h:button>
                 </h:form>
 
             </ui:define>
