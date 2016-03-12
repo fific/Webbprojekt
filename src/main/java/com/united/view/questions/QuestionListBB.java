@@ -2,7 +2,9 @@ package com.united.view.questions;
 
 
 
+import com.united.core.Course;
 import com.united.core.CourseList;
+import com.united.core.Moment;
 import com.united.core.MomentList;
 import com.united.core.Question;
 import com.united.core.QuestionList;
@@ -50,6 +52,9 @@ public String getMomentId() {
     }
 
     public List<Question> findRange() {
+        //Moment selectedMoment = moments.getById(momentId);
+        //return selectedMoment.getQuestions();
+        
         return school.getQuestionList().findRange(currentPage * pageSize, pageSize);
     }
     

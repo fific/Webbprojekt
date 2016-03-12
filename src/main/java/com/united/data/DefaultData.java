@@ -141,10 +141,10 @@ public class DefaultData {
         
 
         
-        mAuthDAO.delete(mAuthDAO.getByName("1").getId());
-        mAuthDAO.delete(mAuthDAO.getByName("2").getId());
-        mAuthDAO.delete(mAuthDAO.getByName("3").getId());
-        mAuthDAO.delete(mAuthDAO.getByName("4").getId());
+        mAuthDAO.delete(mAuthDAO.getById("1").getId());
+        mAuthDAO.delete(mAuthDAO.getById("2").getId());
+        mAuthDAO.delete(mAuthDAO.getById("3").getId());
+        mAuthDAO.delete(mAuthDAO.getById("4").getId());
         
         cAuthDAO.delete("66");
         cAuthDAO.delete("67");

@@ -10,8 +10,8 @@ import javax.validation.constraints.Size;
 @RequestScoped 
 public class DeleteQuestionBB {
 
-    @Size(min = 1, max = 20, message = "{question.id}")
-    private int id;
+    @Size(min = 1, max = 200, message = "{question.id}")
+    private String id;
     
     @Size(min = 1, max = 100, message = "{question.name}")
     private String question;
@@ -27,8 +27,12 @@ public class DeleteQuestionBB {
         return answer;
     }
     
-    public int getId() {
+    public String getId() {
         return id;
+    }
+    
+   public void setId(String id) {
+        this.id = id;
     }
     
     @Override

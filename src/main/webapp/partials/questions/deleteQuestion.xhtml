@@ -7,25 +7,22 @@
     
      <f:metadata>
         <f:viewParam name="id" value="#{deleteQuestion.id}"  />
-        <f:viewParam name="name" value="#{deleteQuestion.name}"  />
     </f:metadata>
     
-    
-    <h:head>
+     <h:head>
         <title>Ta bort fråga</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                <h3>Ta bort fråga</h3>
-                <p>Id set by application (database)</p>
-                <h:form class="partial-form">
+               <h3>Ta bort fråga</h3>
+               <p>Id set by application (database)</p>
+               
+                   <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
-                        <h:outputLabel value="Frågekod"/>
+                        <h:outputLabel value="FrågeId"/>
                         <h:outputText value="#{deleteQuestion.id}"/> 
-                        <h:outputLabel value="Frågenamn" />
-                        <h:outputText id="name" value="#{deleteQuestion.name}"/>
                     </h:panelGrid>
                         
                     <div class="btn-group"> 
@@ -36,8 +33,9 @@
                                          class="btn btn-default"/>
               </div>
                 </h:form>
-
+                
             </ui:define>
+            
         </ui:composition>
-    </h:body>
+            </h:body>
 </html>

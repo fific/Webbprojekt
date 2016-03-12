@@ -44,7 +44,8 @@ public class QuestionController {
     }
 
     public void deleteQuestion() {
-       int id = delBB.getId();
+       //int id = delBB.getId();
+        int id = Integer.parseInt(delBB.getId());
        school.getQuestionList().delete(id);
     }
 

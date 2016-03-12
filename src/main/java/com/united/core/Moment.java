@@ -95,7 +95,7 @@ public class Moment implements Serializable {
         questions.remove(question);
     }
     
-    public List<Question> getQuestionss() {
+    public List<Question> getQuestions() {
         return questions;
     }
     
