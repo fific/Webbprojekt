@@ -16,13 +16,11 @@
     <h:body>
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                <h3>Frågorna</h3>
+                <h3> Frågor som till hör det här momentet</h3>
 
                 <!--<h:link outcome="addMoment.xhtml" >Nytt moment</h:link>-->
                 
-                <h:link outcome="addQuestion.xhtml" >Ny fråga
-                    <f:param name="moment_id" value="#{questionList.momentId}" />
-                </h:link>
+                
                 
                 <!--<h:link value="Nytt moment" outcome="addMoment.xhtml" >Nytt moment</h:link>-->
                 
@@ -32,46 +30,48 @@
                                 <f:param name="course_name" value="#{course.name}" />
 
                             </h:link>-->
+                
+            
 
 
                 <h:form>
                     
-                    <div class="btn-group">
-                        <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{questionList.prev()}">
-                            <f:ajax execute="@form" render="momentPanel" />
+                    <h:commandButton value="Föregående" actionListener="#{questionList.prev()}">
+                            <f:ajax execute="@form" render="questionPanel" />
                         </h:commandButton>
-
-                        <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{questionList.next()}">
-                            <f:ajax execute="@form" render="momentPanel" />
+                    
+                    <h:commandButton value="Nästa" actionListener="#{questionList.next()}">
+                            <f:ajax execute="@form" render="questionPanel" />
                         </h:commandButton>
-                    </div>
-
+                    
                     <h:panelGroup id="questionPanel" >
+                        
                         <h:dataTable var="question" value="#{questionList.findRange()}"
                                      class="table table-striped">
+                            
                             <h:column><h:outputText value="#{question.id}"/></h:column>
-                            <h:column><h:outputText value="#{question.name}"/></h:column>
-
-                            <h:column>
-                                <h:link value="Hantera frågor" outcome="/partials/questions/questionList.xhtml">
-                                </h:link>
-                            </h:column>   
-
-                            <h:column>
+                            
+                            <h:column><h:outputText value="#{question.question}"/></h:column>
+                            
+                            <h:column><h:outputText value="#{question.answer}"/></h:column>
+                            
+                             <h:column>
                                 <h:link value="Redigera fråga" outcome="editQuestion.xhtml">
                                     <f:param name="id" value="#{question.id}" />
-                                    <f:param name="name" value="#{question.name}" />
+                                    
                                 </h:link>
-                            </h:column>   
-
+                            </h:column>  
+                            
                             <h:column>
                                 <h:link value="Ta bort fråga" outcome="deleteQuestion.xhtml">
-                                    <f:param name="id" value="#{question.id}" />
-                                    <f:param name="name" value="#{question.name}" />
+                                    <f:param name="id" value="#{question.id}" />             
                                 </h:link>
-                            </h:column>   
-                        </h:dataTable>                
-                    </h:panelGroup>
+                            </h:column> 
+                            
+                            </h:dataTable>
+                        
+                        </h:panelGroup>
+                    
                 </h:form>
 
             </ui:define>

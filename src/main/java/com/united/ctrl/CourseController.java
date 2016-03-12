@@ -1,8 +1,5 @@
 package com.united.ctrl;
 
-
-
-
 import com.united.core.Course;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
