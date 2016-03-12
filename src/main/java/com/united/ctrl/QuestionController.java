@@ -1,12 +1,14 @@
 package com.united.ctrl;
 
 
+import com.united.core.Course;
 import com.united.core.Question;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
 import com.united.view.questions.AddQuestionBB;
 import com.united.view.questions.DeleteQuestionBB;
 import com.united.view.questions.EditQuestionBB;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
@@ -39,8 +41,11 @@ public class QuestionController {
     }
 
      public void updateQuestion() {
-       Question p = new Question(editBB.getId(), editBB.getQuestion(), editBB.getAnswer());
-       school.getQuestionList().update(p);    
+       //Question p = new Question(editBB.getId(), editBB.getQuestion(), editBB.getAnswer());
+       //school.getQuestionList().update(p); 
+       
+       Question q = new Question(editBB.getId(), editBB.getQuestion(), editBB.getAnswer());
+       school.getQuestionList().update(q); 
     }
 
     public void deleteQuestion() {

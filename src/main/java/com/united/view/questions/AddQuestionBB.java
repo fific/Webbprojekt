@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 public class AddQuestionBB {
 
     @Size(min = 1, max = 20, message = "{question.id}")
-    private int id;
+    private String id;
     
     @Size(min = 1, max = 100, message = "{question.name}")
     private String question;
@@ -37,11 +37,11 @@ public class AddQuestionBB {
         this.answer = answer;
     }
     
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     

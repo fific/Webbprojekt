@@ -7,7 +7,6 @@
 
     <f:metadata>
         <f:viewParam name="id" value="#{editQuestion.id}"  />
-        <f:viewParam name="name" value="#{editQuestion.name}"  />
     </f:metadata>
    
     <h:head>
@@ -21,8 +20,13 @@
                  
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
-                        <h:outputLabel value="Nytt frågenamn" />
-                        <h:inputText value="#{editQuestion.name}"/> 
+                        <h:outputLabel value="Ny fråga" />
+                        <h:inputText value="#{editQuestion.question}"/> 
+                    </h:panelGrid>
+                    
+                    <h:panelGrid columns="2" class="table">
+                        <h:outputLabel value="Nytt svar" />
+                        <h:inputText value="#{editQuestion.answer}"/> 
                     </h:panelGrid>
                     
                     <div class="btn-group">

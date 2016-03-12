@@ -29,7 +29,7 @@ public class Question implements Serializable {
     
     @Id
     @Column(nullable = false)  // unique is implied
-    protected int id;
+    protected String id;
     
     @Column(nullable = false)
     protected String question;
@@ -40,17 +40,17 @@ public class Question implements Serializable {
     public Question() {
     }
 
-    public Question(int id, String question, String answer) {
+    public Question(String id, String question, String answer) {
         this.id = id;
         this.question = question;
         this.answer = answer;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
