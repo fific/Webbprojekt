@@ -12,27 +12,6 @@
         <ui:composition template="/WEB-INF/studentTemplate.xhtml">
 
             <ui:define name="content">
-                <!--
-                <h3>Gå med i kurs</h3>
-                
-                <h:form class="partial-form">
-                    <h:panelGrid columns="3" class="table">
-
-                        <h:outputLabel value="Kurskod" />
-                        <h:inputText class="form-control" id="course" value="#{addRegistration.course}"/>
-                        <h:message for="course"/>
-
-                    </h:panelGrid>
-                    <div class="btn-group">
-                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
-                                         action="courseList?faces-redirect=true" />
-                        <h:commandButton value="Lägg till" actionListener="#{registrationController.newRegistration()}" 
-                                         action="courseList?faces-redirect=true" 
-                                         class="btn btn-default"/>
-                    </div>
-                </h:form>
-                -->
-                
                 <h3>Gå med i kurs</h3>
                 <h:form>   
                     <div class="btn-group">
@@ -54,20 +33,23 @@
                                      class="table table-striped">
                         <h:column><h:outputText value="#{course.id}"/></h:column>
                         <h:column><h:outputText value="#{course.name}"/></h:column>  
-                        
-                        <h:column>
-<!--                            <h:link value="Anslut till" outcome="deleteCourse.xhtml">
-                                <f:param name="id" value="#{course.id}" />
-                                <f:param name="name" value="#{course.name}" />
-                            </h:link>-->
-                            <!-- Registrera på en kurs -->
-                            
-                            <h:commandButton value="Anslut till" actionListener="#{registrationController.newRegistration()}" 
+                        <!--<h:column><h:commandButton value="Anslut till #{course.id}" actionListener="#{registrationController.newRegistration()}" 
                                          action="registrationList?faces-redirect=true" 
-                                         class="btn btn-default"/>
-                         </h:column>   
+                                         class="btn btn-default"/></h:column>-->
+
                         </h:dataTable>                
                     </h:panelGroup>
+                        <h:inputText class="form-control" id="course" value="#{addRegistration.id}"></h:inputText>
+                        <h:message for="course"/>
+                    <div class="btn-group">
+                        <h:commandButton value="Tillbaka" immediate="true" class="btn btn-default "
+                                         action="registrationList?faces-redirect=true" />
+                        <h:commandButton value="Anslut till" actionListener="#{registrationController.newRegistration()}" 
+                                         action="registrationList?faces-redirect=true"
+                                         class="btn btn-default"/>
+                                         
+                                         
+                    </div>
                 </h:form>
             </ui:define>
         </ui:composition>

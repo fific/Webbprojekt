@@ -18,9 +18,19 @@ import javax.validation.constraints.Size;
 @RequestScoped 
 public class AddRegistrationBB {
     
-    // User from session is used
+    // User from session scope is used
     
-    private Course course;
+    
+    private Long id;
+    private Course course; //currently unused
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Course getCourse() {
         return course;

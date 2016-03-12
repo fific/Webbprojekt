@@ -18,15 +18,15 @@
                     <h:panelGrid columns="3" class="table">
                    
                         <h:outputLabel value="Användarnamn" />
-                        <h:inputText class="form-control" id="id" value="#{addUser.id}"/>
+                        <h:inputText class="form-control" id="id" required="true"  value="#{addUser.id}"/>
                         <h:message for="id"/>
                         
                         <h:outputLabel value="Namn" />
-                        <h:inputText class="form-control" id="name" value="#{addUser.name}"/>
+                        <h:inputText class="form-control" id="name" required="true" value="#{addUser.name}"/>
                         <h:message for="name"/>
                         
                         <h:outputLabel value="Lösenord" />
-                        <h:inputText class="form-control" id="passwd" value="#{addUser.passwd}"/>
+                        <h:inputText class="form-control" id="passwd" required="true" value="#{addUser.passwd}"/>
                         <h:message for="passwd"/>
                         
                         <label for="role">Roll</label>
@@ -42,8 +42,8 @@
                         <h:commandButton value="Tillbaka" immediate="true" class="btn btn-default "
                                          action="home" />
                         <h:commandButton value="Registrera" actionListener="#{userController.newUser()}" 
+                                         action="home"
                                          class="btn btn-default"/>
-                        <!--action="userList?faces-redirect=true"-->
                     </div>
                 </h:form>
             </ui:define>

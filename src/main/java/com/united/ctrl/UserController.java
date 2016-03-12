@@ -78,7 +78,7 @@ public class UserController {
     }
     
     public int countStudents() {
-        return school.getUserList().getAllStudents().size();
+        return getStudentList().size();
     }
     
     public int countUsers() {
@@ -86,7 +86,7 @@ public class UserController {
     }
     
     public int countTeachers() {
-        return school.getUserList().getAllTeachers().size();
+        return getTeacherList().size();
     }
 
 

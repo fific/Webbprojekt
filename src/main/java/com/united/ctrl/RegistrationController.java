@@ -36,12 +36,13 @@ public class RegistrationController {
     
    
      public void newRegistration() {
-       LOG.log(Level.INFO, "Backing bean " + addBB);
        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
        Map<String, Object> sessionMap = externalContext.getSessionMap();
        User u = (User) sessionMap.get("user");
         
-       Registration p = new Registration(u, addBB.getCourse());
+       LOG.log(Level.INFO, "*** " + u.getId());
+       LOG.log(Level.INFO, "*** " + school.getCourseList().getById(addBB.getId().toString()).getId());
+       Registration p = new Registration(u, school.getCourseList().getById(addBB.getId().toString()));
        school.getRegistrationList().create(p);
     }
 
