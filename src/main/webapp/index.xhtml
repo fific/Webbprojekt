@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" type="text/css" href="resources/css/default.css"/>
-        <title>Skolsystem</title>
+        <title>Like To Learn</title>
     </h:head>
     <h:body>
         <ui:composition template="/WEB-INF/template.xhtml">
@@ -36,21 +36,20 @@
                 </div>
                 
                 <!--Temporary div!-->
-                <div>
+                <div style="color: red">
                     <p><b>Debugging</b></p>
                     <br/>
-                    <!--OLD<br></br>
-                    <p><h:link outcome="/partials/teachers/teacherView.xhtml" >Testa lärare vy</h:link></p>
-                    <p><h:link outcome="/partials/students/studentView.xhtml" >Testa elev vy</h:link></p>-->
-                    Saker man kan fixa (högst prioritet först):<br/>
+                    <b>Saker man kan fixa (högst prioritet först):</b><br/>
                     Fixa så att det bara är den valda kursens moment som visas när man trycker på Hantera moment <br/>
                     Lägga till frågor i moments redigera-sida.<br/>
-                    Använda sessionScope.user.id (sparas nu på inloggning, ses upp till höger på sidan) för att filtrera ut rätt kurser samt elever.<br/>
-                    Hantera "transaction aborted" när man försöker registrera existerande key.<br/>    
+                    <br/>
+                    <br/>
+                   
                     <br/><br/><br/>
                 
                     <p><h:link outcome="studentlogin" >Testa logga in som student</h:link></p>
                     <p><h:link outcome="teacherlogin" >Testa logga in som lärare</h:link></p>
+                    <p><h:link outcome="/admin/index.xhtml" >Översikt/admin-ish</h:link></p>
                 </div>
                 
                 <div class="jumbotron"> 
