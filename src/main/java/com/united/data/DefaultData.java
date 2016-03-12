@@ -70,15 +70,15 @@ public class DefaultData {
 
     private void createTestData() {
         LOG.log(Level.INFO, "*** Add default data");
-        User u = new User("qqq", "111","111", Groups.TEACHER);
+        User u = new User("teacher1", "teacher1","teacher1", Groups.TEACHER);
         authDAO.create(u);
-        u = new User("www", "222","111", Groups.STUDENT);
+        u = new User("teacher2", "teacher2","teacher2", Groups.TEACHER);
         authDAO.create(u);
-        u = new User("test1", "222","111", Groups.STUDENT);
+        u = new User("student1", "student1","student1", Groups.STUDENT);
         authDAO.create(u);
-        u = new User("test2", "222","111", Groups.TEACHER);
+        u = new User("student2", "student2","student2", Groups.STUDENT);
         authDAO.create(u);
-         u = new User("test3", "222","111", Groups.STUDENT);
+         u = new User("student3", "student3","student3", Groups.STUDENT);
         authDAO.create(u);
         
 //        Moment m = new Moment("1");
@@ -130,11 +130,11 @@ public class DefaultData {
     }
 
     private void clearTestData() {
-        authDAO.delete("qqq");
-        authDAO.delete("www");
-        authDAO.delete("test1");
-        authDAO.delete("test2");
-        authDAO.delete("test3");
+        authDAO.delete("teacher1");
+        authDAO.delete("teacher2");
+        authDAO.delete("student1");
+        authDAO.delete("student2");
+        authDAO.delete("student3");
         
 //        regList.delete(1l);
 //        finMomentList.delete(2l);

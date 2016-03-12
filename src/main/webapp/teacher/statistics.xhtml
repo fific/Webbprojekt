@@ -13,7 +13,9 @@
             
             <ui:define name="content">
                 <section>
-                    <p>Antal elever: #{userController.countStudentList()}</p>
+                    <p>Antal elever (i hela databas): #{userController.countStudents()}</p>
+                    <p>Antal lärare (i hela databas): #{userController.countTeachers()}</p>
+                    <p>Antal användare (i hela databas): #{userController.countUsers()}</p>
                     <p>Antal kurser: #{statistics.countCourses()}</p>
                 </section>
             </ui:define>

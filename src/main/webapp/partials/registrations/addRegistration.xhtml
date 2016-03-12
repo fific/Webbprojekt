@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Gå med i kurs</title>
+    </h:head>   
+    <h:body>
+        
+        <ui:composition template="/WEB-INF/studentTemplate.xhtml">
+
+            <ui:define name="content">
+                <h3>Gå med i kurs</h3>
+                
+                <h:form class="partial-form">
+                    <h:panelGrid columns="3" class="table">
+                   
+                        <h:outputLabel value="Användarnamn" />
+                        <h:inputText class="form-control" id="id" value="#{addRegistration.id}"/>
+                        <h:message binding="#{sessionScope.user}" for="user"/>
+                        
+                        <h:outputLabel value="Kurskod" />
+                        <h:inputText class="form-control" id="id" value="#{addRegistration.id}"/>
+                        <h:message for="id"/>
+                        
+                        <h:outputLabel value="Kursnamn" />
+                        <h:inputText class="form-control" id="name" value="#{addRegistration.name}"/>
+                        <h:message for="name"/>
+
+                    </h:panelGrid>
+                    <div class="btn-group">
+                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
+                                         action="courseList?faces-redirect=true" />
+                        <h:commandButton value="Spara" actionListener="#{registrationController.newRegistration()}" 
+                                         action="courseList?faces-redirect=true" 
+                                         class="btn btn-default"/>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

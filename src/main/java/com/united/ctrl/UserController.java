@@ -37,8 +37,6 @@ public class UserController {
         System.out.println("-------getId: " + addBB.getId() + ". getName: " + addBB.getName());
         User p = new User(addBB.getId(), addBB.getPasswd(), addBB.getName(), addBB.getGroups());
         school.getUserList().create(p);
-        //Tried to login on new user as well
-        //loginB.login();
     }
 
     public void updateUser() {
@@ -74,13 +72,22 @@ public class UserController {
     public List<User> getStudentList() {
         return school.getUserList().getAllStudents();
     }
-    
-    public int countStudentList() {
-        return school.getUserList().getAllStudents().size();
-    }
-    
+        
     public List<User> getTeacherList() {
         return school.getUserList().getAllTeachers();
     }
+    
+    public int countStudents() {
+        return school.getUserList().getAllStudents().size();
+    }
+    
+    public int countUsers() {
+        return school.getUserList().count();
+    }
+    
+    public int countTeachers() {
+        return school.getUserList().getAllTeachers().size();
+    }
+
 
 }

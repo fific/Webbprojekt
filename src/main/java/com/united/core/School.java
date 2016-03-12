@@ -34,6 +34,9 @@ public class School {
      
      @Inject
      private QuestionList questionList;
+     
+     @Inject
+     private RegistrationList registrationList;
 
      
     
@@ -47,15 +50,20 @@ public class School {
     
     public CourseList getCourseList() {
         return courseList;
-        }
+    }
     
     public MomentList getMomentList() {
         return momentList;
-        }
+    }
     
      public QuestionList getQuestionList() {
         return questionList;
-        }
+    }
+     
+     public RegistrationList getRegistrationList() {
+        return registrationList;
+    }
+     
 
     public SingletonSchool getSchool() {
         throw new UnsupportedOperationException("Not supported yet."); 
