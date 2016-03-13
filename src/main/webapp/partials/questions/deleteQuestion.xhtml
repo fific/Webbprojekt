@@ -7,6 +7,7 @@
     
      <f:metadata>
         <f:viewParam name="id" value="#{deleteQuestion.id}"  />
+        <f:viewParam name="moment_id" value="#{deleteQuestion.momentId}"  />
     </f:metadata>
     
      <h:head>
@@ -27,9 +28,9 @@
                         
                     <div class="btn-group"> 
                         <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
-                                         action="questionList?faces-redirect=true" />
-                        <h:commandButton value="Ta bort" actionListener="#{questionController.deleteQuestion()}" 
-                                         action="questionList?faces-redirect=true" 
+                                         action="/partials/courses/courseList?faces-redirect=true" />
+                        <h:commandButton value="Ta bort" actionListener="#{questionController.deleteQuestion(deleteQuestion.momentId)}" 
+                                         action="/partials/courses/courseList?faces-redirect=true" 
                                          class="btn btn-default"/>
               </div>
                 </h:form>

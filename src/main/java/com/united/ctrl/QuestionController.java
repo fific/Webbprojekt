@@ -47,17 +47,27 @@ public class QuestionController {
      
 
      public void updateQuestion() {
-       //Question p = new Question(editBB.getId(), editBB.getQuestion(), editBB.getAnswer());
-       //school.getQuestionList().update(p); 
-       
-       Question q = new Question(editBB.getQuestion(), editBB.getAnswer());
-       school.getQuestionList().update(q); 
+
+        Long id = Long.parseLong(editBB.getId());
+        Question m = school.getQuestionList().getById(id);
+        m.setAnswer(editBB.getAnswer());
+        m.setQuestion(editBB.getQuestion());
+        
+        school.getQuestionList().update(m); 
+         
     }
 
-    public void deleteQuestion() {
-       //int id = delBB.getId();
-        int id = Integer.parseInt(delBB.getId());
-       school.getQuestionList().delete(id);
+    public void deleteQuestion(String momentId) {
+        System.out.println("momentId is: " + momentId);
+        Long id = Long.parseLong(delBB.getId());
+        Long momeId = Long.parseLong(momentId);
+
+        Question m = school.getQuestionList().getById(id);
+        Moment c = school.getMomentList().getById(momeId);
+
+        c.removeQuestion(m);
+        school.getMomentList().update(c);  
+       
     }
 
     @Inject

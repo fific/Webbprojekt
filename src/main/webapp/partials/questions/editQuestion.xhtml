@@ -7,6 +7,7 @@
 
     <f:metadata>
         <f:viewParam name="id" value="#{editQuestion.id}"  />
+        <f:viewParam name="moment_id" value="#{editQuestion.momentId}"  />
     </f:metadata>
    
     <h:head>
@@ -32,9 +33,9 @@
                     <div class="btn-group">
                         <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
                                          
-                                         action="questionList?faces-redirect=true" />
+                                         action="/partials/courses/courseList?faces-redirect=true" />
                         <h:commandButton value="Spara" actionListener="#{questionController.updateQuestion()}" 
-                                         action="questionList?faces-redirect=true" 
+                                         action="/partials/courses/courseList?faces-redirect=true" 
                                          class="btn btn-default"/>
                     </div>
                     

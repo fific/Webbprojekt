@@ -41,4 +41,11 @@ public class QuestionList extends AbstractDAO<Question, Integer> {
         return em.createQuery(jpql, Question.class).
                 setParameter("id", id).getResultList();
     }
+    
+    public Question getById(Long id) {
+        String jpql = "select m from Question m where m.id=:id";
+        return em.createQuery(jpql, Question.class).
+                setParameter("id", id).getSingleResult();
+    }
+    
 }

@@ -43,13 +43,15 @@
                              <h:column>
                                 <h:link value="Redigera fråga" outcome="editQuestion.xhtml">
                                     <f:param name="id" value="#{question.id}" />
+                                    <f:param name="moment_id" value="#{questionList.momentId}" />  
                                     
                                 </h:link>
                             </h:column>  
                             
                             <h:column>
                                 <h:link value="Ta bort fråga" outcome="deleteQuestion.xhtml">
-                                    <f:param name="id" value="#{question.id}" />             
+                                    <f:param name="id" value="#{question.id}" />      
+                                    <f:param name="moment_id" value="#{questionList.momentId}" />    
                                 </h:link>
                             </h:column> 
                             

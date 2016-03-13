@@ -18,6 +18,8 @@ public class DeleteQuestionBB {
     
     @Size(min = 1, max = 100, message = "{question.name}")
     private String answer;
+    
+    private Long momentId;
 
     public String getQuestion() {
         return question;
@@ -33,6 +35,14 @@ public class DeleteQuestionBB {
     
    public void setId(String id) {
         this.id = id;
+    }
+   
+   public Long getMomentId() {
+        return momentId;
+    }
+    
+   public void setMomentId(Long momentId) {
+        this.momentId = momentId;
     }
     
     @Override
