@@ -50,7 +50,7 @@ public class RegistrationListBB implements Serializable {
 
     @PostConstruct
     public void post() {
-        //count = school.getRegistrationList().count();
+        count = school.getRegistrationList().count();
     }
 
     public void next() {

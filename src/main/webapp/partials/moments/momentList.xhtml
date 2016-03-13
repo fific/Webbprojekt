@@ -8,6 +8,7 @@
     
     <f:metadata>
         <f:viewParam name="course_id" value="#{momentList.courseId}"  />
+        <f:viewParam name="course_name" value="#{momentList.id}"  />
     </f:metadata>
     
     <h:head>
@@ -16,7 +17,8 @@
     <h:body>
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                <h3>Moment #{course.id}</h3>
+                <h3>Moment </h3>
+                <h4>(#{momentList.courseId}) #{momentList.id}  </h4>
 
                 <!--<h:link outcome="addMoment.xhtml" >Nytt moment</h:link>-->
                 

@@ -34,7 +34,7 @@ public class MomentListBB implements Serializable {
     private String id;
     private String name;
     private int currentPage;
-    private int pageSize = 4;  // Items on a listing (hard coded :-(  )
+    private int pageSize = 10;  // Items on a listing (hard coded :-(  )
     private int count;
     
     @Inject

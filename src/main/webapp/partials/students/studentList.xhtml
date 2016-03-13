@@ -13,9 +13,9 @@
     <h:body>
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                <h3>Elever</h3>
+                <h3>Alla elever</h3>
                 <h:form>
-                    
+                    <!-- No purpose having these buttons when all students are retrieved
                     <div class="btn-group">
                         <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{userList.prev()}">
                             <f:ajax execute="@form" render="productPanel" />
@@ -25,6 +25,7 @@
                             <f:ajax execute="@form" render="productPanel" />
                         </h:commandButton>
                     </div>
+                    -->
                     
                     <h:panelGroup id="productPanel" >
                         <h:dataTable var="student" value="#{userList.findStudentRange()}"

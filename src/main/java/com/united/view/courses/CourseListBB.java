@@ -47,7 +47,7 @@ public class CourseListBB implements Serializable {
 
     @PostConstruct
     public void post() {
-        //count = school.getCourseList().count();
+        count = school.getCourseList().count();
     }
 
     public void next() {

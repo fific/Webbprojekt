@@ -40,7 +40,7 @@ public class AddCourseBB {
 
     @Override
     public String toString() {
-        return "AddProductBB{" + "name=" + name + '}';
+        return "AddCourseBB{" + "name=" + name + '}';
     }  
     
 

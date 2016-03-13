@@ -40,6 +40,6 @@ public class DeleteCourseBB {
     
     @Override
     public String toString() {
-        return "DeleteProductBB{" + "name=" + name + '}';
+        return "DeleteCourseBB{" + "name=" + name + '}';
     }  
 }

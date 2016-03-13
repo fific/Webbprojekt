@@ -39,6 +39,6 @@ public class EditCourseBB {
     
     @Override
     public String toString() {
-        return "EditProductBB{" + "name=" + name + '}';
+        return "EditCourseB{" + "name=" + name + '}';
     }  
 }
