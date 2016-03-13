@@ -19,12 +19,7 @@
             <ui:define name="content">
                 <h3>Moment </h3>
                 <h4>(#{momentList.courseId}) #{momentList.id}  </h4>
-        
-                <!--<h:link outcome="addMoment.xhtml" >Nytt moment
-                    <f:param name="course_id" value="#{momentList.courseId}" />
-                </h:link>-->
                 
-
                 <h:form>
                     
                     <div class="btn-group">
@@ -40,8 +35,8 @@
                     <h:panelGroup id="momentPanel" >
                         <h:dataTable var="moment" value="#{momentList.findRange()}"
                                      class="table table-striped">
-                            <h:column><h:outputText value="#{moment.id}"/></h:column>
-                            <h:column><h:outputText value="#{moment.name}"/></h:column>
+                            <h:column><f:facet name="header">Id</f:facet><h:outputText value="#{moment.id}"/></h:column>
+                            <h:column><f:facet name="header">Momentnamn</f:facet><h:outputText value="#{moment.name}"/></h:column>
 
                             <h:column>
                                 <h:link value="Redigera moment" outcome="editMoment.xhtml">

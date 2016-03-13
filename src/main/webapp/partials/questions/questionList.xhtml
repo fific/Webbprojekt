@@ -38,11 +38,11 @@
                         <h:dataTable var="question" value="#{questionList.findRange()}"
                                      class="table table-striped">
                             
-                            <h:column><h:outputText value="#{question.id}"/></h:column>
+                            <h:column><f:facet name="header">Id</f:facet><h:outputText value="#{question.id}"/></h:column>
                             
-                            <h:column><h:outputText value="#{question.question}"/></h:column>
+                            <h:column><f:facet name="header">Fråga</f:facet><h:outputText value="#{question.question}"/></h:column>
                             
-                            <h:column><h:outputText value="#{question.answer}"/></h:column>
+                            <h:column><f:facet name="header">Svar</f:facet><h:outputText value="#{question.answer}"/></h:column>
                             
                              <h:column>
                                 <h:link value="Redigera fråga" outcome="editQuestion.xhtml">
