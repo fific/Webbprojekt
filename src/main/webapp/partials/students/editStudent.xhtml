@@ -9,6 +9,7 @@
     <f:metadata>
         <f:viewParam name="id" value="#{editUser.id}"  />
         <f:viewParam name="name" value="#{editUser.name}"  />
+        <f:viewParam name="groups" value="#{editUser.groups}"  />
     </f:metadata>
    
     <h:head>
@@ -29,13 +30,13 @@
                         <h:message for="name"/>
                         <h:outputLabel value="Lösenord" />
                         <h:inputText class="form-control" value="#{editUser.password}"/> 
-                        <h:message for="password"/>
+                        <h:message for="password"/> 
                     </h:panelGrid>
                     
                     <div class="btn-group">
                         <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
                                          action="studentList?faces-redirect=true" />
-                        <h:commandButton value="Spara" actionListener="#{userController.updateUser()}" 
+                        <h:commandButton value="Spara" actionListener="#{userController.updateStudent()}" 
                                          action="studentList?faces-redirect=true" 
                                          class="btn btn-default"/>
                     </div>

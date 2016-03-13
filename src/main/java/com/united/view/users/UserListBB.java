@@ -30,6 +30,10 @@ public class UserListBB implements Serializable {
     @Inject
     private UserList users;
 
+    public List<User> findAll() {
+        return users.findAll();
+    }
+    
     public List<User> findRange() {
         return users.findRange(currentPage * pageSize, pageSize);
     }

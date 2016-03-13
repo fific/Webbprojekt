@@ -1,11 +1,14 @@
 package com.united.ctrl;
 
 
+import com.united.auth.Groups;
 import com.united.auth.LoginBean;
 import com.united.auth.User;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
 import com.united.view.users.AddUserBB;
+import com.united.view.users.DeleteUserBB;
+import com.united.view.users.EditUserBB;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,8 +32,8 @@ public class UserController {
     
     
     private AddUserBB addBB;
-//    private EditUserBB editBB;
-//    private DeleteUserBB delBB;
+    private EditUserBB editBB;
+    private DeleteUserBB delBB;
     
    
     public void newUser() {
@@ -40,13 +43,23 @@ public class UserController {
     }
 
     public void updateUser() {
-//       User p = new User(editBB.getId(), editBB.getName(), Double.valueOf(editBB.getPrice()));
-//       school.getUserList().update(p);    
+       User p = new User(editBB.getId(), editBB.getPassword(), editBB.getName(), editBB.getGroups());
+       school.getUserList().update(p);    
+    }
+    
+    public void updateStudent() {
+       User p = new User(editBB.getId(), editBB.getPassword(), editBB.getName(), Groups.STUDENT);
+       school.getUserList().update(p);    
+    }
+    
+    public void updateTeacher() {
+        User p = new User(editBB.getId(), editBB.getPassword(), editBB.getName(), Groups.TEACHER);
+        school.getUserList().update(p);    
     }
 
     public void deleteUser() {
-//       String id = delBB.getId();
-//       school.getUserList().delete(id);
+       String id = delBB.getId();
+       school.getUserList().delete(id);
     }
 
     @Inject
@@ -54,15 +67,15 @@ public class UserController {
         this.addBB = addBB;
     }
     
-//    @Inject
-//    public void setEditBB(EditUserBB editBB) {
-//        this.editBB = editBB;
-//    }
-//    
-//    @Inject
-//    public void setDelBB(DeleteUserBB delBB) {
-//        this.delBB = delBB;
-//    }
+    @Inject
+    public void setEditBB(EditUserBB editBB) {
+        this.editBB = editBB;
+    }
+    
+    @Inject
+    public void setDelBB(DeleteUserBB delBB) {
+        this.delBB = delBB;
+    }
 
 //    @Inject
 //    public void setSchool(SingletonSchool ss) {
