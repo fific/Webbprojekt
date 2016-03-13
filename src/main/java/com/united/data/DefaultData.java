@@ -52,21 +52,21 @@ public class DefaultData {
     
     @Inject
     private FinishedMomentList finMomentDAO;
-    /*
+    
     @PostConstruct
     public void post() {
         LOG.log(Level.INFO, "*** Default data alive");
       //createTestData();   // KOMMENTERA UT första Run, dvs om inga tables finns än.
                             //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
                             //Samma sak nere i clearTestData();
-    }*/
-/*
+    }
+
     @PreDestroy
     public void destroy() {
         LOG.log(Level.INFO, "*** Default data will be destroyed");
-        clearTestData();    // KOMMENTERA UT första Run, dvs om inga tables finns än.
+        //clearTestData();    // KOMMENTERA UT första Run, dvs om inga tables finns än.
                             //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
-    }*/
+    }
 
     private void createTestData() {
         LOG.log(Level.INFO, "*** Add default data");

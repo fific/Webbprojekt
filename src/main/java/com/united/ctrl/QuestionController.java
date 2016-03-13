@@ -2,6 +2,7 @@ package com.united.ctrl;
 
 
 import com.united.core.Course;
+import com.united.core.Moment;
 import com.united.core.Question;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
@@ -34,11 +35,14 @@ public class QuestionController {
     private DeleteQuestionBB delBB;
     
    
-     public void newQuestion() {
+     public void newQuestion(String momentId) {
        LOG.log(Level.INFO, "Backing bean " + addBB);
-       Question p = new Question(addBB.getId(), addBB.getQuestion(), addBB.getAnswer());
-        school.getQuestionList().create(p);
+       Question q = new Question(addBB.getId(), addBB.getQuestion(), addBB.getAnswer());
+       Moment m =  school.getMomentList().getById(momentId);
+       m.addToQuestions(q);
+       school.getQuestionList().update(q);
     }
+     
 
      public void updateQuestion() {
        //Question p = new Question(editBB.getId(), editBB.getQuestion(), editBB.getAnswer());

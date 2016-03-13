@@ -20,6 +20,17 @@ public class AddQuestionBB {
     
     @Size(min = 1, max = 100, message = "{question.name}")
     private String answer;
+    
+    private String momentId;
+    
+    
+     public String getMomentId() {
+        return momentId;
+    }
+
+    public void setMomentId(String momentId) {
+        this.momentId = momentId;
+    }
 
     public String getQuestion() {
         return question;
