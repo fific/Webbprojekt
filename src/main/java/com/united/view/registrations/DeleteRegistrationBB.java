@@ -13,7 +13,7 @@ import javax.inject.Named;
 @RequestScoped 
 public class DeleteRegistrationBB {
 
-    private Long courseid;
+    private String courseid;
     private String coursename;
     
     private Long id; //registration id
@@ -26,11 +26,11 @@ public class DeleteRegistrationBB {
         this.id = id;
     }
 
-    public Long getCourseid() {
+    public String getCourseid() {
         return courseid;
     }
 
-    public void setCourseid(Long courseid) {
+    public void setCourseid(String courseid) {
         this.courseid = courseid;
     }
 
