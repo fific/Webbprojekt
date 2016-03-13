@@ -58,6 +58,10 @@ public class Moment implements Serializable {
     public Moment(String name) {
         this.name = name ;
     }
+    
+    public Moment(Long id, String name) {
+        this.name = name ;
+    }
 
     public Long getId() {
         return id;

@@ -8,6 +8,7 @@ import com.united.core.School;
 import com.united.core.SingletonSchool;
 import com.united.view.moments.AddMomentBB;
 import com.united.view.moments.DeleteMomentBB;
+import com.united.view.moments.EditMomentBB;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +31,7 @@ public class MomentController {
     private School school;
     
     private AddMomentBB addBB;
-//    private EditMomentBB editBB;
+    private EditMomentBB editBB;
     private DeleteMomentBB delBB;
     
    
@@ -43,8 +44,12 @@ public class MomentController {
     }
 
     public void updateMoment() {
-//       Moment p = new Moment(editBB.getId(), editBB.getName());
-//       school.getMomentList().update(p);    
+        Long momentID = Long.parseLong(editBB.getId());
+       
+        Moment m = school.getMomentList().getById(momentID);
+        m.setName(editBB.getName());
+        
+        school.getMomentList().update(m);    
     }
 
     public void deleteMoment() {
@@ -57,10 +62,10 @@ public class MomentController {
         this.addBB = addBB;
     }
     
-//    @Inject
-//    public void setEditBB(EditMomentBB editBB) {
-//        this.editBB = editBB;
-//    }
+    @Inject
+    public void setEditBB(EditMomentBB editBB) {
+        this.editBB = editBB;
+    }
     
     @Inject
     public void setDelBB(DeleteMomentBB delBB) {

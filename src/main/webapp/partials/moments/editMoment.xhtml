@@ -21,16 +21,22 @@
                  
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
+                        <h:outputLabel value="Momentets id" />
+                        <h:outputText class="form-control" value="#{editMoment.id}"/> 
+                        <h:message for="id"/>
+                    </h:panelGrid>
+                    <h:panelGrid columns="2" class="table">
                         <h:outputLabel value="Nytt momentnamn" />
                         <h:inputText class="form-control" value="#{editMoment.name}"/> 
+                        <h:message for="name"/>
                     </h:panelGrid>
                     
                     <div class="btn-group">
                         <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
                                          
-                                         action="momentList?faces-redirect=true" />
+                                         action="/partials/courses/courseList?faces-redirect=true" />
                         <h:commandButton value="Spara" actionListener="#{momentController.updateMoment()}" 
-                                         action="momentList?faces-redirect=true" 
+                                         action="/partials/courses/courseList?faces-redirect=true" 
                                          class="btn btn-default"/>
                     </div>
                     

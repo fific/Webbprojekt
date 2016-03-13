@@ -11,6 +11,8 @@ import javax.validation.constraints.Size;
 public class EditMomentBB {
 
     private String id;
+    private String courseId;
+    
     
     @Size(min = 4, max = 20, message = "Använd mellan 4 och 20 tecken.")
     private String name;
@@ -20,12 +22,22 @@ public class EditMomentBB {
         return "EditMomentBB{" + "id=" + id + ", name=" + name + '}';
     }  
     
+    
+    
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+    
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
     }
     
     public String getName() {
