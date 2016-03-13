@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author Linn
+ * @author Linn, Quang
  */
 
 @Stateless
@@ -57,5 +57,10 @@ public class RegistrationList extends AbstractDAO<Registration, Long> {
                 setParameter("user", u).getResultList();
     }
     
-    
+    //Inherited delete didn't work (transaction aborted), tried this query instead but seems to have no effect
+    public void deleteRegistrationById(Long id) {
+        String jpql = "delete from Registration r where r.id=:id";
+        em.createQuery(jpql, Registration.class).
+                setParameter("id", id);
+    }
 }

@@ -6,8 +6,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <f:metadata>
-        <f:viewParam name="id" value="#{deleteCourse.id}"  />
-        <f:viewParam name="name" value="#{deleteCourse.name}"  />
+        <f:viewParam name="courseid" value="#{deleteRegistration.courseid}" />
+        <f:viewParam name="coursename" value="#{deleteRegistration.coursename}" />
+        <f:viewParam name="regid" value="#{deleteRegistration.id}"  />
     </f:metadata>
     
     <h:head>
@@ -21,16 +22,16 @@
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
                         <h:outputLabel value="Kurskod"/>
-                        <h:outputText value="#{deleteRegistration.id}"/> 
+                        <h:outputText id="courseid" value="#{deleteRegistration.courseid}"/> 
                         <h:outputLabel value="Kursnamn" />
-                        <h:outputText id="name" value="#{deleteRegistration.name}"/>
+                        <h:outputText id="coursename" value="#{deleteRegistration.coursename}"/>
                     </h:panelGrid>
                     
                     <div class="btn-group">
                         <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
-                                         action="registrationController?faces-redirect=true" />
+                                         action="registrationList?faces-redirect=true" />
                         <h:commandButton value="Ta bort" actionListener="#{registrationController.deleteRegistration()}" 
-                                         action="registrationController?faces-redirect=true" 
+                                         action="registrationList?faces-redirect=true"
                                          class="btn btn-default"/>
                     </div>
                 </h:form>

@@ -40,15 +40,17 @@ public class RegistrationController {
        Map<String, Object> sessionMap = externalContext.getSessionMap();
        User u = (User) sessionMap.get("user");
         
-       LOG.log(Level.INFO, "*** " + u.getId());
-       LOG.log(Level.INFO, "*** " + school.getCourseList().getById(addBB.getId().toString()).getId());
+       LOG.log(Level.INFO, "*** {0}", u.getId());
+       LOG.log(Level.INFO, "*** {0}", school.getCourseList().getById(addBB.getId().toString()));
        Registration p = new Registration(u, school.getCourseList().getById(addBB.getId().toString()));
        school.getRegistrationList().create(p);
     }
 
     public void deleteRegistration() {
        Long id = delBB.getId();
-       school.getRegistrationList().delete(id);
+       LOG.log(Level.INFO, "***DEL ID {0}", id);
+       school.getRegistrationList().deleteRegistrationById(id);
+       //school.getRegistrationList().delete(id);
     }
 
     @Inject

@@ -15,10 +15,10 @@ import javax.validation.constraints.Size;
 @RequestScoped 
 public class DeleteRegistrationBB {
 
-    // TODO Will need course and user to delete...
-    private Long id;
+    private Long courseid;
+    private String coursename;
     
-    private String name;
+    private Long id; //registration id
     
     public Long getId() {
         return id;
@@ -28,11 +28,22 @@ public class DeleteRegistrationBB {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Long getCourseid() {
+        return courseid;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCourseid(Long courseid) {
+        this.courseid = courseid;
     }
+
+    public String getCoursename() {
+        return coursename;
+    }
+
+    public void setCoursename(String coursename) {
+        this.coursename = coursename;
+    }
+    
+    
+    
 }
