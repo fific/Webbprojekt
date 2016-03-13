@@ -9,7 +9,6 @@
     <f:metadata>
         <f:viewParam name="id" value="#{editUser.id}"  />
         <f:viewParam name="name" value="#{editUser.name}"  />
-        <f:viewParam name="groups" value="#{editUser.groups}"  />
     </f:metadata>
    
     <h:head>
@@ -29,7 +28,7 @@
                         <h:inputText class="form-control" value="#{editUser.name}"/> 
                         <h:message for="name"/>
                         <h:outputLabel value="Lösenord" />
-                        <h:inputText class="form-control" value="#{editUser.password}"/> 
+                        <h:inputText class="form-control" value="#{editUser.password}"/> <!-- Password can be set to anything by teacher atm-->
                         <h:message for="password"/> 
                     </h:panelGrid>
                     

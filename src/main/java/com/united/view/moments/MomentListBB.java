@@ -5,16 +5,11 @@
  */
 package com.united.view.moments;
 
-import com.united.auth.User;
-import com.united.auth.UserList;
 import com.united.core.Course;
 import com.united.core.CourseList;
 import com.united.core.Moment;
 import com.united.core.MomentList;
-import com.united.core.School;
-import com.united.core.SingletonSchool;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import java.util.logging.Logger;

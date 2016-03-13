@@ -1,10 +1,8 @@
 
 package com.united.view.registrations;
 
-import com.united.view.courses.*;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.validation.constraints.Size;
 
 /**
  *
