@@ -52,9 +52,13 @@ public class MomentController {
         school.getMomentList().update(m);    
     }
 
-    public void deleteMoment() {
+    public void deleteMoment(String courseId) {
         Long id = Long.parseLong(delBB.getId());
-        school.getMomentList().delete(id);
+
+        Moment m = school.getMomentList().getById(id);
+        Course c = school.getCourseList().getById(courseId);
+        c.removeMoment(m);
+        school.getCourseList().update(c);    
     }
 
     @Inject
