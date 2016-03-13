@@ -34,7 +34,7 @@ public class MomentController {
     private DeleteMomentBB delBB;
     
    
-    public void newMoment(String courseId) {        
+    public void newMoment(String courseId) {     
         Moment p = new Moment(addBB.getName());
         Course c = school.getCourseList().getById(courseId);
         
