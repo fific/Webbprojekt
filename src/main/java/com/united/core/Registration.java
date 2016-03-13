@@ -32,7 +32,7 @@ public class Registration implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(targetEntity = User.class, cascade = CascadeType.REMOVE)
+    @ManyToOne
     private User user;
 
     @ManyToOne

@@ -42,7 +42,7 @@ public class RegistrationList extends AbstractDAO<Registration, Long> {
     
      
     public List<Registration> getById(Long id) {
-        String jpql = "select r from Registration r where r.id=:id";
+        String jpql = "SELECT r FROM Registration r WHERE r.id=:id";
         return em.createQuery(jpql, Registration.class).
                 setParameter("id", id).getResultList();
     }
@@ -52,15 +52,9 @@ public class RegistrationList extends AbstractDAO<Registration, Long> {
        Map<String, Object> sessionMap = externalContext.getSessionMap();
        User u = (User) sessionMap.get("user");
         
-        String jpql = "select r from Registration r where r.user=:user";
+        String jpql = "SELECT r FROM Registration r WHERE r.user=:user";
         return em.createQuery(jpql, Registration.class).
                 setParameter("user", u).getResultList();
     }
-    
-    //Inherited delete didn't work (transaction aborted), tried this query instead but seems to have no effect
-    public void deleteRegistrationById(Long id) {
-        String jpql = "delete from Registration r where r.id=:id";
-        em.createQuery(jpql, Registration.class).
-                setParameter("id", id);
-    }
+   
 }

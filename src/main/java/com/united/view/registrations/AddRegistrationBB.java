@@ -21,7 +21,7 @@ public class AddRegistrationBB {
     // User from session scope is used
     
     
-    private Long id;
+    private Long id; // course id to add
     private Course course; //currently unused
 
     public Long getId() {

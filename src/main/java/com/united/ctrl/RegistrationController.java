@@ -49,8 +49,8 @@ public class RegistrationController {
     public void deleteRegistration() {
        Long id = delBB.getId();
        LOG.log(Level.INFO, "***DEL ID {0}", id);
-       school.getRegistrationList().deleteRegistrationById(id);
-       //school.getRegistrationList().delete(id);
+       //school.getRegistrationList().deleteRegistrationById(id);
+       school.getRegistrationList().delete(id);
     }
 
     @Inject
