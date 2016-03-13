@@ -21,14 +21,14 @@ public class AddRegistrationBB {
     // User from session scope is used
     
     
-    private Long id; // course id to add
+    private String id; // course id to add
     private Course course; //currently unused
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -41,8 +41,8 @@ public class RegistrationController {
        User u = (User) sessionMap.get("user");
         
        LOG.log(Level.INFO, "*** {0}", u.getId());
-       LOG.log(Level.INFO, "*** {0}", school.getCourseList().getById(addBB.getId().toString()));
-       Registration p = new Registration(u, school.getCourseList().getById(addBB.getId().toString()));
+       LOG.log(Level.INFO, "*** {0}", school.getCourseList().getById(addBB.getId()));
+       Registration p = new Registration(u, school.getCourseList().getById(addBB.getId()));
        school.getRegistrationList().create(p);
     }
 
