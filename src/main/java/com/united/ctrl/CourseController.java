@@ -68,5 +68,9 @@ public class CourseController {
 //    public void setSchool(SingletonSchool ss) {
 //        this.school = ss.getSchool();
 //    }
+    
+    public int countCourses() {
+        return school.getCourseList().count();
+    }
 
 }
