@@ -45,6 +45,8 @@
 
                             <h:column>
                                 <h:link value="Hantera frågor" outcome="/partials/questions/questionList.xhtml">
+                                    <f:param name="moment_id" value="#{moment.id}" />
+                                    <f:param name="moment_name" value="#{moment.name}" />
                                 </h:link>
                             </h:column>   
 
@@ -67,7 +69,6 @@
                      <h:button class="btn btn-primary" outcome="addMoment.xhtml"
                          value="Skapa moment">
                           <f:param name="course_id" value="#{momentList.courseId}" />           
-                         
                      </h:button>
                     
 

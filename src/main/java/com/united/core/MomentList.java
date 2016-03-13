@@ -36,8 +36,7 @@ public class MomentList extends AbstractDAO<Moment, Long> {
         return em;
     }
     
-    public Moment getById(String id) {
-        long n = Long.parseLong(id);
+    public Moment getById(Long id) {
         String jpql = "select m from Moment m where m.id=:id";
         return em.createQuery(jpql, Moment.class).
                 setParameter("id", id).getSingleResult();

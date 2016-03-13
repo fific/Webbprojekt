@@ -161,10 +161,10 @@ public class DefaultData {
         
 
         
-        momentDAO.delete(momentDAO.getById("1").getId());
-        momentDAO.delete(momentDAO.getById("2").getId());
-        momentDAO.delete(momentDAO.getById("3").getId());
-        momentDAO.delete(momentDAO.getById("4").getId());
+        momentDAO.delete(momentDAO.getById(1l).getId());
+        momentDAO.delete(momentDAO.getById(2l).getId());
+        momentDAO.delete(momentDAO.getById(3l).getId());
+        momentDAO.delete(momentDAO.getById(4l).getId());
         
         courseDAO.delete("66");
         courseDAO.delete("67");

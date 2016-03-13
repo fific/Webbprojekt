@@ -7,7 +7,7 @@
     
     
     <f:metadata>
-        <f:viewParam name="moment_id" value="#{questiontList.momentId}"  />
+        <f:viewParam name="moment_id" value="#{questionList.momentId}"  />
     </f:metadata>
     
     <h:head>
@@ -58,7 +58,9 @@
                         </h:panelGroup>
                     
                     <h:button class="btn btn-primary" outcome="addQuestion.xhtml"
-                                value="Skapa fråga"></h:button>
+                              value="Skapa fråga">
+                        <f:param name="moment_id" value="#{questionList.momentId}" />             
+                    </h:button>
                     
                 </h:form>
 
