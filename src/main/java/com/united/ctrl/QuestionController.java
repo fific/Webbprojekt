@@ -38,7 +38,7 @@ public class QuestionController {
      public void newQuestion(String momentId) {
        Long momeId = Long.parseLong(momentId);
        LOG.log(Level.INFO, "Backing bean " + addBB);
-       Question q = new Question(addBB.getId(), addBB.getQuestion(), addBB.getAnswer());
+       Question q = new Question(addBB.getQuestion(), addBB.getAnswer());
        Moment m =  school.getMomentList().getById(momeId);
        m.addToQuestions(q);
        school.getQuestionList().update(q);
@@ -49,7 +49,7 @@ public class QuestionController {
        //Question p = new Question(editBB.getId(), editBB.getQuestion(), editBB.getAnswer());
        //school.getQuestionList().update(p); 
        
-       Question q = new Question(editBB.getId(), editBB.getQuestion(), editBB.getAnswer());
+       Question q = new Question(editBB.getQuestion(), editBB.getAnswer());
        school.getQuestionList().update(q); 
     }
 

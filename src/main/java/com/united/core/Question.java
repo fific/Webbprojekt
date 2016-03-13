@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
@@ -28,8 +30,8 @@ public class Question implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @Column(nullable = false)  // unique is implied
-    protected String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     
     @Column(nullable = false)
     protected String question;
@@ -40,17 +42,16 @@ public class Question implements Serializable {
     public Question() {
     }
 
-    public Question(String id, String question, String answer) {
-        this.id = id;
+    public Question(String question, String answer) {
         this.question = question;
         this.answer = answer;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -132,13 +132,13 @@ public class DefaultData {
         me = new Message("86", "Vem?????");
         messageDAO.create(me);
         
-         q = new Question("89", "0 * 5", "0");
+         q = new Question("0 * 5", "0");
         questionDAO.create(q);
         
-        q = new Question("87", "1 * 5", "5");
+        q = new Question("1 * 5", "5");
         questionDAO.create(q);
         
-        q = new Question("86", "2 * 5", "10");
+        q = new Question("2 * 5", "10");
         questionDAO.create(q);
         
 //        Registration r = new Registration(u, c);
