@@ -9,6 +9,8 @@
     <f:metadata>
         <f:viewParam name="moment_id" value="#{questionList.momentId}"  />
         <f:viewParam name="moment_name" value="#{questionList.id}" />
+        <f:viewParam name="course_id" value="#{momentList.courseId}"  />
+        <f:viewParam name="course_name" value="#{momentList.id}"  />
     </f:metadata>
     
     <h:head>
@@ -17,8 +19,8 @@
     <h:body>
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                <h3> Frågor för moment</h3>
-                <h4>(#{questionList.momentId}) #{questionList.id}  </h4>
+                <h3> Frågor</h3>
+                <h4>(#{momentList.courseId}) #{momentList.id} - #{questionList.id} </h4>
 
 
                 <h:form>
