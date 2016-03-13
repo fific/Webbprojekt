@@ -21,11 +21,12 @@
                         <h:outputLabel value="Namn" />
                         <h:inputText class="form-control" value="#{sessionScope.user.name}"/> 
                         <h:outputLabel value="Lösenord" />
-                        <h:inputText class="form-control" value="#{sessionScope.user.passwd}"/> 
+                        <h:inputText class="form-control" /> 
                     </h:panelGrid>
                     
                     <div class="btn-group">
-                        <h:commandButton value="Spara" actionListener="#{userController.updateUser()}" 
+                        <h:commandButton value="Spara" actionListener="#{userController.updateCurrentUser()}" 
+                                         
                                          class="btn btn-primary"/>
                     </div>
                 </h:form>

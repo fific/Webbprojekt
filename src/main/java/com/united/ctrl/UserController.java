@@ -2,17 +2,16 @@ package com.united.ctrl;
 
 
 import com.united.auth.Groups;
-import com.united.auth.LoginBean;
 import com.united.auth.User;
 import com.united.core.School;
-import com.united.core.SingletonSchool;
 import com.united.view.users.AddUserBB;
 import com.united.view.users.DeleteUserBB;
 import com.united.view.users.EditUserBB;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -54,6 +53,15 @@ public class UserController {
     
     public void updateTeacher() {
         User p = new User(editBB.getId(), editBB.getPassword(), editBB.getName(), Groups.TEACHER);
+        school.getUserList().update(p);    
+    }
+    
+    public void updateCurrentUser() {
+        FacesContext context = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = context.getExternalContext();
+        User user = (User) externalContext.getSessionMap().get("user");
+        
+        User p = new User(user.getId(), user.getPasswd(), user.getName(), user.getGroups().get(0));
         school.getUserList().update(p);    
     }
 
