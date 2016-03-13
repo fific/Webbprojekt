@@ -42,7 +42,7 @@ public class QuestionController {
        Moment m =  school.getMomentList().getById(momeId);
        
        m.addToQuestions(q);
-       school.getQuestionList().update(q);
+       school.getMomentList().update(m);
     }
      
 
