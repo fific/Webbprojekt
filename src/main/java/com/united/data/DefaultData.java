@@ -69,8 +69,15 @@ public class DefaultData {
     }
 
     private void createTestData() {
+        User u;
+        Course c;
+        Moment m;
+        Question q;
+        Registration r;
+        Message me;
+        
         LOG.log(Level.INFO, "*** Add default data");
-        User u = new User("lärare1", "lärare1", "lärare1", Groups.TEACHER);
+        u = new User("lärare1", "lärare1", "lärare1", Groups.TEACHER);
         authDAO.create(u);
         u = new User("lärare2", "lärare2","lärare2", Groups.TEACHER);
         authDAO.create(u);
@@ -81,26 +88,33 @@ public class DefaultData {
         u = new User("student3", "student3","student3", Groups.STUDENT);
         authDAO.create(u);
         
-        Course c = new Course("255", "Svenska 1");
+        c = new Course("SV1", "Svenska 1");
         courseDAO.create(c);
-        Moment m = new Moment("Verb");
+        m = new Moment("Verb");
         momentDAO.create(m);
         c.addToMoments(m);
         m = new Moment("Tempus");
         momentDAO.create(m);
         c.addToMoments(m);
         
-        c = new Course("256", "Historia 1");
+        c = new Course("HI1", "Historia 1");
         courseDAO.create(c);
-        m = new Moment("Andra världskriget");
+        m = new Moment("Apartheid");
         c.addToMoments(m);
         
-        Registration r = new Registration(u,c);
+        r = new Registration(u,c);
         registrationDAO.create(r);
         
-        Question q = new Question();
-        
-        
+        c = new Course("MA1", "Matematik 1");
+        courseDAO.create(c);
+        m = new Moment("Multiplikation");
+        c.addToMoments(m);
+        q = new Question("1*1", "1");
+        m.addToQuestions(q);
+        q = new Question("1*2", "2");
+        m.addToQuestions(q);
+        q = new Question("5*5", "25");
+        m.addToQuestions(q);
 //        Moment m = new Moment("1");
 //        momentDAO.create(m);
 //        
@@ -113,8 +127,7 @@ public class DefaultData {
 //        m = new Moment("4");
 //        momentDAO.create(m);
         
-        c = new Course("66", "Gångertabell_1");
-       
+        c = new Course("GGR1", "Gångertabell_1");
         courseDAO.create(c);
         
         c = new Course("67", "Gångertabell_2");
@@ -123,7 +136,19 @@ public class DefaultData {
         c = new Course("68", "Gångertabell_3");
         courseDAO.create(c);
         
-        Message me = new Message("89", "Hallå?????");
+
+        
+        q = new Question("0 * 5", "0");
+        questionDAO.create(q);
+        
+        
+        q = new Question("1 * 5", "5");
+        questionDAO.create(q);
+        
+        q = new Question("2 * 5", "10");
+        questionDAO.create(q);
+        
+        me = new Message("89", "Hallå?????");
         messageDAO.create(me);
         
         me = new Message("87", "Någon där?????");
@@ -131,15 +156,6 @@ public class DefaultData {
         
         me = new Message("86", "Vem?????");
         messageDAO.create(me);
-        
-         q = new Question("0 * 5", "0");
-        questionDAO.create(q);
-        
-        q = new Question("1 * 5", "5");
-        questionDAO.create(q);
-        
-        q = new Question("2 * 5", "10");
-        questionDAO.create(q);
         
 //        Registration r = new Registration(u, c);
 //        registrationDAO.create(r);
@@ -150,8 +166,8 @@ public class DefaultData {
     }
 
     private void clearTestData() {
-        authDAO.delete("teacher1");
-        authDAO.delete("teacher2");
+        authDAO.delete("lärare1");
+        authDAO.delete("lärare2");
         authDAO.delete("student1");
         authDAO.delete("student2");
         authDAO.delete("student3");

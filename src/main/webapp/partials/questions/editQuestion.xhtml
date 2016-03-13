@@ -20,14 +20,14 @@
                 <h3>Redigera fråga</h3>
                  
                 <h:form class="partial-form">
-                    <h:panelGrid columns="2" class="table">
+                    <h:panelGrid columns="3" class="table">
                         <h:outputLabel value="Ny fråga" />
-                        <h:inputText value="#{editQuestion.question}"/> 
+                        <h:inputText class="form-control" value="#{editQuestion.question}"/> 
                     </h:panelGrid>
                     
                     <h:panelGrid columns="2" class="table">
                         <h:outputLabel value="Nytt svar" />
-                        <h:inputText value="#{editQuestion.answer}"/> 
+                        <h:inputText class="form-control" value="#{editQuestion.answer}"/> 
                     </h:panelGrid>
                     
                     <div class="btn-group">

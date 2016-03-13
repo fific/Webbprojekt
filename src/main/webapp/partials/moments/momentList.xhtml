@@ -44,17 +44,17 @@
                             <h:column><h:outputText value="#{moment.name}"/></h:column>
 
                             <h:column>
-                                <h:link value="Hantera frågor" outcome="/partials/questions/questionList.xhtml">
-                                    <f:param name="moment_id" value="#{moment.id}" />
-                                    <f:param name="moment_name" value="#{moment.name}" />
-                                </h:link>
-                            </h:column>   
-
-                            <h:column>
                                 <h:link value="Redigera moment" outcome="editMoment.xhtml">
                                     <f:param name="id" value="#{moment.id}" />
                                     <f:param name="name" value="#{moment.name}" />
                                     <f:param name="course_id" value="#{momentList.courseId}" />
+                                </h:link>
+                            </h:column>           
+                            
+                            <h:column>
+                                <h:link value="Hantera frågor" outcome="/partials/questions/questionList.xhtml">
+                                    <f:param name="moment_id" value="#{moment.id}" />
+                                    <f:param name="moment_name" value="#{moment.name}" />
                                 </h:link>
                             </h:column>   
 

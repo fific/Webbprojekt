@@ -20,12 +20,10 @@
                 <h3>Redigera moment</h3>
                  
                 <h:form class="partial-form">
-                    <h:panelGrid columns="2" class="table">
+                    <h:panelGrid columns="3" class="table">
                         <h:outputLabel value="Momentets id" />
                         <h:outputText class="form-control" value="#{editMoment.id}"/> 
                         <h:message for="id"/>
-                    </h:panelGrid>
-                    <h:panelGrid columns="2" class="table">
                         <h:outputLabel value="Nytt momentnamn" />
                         <h:inputText class="form-control" value="#{editMoment.name}"/> 
                         <h:message for="name"/>
