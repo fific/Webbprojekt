@@ -16,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -38,6 +39,12 @@ public class Question implements Serializable {
     
     @Column(nullable = false)
     protected String answer;
+    
+    //The "many" side of the relation
+    //The "one" side can be found in Moment
+    @ManyToOne
+    @JoinColumn(name = "IN_MOMENT")
+    private Moment moment;
 
     public Question() {
     }
@@ -69,6 +76,14 @@ public class Question implements Serializable {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+    
+    public Moment getMoment() {
+        return moment;
+    }
+
+    public void setMoment(Moment moment) {
+        this.moment = moment;
     }
 
     @Override

@@ -52,11 +52,12 @@ public String getMomentId() {
     }
 
     public List<Question> findRange() {
-        //Moment selectedMoment = moments.getById(momentId);
-        //return selectedMoment.getQuestions();
+        Moment selectedMoment = moments.getById(Long.parseLong(momentId));
+        return selectedMoment.getQuestions();
         
-        return school.getQuestionList().findRange(currentPage * pageSize, pageSize);
+//        return school.getQuestionList().findRange(currentPage * pageSize, pageSize);
     }
+    
     
     public String getId() {
         return id;

@@ -30,9 +30,6 @@ import javax.persistence.Table;
 @Table(name="MOMENTS")
 public class Moment implements Serializable {
 
-    
-    
-    
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -87,8 +84,11 @@ public class Moment implements Serializable {
     }
     
     public void addToQuestions(Question question){
-//        question.setMoment(this);
-//        this.questions.add(question);
+        System.out.println("----**** addtoquestion, question is: " + question.question);
+        question.setMoment(this);
+        System.out.println("----**** addtoquestion, questions list is first: " + questions.toString());
+        this.questions.add(question);
+        System.out.println("----**** addtoquestion, questions list is now: " + questions.toString());
     }
 
     public void removeQuestion(Question question) {
