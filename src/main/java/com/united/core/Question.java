@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -17,6 +18,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -37,21 +39,21 @@ public class Question implements Serializable {
     @Column(nullable = false)
     protected String question;
     
-    @Column(nullable = false)
-    protected String answer;
-    
     //The "many" side of the relation
     //The "one" side can be found in Moment
     @ManyToOne
     @JoinColumn(name = "IN_MOMENT")
     private Moment moment;
+    
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private List<Answer> answers = new ArrayList<>();
 
     public Question() {
     }
 
-    public Question(String question, String answer) {
+    public Question(String question) {
         this.question = question;
-        this.answer = answer;
     }
 
     public Long getId() {
@@ -70,20 +72,25 @@ public class Question implements Serializable {
         this.question = question;
     }
     
-       public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-    
     public Moment getMoment() {
         return moment;
     }
 
     public void setMoment(Moment moment) {
         this.moment = moment;
+    }
+    
+    public void addToAnswers(Answer answer){
+        answer.setQuestion(this);
+        this.answers.add(answer);
+    }
+
+    public void removeAnswer(Answer answer) {
+        answers.remove(answer);
+    }
+    
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
     @Override

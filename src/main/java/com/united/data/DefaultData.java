@@ -109,11 +109,11 @@ public class DefaultData {
         courseDAO.create(c);
         m = new Moment("Multiplikation");
         c.addToMoments(m);
-        q = new Question("1*1", "1");
+        q = new Question("1*1");
         m.addToQuestions(q);
-        q = new Question("1*2", "2");
+        q = new Question("1*2");
         m.addToQuestions(q);
-        q = new Question("5*5", "25");
+        q = new Question("5*5");
         m.addToQuestions(q);
 //        Moment m = new Moment("1");
 //        momentDAO.create(m);
@@ -138,14 +138,14 @@ public class DefaultData {
         
 
         
-        q = new Question("0 * 5", "0");
+        q = new Question("0 * 5");
         questionDAO.create(q);
         
         
-        q = new Question("1 * 5", "5");
+        q = new Question("1 * 5");
         questionDAO.create(q);
         
-        q = new Question("2 * 5", "10");
+        q = new Question("2 * 5");
         questionDAO.create(q);
         
         me = new Message("89", "Hallå?????");
