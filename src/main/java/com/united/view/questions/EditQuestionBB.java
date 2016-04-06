@@ -19,7 +19,7 @@ public class EditQuestionBB {
     @Size(min = 1, max = 100, message = "{question.name}")
     private String question;
     
-    @Size(min = 1, max = 100, message = "{question.name}")
+    @Size(min = 1, max = 100, message = "{question.answer}")
     private String answer;
     
     private Long momentId;

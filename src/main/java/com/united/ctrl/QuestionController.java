@@ -1,11 +1,13 @@
 package com.united.ctrl;
 
 
+import com.united.core.Answer;
 import com.united.core.Course;
 import com.united.core.Moment;
 import com.united.core.Question;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
+import com.united.view.answers.AddAnswerBB;
 import com.united.view.questions.AddQuestionBB;
 import com.united.view.questions.DeleteQuestionBB;
 import com.united.view.questions.EditQuestionBB;
@@ -35,12 +37,14 @@ public class QuestionController {
     private DeleteQuestionBB delBB;
     
    
-     public void newQuestion(String momentId) {
+    public void newQuestion(String momentId) {
        Long momeId = Long.parseLong(momentId);
 
-       Question q = new Question(addBB.getQuestion());
+       Answer a = new Answer(addBB.getAnswer(), "true");
+       Question q = new Question(addBB.getQuestion(), addBB.getAnswer());
        Moment m =  school.getMomentList().getById(momeId);
        
+       q.addToAnswers(a);
        m.addToQuestions(q);
        school.getMomentList().update(m);
     }
@@ -50,9 +54,12 @@ public class QuestionController {
 
         Long id = Long.parseLong(editBB.getId());
         Question m = school.getQuestionList().getById(id);
-        //m.setAnswer(editBB.getAnswer());
         m.setQuestion(editBB.getQuestion());
+        m.setAnswer(editBB.getAnswer());
         
+        Answer a = school.getAnswerList().getById(m);
+        a.setAnswer(editBB.getAnswer());
+        school.getAnswerList().update(a);
         school.getQuestionList().update(m); 
          
     }

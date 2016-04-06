@@ -3,6 +3,8 @@ package com.united.data;
 import com.united.auth.UserList;
 import com.united.auth.Groups;
 import com.united.auth.User;
+import com.united.core.Answer;
+import com.united.core.AnswerList;
 import com.united.core.Course;
 import com.united.core.CourseList;
 import com.united.core.FinishedMoment;
@@ -51,12 +53,15 @@ public class DefaultData {
     private RegistrationList registrationDAO;
     
     @Inject
+    private AnswerList answerDAO;
+    
+    @Inject
     private FinishedMomentList finMomentDAO;
     
     @PostConstruct
     public void post() {
         LOG.log(Level.INFO, "*** Default data alive");
-      //createTestData();   // KOMMENTERA UT första Run, dvs om inga tables finns än.
+      createTestData();   // KOMMENTERA UT första Run, dvs om inga tables finns än.
                             //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
                             //Samma sak nere i clearTestData();
     }
@@ -64,7 +69,7 @@ public class DefaultData {
     @PreDestroy
     public void destroy() {
         LOG.log(Level.INFO, "*** Default data will be destroyed");
-        //clearTestData();    // KOMMENTERA UT första Run, dvs om inga tables finns än.
+        clearTestData();    // KOMMENTERA UT första Run, dvs om inga tables finns än.
                             //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
     }
 
@@ -74,6 +79,7 @@ public class DefaultData {
         Moment m;
         Question q;
         Registration r;
+        Answer a;
         Message me;
         
         LOG.log(Level.INFO, "*** Add default data");
@@ -109,12 +115,12 @@ public class DefaultData {
         courseDAO.create(c);
         m = new Moment("Multiplikation");
         c.addToMoments(m);
-        q = new Question("1*1");
+        /*q = new Question("1*1");
         m.addToQuestions(q);
         q = new Question("1*2");
         m.addToQuestions(q);
         q = new Question("5*5");
-        m.addToQuestions(q);
+        m.addToQuestions(q);*/
 //        Moment m = new Moment("1");
 //        momentDAO.create(m);
 //        
@@ -138,7 +144,7 @@ public class DefaultData {
         
 
         
-        q = new Question("0 * 5");
+        /*q = new Question("0 * 5");
         questionDAO.create(q);
         
         
@@ -147,7 +153,7 @@ public class DefaultData {
         
         q = new Question("2 * 5");
         questionDAO.create(q);
-        
+        */
         me = new Message("89", "Hallå?????");
         messageDAO.create(me);
         

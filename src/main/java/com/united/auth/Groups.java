@@ -8,7 +8,6 @@ package com.united.auth;
 public enum Groups {
     STUDENT,
     TEACHER,
-    PRINCIPAL,
    // POWERUSER,
  
 }

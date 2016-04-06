@@ -37,6 +37,9 @@ public class School {
      
      @Inject
      private RegistrationList registrationList;
+     
+     @Inject
+     private AnswerList answerList;
 
      
     
@@ -62,6 +65,10 @@ public class School {
      
      public RegistrationList getRegistrationList() {
         return registrationList;
+    }
+     
+     public AnswerList getAnswerList() {
+        return answerList;
     }
      
 

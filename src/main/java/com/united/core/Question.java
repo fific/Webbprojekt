@@ -48,12 +48,16 @@ public class Question implements Serializable {
     @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
     private List<Answer> answers = new ArrayList<>();
+    
+    @Column(nullable = false)
+    protected String answer;
 
     public Question() {
     }
-
-    public Question(String question) {
+    
+    public Question(String question, String answer) {
         this.question = question;
+        this.answer = answer;
     }
 
     public Long getId() {
@@ -91,6 +95,14 @@ public class Question implements Serializable {
     
     public List<Answer> getAnswers() {
         return answers;
+    }
+    
+    public String getAnswer() {
+        return answer;
+    }
+    
+    public void setAnswer(String answer) {
+        this.answer = answer;
     }
 
     @Override
