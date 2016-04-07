@@ -41,7 +41,7 @@ public class QuestionController {
        Long momeId = Long.parseLong(momentId);
 
        Answer a = new Answer(addBB.getAnswer(), "true");
-       Question q = new Question(addBB.getQuestion(), addBB.getAnswer());
+       Question q = new Question(addBB.getQuestion());
        Moment m =  school.getMomentList().getById(momeId);
        
        q.addToAnswers(a);
@@ -55,7 +55,6 @@ public class QuestionController {
         Long id = Long.parseLong(editBB.getId());
         Question m = school.getQuestionList().getById(id);
         m.setQuestion(editBB.getQuestion());
-        m.setAnswer(editBB.getAnswer());
         
         Answer a = school.getAnswerList().getById(m);
         a.setAnswer(editBB.getAnswer());
