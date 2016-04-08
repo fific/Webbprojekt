@@ -18,11 +18,11 @@
                 <h:form>
                     
                     <div class="btn-group">
-                    <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{courseList.prev()}">
+                    <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{registrationList.prev()}">
                         <f:ajax execute="@form" render="coursePanel" />
                     </h:commandButton>
 
-                    <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{courseList.next()}">
+                    <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{registrationList.next()}">
                         <f:ajax execute="@form" render="coursePanel" />
                     </h:commandButton>
                     </div>
@@ -30,32 +30,38 @@
                     <!-- Must have this to get an id for the ajax render attribute -->
                     <h:panelGroup id="coursePanel" >
                         <!-- TODO Get created courses-->
-                        <h:dataTable var="course" value="#{courseList.findRange()}"
+                        <h:dataTable var="registration" value="#{registrationList.getRegistrations()}"
                                      class="table table-striped">
-                        <h:column><f:facet name="header">Kurskod</f:facet><h:outputText value="#{course.id}"/></h:column>
-                        <h:column><f:facet name="header">Kursnamn</f:facet><h:outputText value="#{course.name}"/></h:column>
+                        <h:column><f:facet name="header">Kurskod</f:facet><h:outputText value="#{registration.course.id}"/></h:column>
+                        <h:column><f:facet name="header">Kursnamn</f:facet><h:outputText value="#{registration.course.name}"/></h:column>
 
                         
                         <h:column>
                             <h:link value="Redigera kurs" outcome="editCourse.xhtml">
-                                <f:param name="course_id" value="#{course.id}" />
-                                <f:param name="course_name" value="#{course.name}" />
+                                <f:param name="course_id" value="#{registration.course.id}" />
+                                <f:param name="course_name" value="#{registration.course.name}" />
 
                             </h:link>
                          </h:column>   
                         
                         <h:column>
                             <h:link value="Hantera moment" outcome="/partials/moments/momentList.xhtml">
-                                <f:param name="course_id" value="#{course.id}" />
-                                <f:param name="course_name" value="#{course.name}" />
+                                <f:param name="course_id" value="#{registration.course.id}" />
+                                <f:param name="course_name" value="#{registration.course.name}" />
                             </h:link>
                          </h:column>   
                         
+                        <h:column>
+                            <h:link value="Sätta som huvudkurs" outcome="setCurrentCourse.xhtml">
+                                <f:param name="course_id" value="#{registration.course.id}" />
+                                <f:param name="course_name" value="#{registration.course.name}" />
+                            </h:link>
+                         </h:column> 
                         
                         <h:column>
                             <h:link value="Ta bort kurs" outcome="deleteCourse.xhtml">
-                                <f:param name="id" value="#{course.id}" />
-                                <f:param name="name" value="#{course.name}" />
+                                <f:param name="id" value="#{registration.course.id}" />
+                                <f:param name="name" value="#{registration.course.name}" />
 
                             </h:link>
                          </h:column>   

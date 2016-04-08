@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{currentCourse.id}"  />
+        <f:viewParam name="name" value="#{currentCourse.name}"  />
+    </f:metadata>
+    
+    <h:head>
+        <title>Sätta som huvudkurs</title>
+    </h:head>  
+    <h:body>
+        <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
+            <ui:define name="content">
+                <h3>Sätta som huvudkurs</h3>
+                
+                <h:form class="partial-form">
+                    <h:panelGrid columns="2" class="table">
+                        <h:outputLabel value="Kurskod"/>
+                        <h:outputText value="#{currentCourse.id}"/> 
+                        <h:outputLabel value="Kursnamn" />
+                        <h:outputText id="name" value="#{currentCourse.name}"/>
+                    </h:panelGrid>
+                    
+                    <div class="btn-group">
+                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
+                                         action="courseList?faces-redirect=true" />
+                        <h:commandButton value="Spara" actionListener="#{courseController.setCurrentCourse()}" 
+                                         action="courseList?faces-redirect=true" 
+                                         class="btn btn-default"/>
+                    </div>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

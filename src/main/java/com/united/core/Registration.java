@@ -4,6 +4,7 @@ import com.united.auth.User;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,10 +38,14 @@ public class Registration implements Serializable {
 
     @ManyToOne
     private Course course;
+    
+    @Column(nullable = false)
+    protected String currentCourse;
 
     public Registration(User user, Course course) {
         this.user = user;
         this.course = course;
+        currentCourse = "MM";
     }
 
     public Registration() {
@@ -68,6 +73,14 @@ public class Registration implements Serializable {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+    
+    public String getCurrentCourse() {
+        return currentCourse;
+    }
+    
+    public void setCurrentCourse(String currentCourse) {
+        this.currentCourse = currentCourse;
     }
     
         @Override

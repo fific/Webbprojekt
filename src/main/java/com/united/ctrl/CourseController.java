@@ -1,16 +1,22 @@
 package com.united.ctrl;
 
+import com.united.auth.User;
 import com.united.core.Course;
+import com.united.core.Registration;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
 import com.united.view.courses.AddCourseBB;
+import com.united.view.courses.CurrentCourseBB;
 import com.united.view.courses.DeleteCourseBB;
 import com.united.view.courses.EditCourseBB;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -31,24 +37,41 @@ public class CourseController {
     private AddCourseBB addBB;
     private EditCourseBB editBB;
     private DeleteCourseBB delBB;
-    
+    private CurrentCourseBB currentBB;
    
      public void newCourse() {
-       LOG.log(Level.INFO, "Backing bean " + addBB);
-       Course p = new Course(addBB.getId(), addBB.getName());
-        school.getCourseList().create(p);
+       //LOG.log(Level.INFO, "Backing bean " + addBB);
+       Course c = new Course(addBB.getId(), addBB.getName());
+       school.getCourseList().create(c);
+       
+       ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+       Map<String, Object> sessionMap = externalContext.getSessionMap();
+       User u = (User) sessionMap.get("user");
+        
+       Registration r = new Registration(u, c);
+       school.getRegistrationList().create(r);
     }
 
      public void updateCourse() {
-       Course p = new Course(Objects.toString(editBB.getId()), editBB.getName());
-       school.getCourseList().update(p);    
+       Course c = new Course(Objects.toString(editBB.getId()), editBB.getName());
+       school.getCourseList().update(c);    
     }
 
     public void deleteCourse() {
+       Course c = new Course(Objects.toString(delBB.getId()), delBB.getName());
+       List<Registration> rl = school.getRegistrationList().getAllRegistrationsForCourse(c);
+       for(Registration r : rl) {
+           school.getRegistrationList().delete(r.getId());
+       }
+        
        String id = Objects.toString(delBB.getId());
        school.getCourseList().delete(id);
     }
-
+    
+    public void setCurrentCourse() {
+       
+    }
+ 
     @Inject
     public void setAddBB(AddCourseBB addBB) {
         this.addBB = addBB;
