@@ -45,7 +45,13 @@ public class Registration implements Serializable {
     public Registration(User user, Course course) {
         this.user = user;
         this.course = course;
-        currentCourse = "MM";
+        currentCourse = "false";
+    }
+    
+    public Registration(User user, Course course, String currentCourse) {
+        this.user = user;
+        this.course = course;
+        this.currentCourse = currentCourse;
     }
 
     public Registration() {

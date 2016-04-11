@@ -69,7 +69,12 @@ public class CourseController {
     }
     
     public void setCurrentCourse() {
-       
+        Course c = new Course(currentBB.getId(), currentBB.getName());
+        List<Registration> rl = school.getRegistrationList().getAllRegistrationsForCourse(c);
+        for(Registration r : rl) {
+           r.setCurrentCourse("true");
+           school.getRegistrationList().update(r);
+        }
     }
  
     @Inject
@@ -85,6 +90,11 @@ public class CourseController {
     @Inject
     public void setDelBB(DeleteCourseBB delBB) {
         this.delBB = delBB;
+    }
+    
+    @Inject
+    public void setCurrentBB(CurrentCourseBB currentBB) {
+        this.currentBB = currentBB;
     }
 
 //    @Inject

@@ -1,5 +1,6 @@
 package com.united.core;
 
+import com.united.auth.Groups;
 import com.united.auth.User;
 import com.united.persistence.AbstractDAO;
 import java.util.ArrayList;
@@ -40,6 +41,15 @@ public class RegistrationList extends AbstractDAO<Registration, Long> {
         return em;
     }
     
+    public String getCCForTeacher(Course course) {
+        String jpql = "SELECT r FROM Registration r WHERE r.course=:course";
+        List<Registration> tl = em.createQuery(jpql, Registration.class).setParameter("course", course).getResultList();
+        for(Registration r : tl) {
+            if(r.getUser().getGroups().get(0) == Groups.TEACHER && r.getCurrentCourse().equals("true"))
+                return "true";
+        }
+        return "false";
+    }
      
     public List<Registration> getById(Long id) {
         String jpql = "SELECT r FROM Registration r WHERE r.id=:id";

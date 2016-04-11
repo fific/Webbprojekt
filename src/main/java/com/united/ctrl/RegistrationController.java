@@ -4,6 +4,7 @@ package com.united.ctrl;
 
 
 import com.united.auth.User;
+import com.united.core.Course;
 import com.united.core.Registration;
 import com.united.core.School;
 import com.united.view.registrations.AddRegistrationBB;
@@ -39,10 +40,7 @@ public class RegistrationController {
        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
        Map<String, Object> sessionMap = externalContext.getSessionMap();
        User u = (User) sessionMap.get("user");
-        
-       LOG.log(Level.INFO, "*** {0}", u.getId());
-       LOG.log(Level.INFO, "*** {0}", school.getCourseList().getById(addBB.getId()));
-       Registration p = new Registration(u, school.getCourseList().getById(addBB.getId()));
+       Registration p = new Registration(u, school.getCourseList().getById(addBB.getId()), school.getRegistrationList().getCCForTeacher(school.getCourseList().getById(addBB.getId())));
        school.getRegistrationList().create(p);
     }
 
