@@ -39,7 +39,7 @@ public class UserListBB implements Serializable {
     }
     
     public List<User> findStudentRange() {
-        return users.getAllStudents();
+        return users.getStudentsByUser();
     }
 
     @PostConstruct

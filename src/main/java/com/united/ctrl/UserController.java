@@ -3,6 +3,7 @@ package com.united.ctrl;
 
 import com.united.auth.Groups;
 import com.united.auth.User;
+import com.united.core.Registration;
 import com.united.core.School;
 import com.united.view.users.AddUserBB;
 import com.united.view.users.DeleteUserBB;
@@ -67,7 +68,11 @@ public class UserController {
 
     public void deleteUser() {
        String id = delBB.getId();
-       school.getUserList().delete(id);
+       
+       List<Registration> rl = school.getUserList().getStudentsRegistration(id);
+       for(Registration r : rl) {
+           school.getRegistrationList().delete(r.getId());
+       }
     }
 
     @Inject
