@@ -1,5 +1,6 @@
 package com.united.core;
 
+import com.united.auth.User;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -32,10 +33,14 @@ public class Answer implements Serializable {
     protected String correctness;
     
     //The "many" side of the relation
-    //The "one" side can be found in Moment
+    //The "one" side can be found in question
     @ManyToOne
     @JoinColumn(name = "HAS_QUESTION")
     private Question question;
+    
+    @ManyToOne
+    @JoinColumn(name = "ANSWERED_BY")
+    private User user;
 
     public Answer() {
     }
@@ -75,6 +80,14 @@ public class Answer implements Serializable {
 
     public void setQuestion(Question question) {
         this.question = question;
+    }
+    
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

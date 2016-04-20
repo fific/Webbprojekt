@@ -1,5 +1,6 @@
 package com.united.auth;
 
+import com.united.core.Answer;
 import com.united.core.Message;
 import com.united.core.Moment;
 import java.io.Serializable;
@@ -58,7 +59,9 @@ public class User implements Serializable {
             fetch = FetchType.LAZY)
     private List<Message> receivedMessages = new ArrayList<>();
     
-    
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
+    private List<Answer> answers = new ArrayList<>();
 
     public User() {
     }
@@ -105,6 +108,18 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public void addToAnswers(Answer answer){
+        answers.add(answer);
+    }
+
+    public void removeAnswer(Answer answer) {
+        answers.remove(answer);
+    }
+    
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
     @Override
