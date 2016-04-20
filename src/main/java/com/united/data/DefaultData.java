@@ -39,170 +39,102 @@ public class DefaultData {
 
     @Inject
     private MessageList messageDAO;
-    
+
     @Inject
     private MomentList momentDAO;
-    
+
     @Inject
     private CourseList courseDAO;
-    
+
     @Inject
     private QuestionList questionDAO;
-    
+
     @Inject
     private RegistrationList registrationDAO;
-    
+
     @Inject
     private AnswerList answerDAO;
-    
+
     @Inject
     private FinishedMomentList finMomentDAO;
-    
+
     @PostConstruct
     public void post() {
         LOG.log(Level.INFO, "*** Default data alive");
-      createTestData();   // KOMMENTERA UT första Run, dvs om inga tables finns än.
-                            //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
-                            //Samma sak nere i clearTestData();
+        createTestData();   // KOMMENTERA UT första Run, dvs om inga tables finns än.
+        //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
+        //Samma sak nere i clearTestData();
     }
 
     @PreDestroy
     public void destroy() {
         LOG.log(Level.INFO, "*** Default data will be destroyed");
         clearTestData();    // KOMMENTERA UT första Run, dvs om inga tables finns än.
-                            //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
+        //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
     }
 
     private void createTestData() {
-        User u;
+        User l1, l2, s1, s2, s3;
         Course c;
         Moment m;
         Question q;
         Registration r;
         Answer a;
         Message me;
-        
-        LOG.log(Level.INFO, "*** Add default data");
-        u = new User("lärare1", "lärare1", "lärare1", Groups.TEACHER);
-        authDAO.create(u);
-        u = new User("lärare2", "lärare2","lärare2", Groups.TEACHER);
-        authDAO.create(u);
-        u = new User("student1", "student1","student1", Groups.STUDENT);
-        authDAO.create(u);
-        u = new User("student2", "student2","student2", Groups.STUDENT);
-        authDAO.create(u);
-        u = new User("student3", "student3","student3", Groups.STUDENT);
-        authDAO.create(u);
-        
-        c = new Course("SV1", "Svenska 1");
-        courseDAO.create(c);
-        m = new Moment("Verb");
-        momentDAO.create(m);
-        c.addToMoments(m);
-        m = new Moment("Tempus");
-        momentDAO.create(m);
-        c.addToMoments(m);
-        
-        c = new Course("HI1", "Historia 1");
-        courseDAO.create(c);
-        m = new Moment("Apartheid");
-        c.addToMoments(m);
-        
-        r = new Registration(u,c);
-        registrationDAO.create(r);
-        
-        c = new Course("MA1", "Matematik 1");
-        courseDAO.create(c);
-        m = new Moment("Multiplikation");
-        c.addToMoments(m);
-        /*q = new Question("1*1");
-        m.addToQuestions(q);
-        q = new Question("1*2");
-        m.addToQuestions(q);
-        q = new Question("5*5");
-        m.addToQuestions(q);*/
-//        Moment m = new Moment("1");
-//        momentDAO.create(m);
-//        
-//        m = new Moment("2");
-//        momentDAO.create(m);
-//        
-//        m = new Moment("3");
-//        momentDAO.create(m);
-//        
-//        m = new Moment("4");
-//        momentDAO.create(m);
-        
-        c = new Course("GGR1", "Gångertabell_1");
-        courseDAO.create(c);
-        
-        c = new Course("67", "Gångertabell_2");
-        courseDAO.create(c);
-        
-        c = new Course("68", "Gångertabell_3");
-        courseDAO.create(c);
-        
 
-        
-        /*q = new Question("0 * 5");
-        questionDAO.create(q);
-        
-        
-        q = new Question("1 * 5");
-        questionDAO.create(q);
-        
-        q = new Question("2 * 5");
-        questionDAO.create(q);
-        */
-        me = new Message("89", "Hallå?????");
-        messageDAO.create(me);
-        
-        me = new Message("87", "Någon där?????");
-        messageDAO.create(me);
-        
-        me = new Message("86", "Vem?????");
-        messageDAO.create(me);
-        
-//        Registration r = new Registration(u, c);
-//        registrationDAO.create(r);
-//        
-//        FinishedMoment fm = new FinishedMoment(u, m);
-//        finMomentDAO.create(fm);
+        LOG.log(Level.INFO, "*** Add default data");
+        l1 = new User("lärare1", "lärare1", "lärare1", Groups.TEACHER);
+        authDAO.create(l1);
+        l2 = new User("lärare2", "lärare2", "lärare2", Groups.TEACHER);
+        authDAO.create(l2);
+        s1 = new User("student1", "student1", "student1", Groups.STUDENT);
+        authDAO.create(s1);
+        s2 = new User("student2", "student2", "student2", Groups.STUDENT);
+        authDAO.create(s2);
+        s3 = new User("student3", "student3", "student3", Groups.STUDENT);
+        authDAO.create(s3);
+
+        c = new Course("MM", "Multiplikation Matematik");
+        courseDAO.create(c);
+
+        for (int i = 0; i < 10; i++) {
+            m = new Moment("Gångertabell " + i);
+            momentDAO.create(m);
+            c.addToMoments(m);
+            for (int j = 0; j < 10; j++) {
+                
+                q = new Question(i + " * " + j);
+                questionDAO.create(q);
+                m.addToQuestions(q);
+                a = new Answer("" + i * j, "true");
+                answerDAO.create(a);
+                q.addToAnswers(a);
+                if (i != j) {
+                    q = new Question(j + " * " + i);
+                    questionDAO.create(q);
+                    m.addToQuestions(q);
+                    a = new Answer("" + i * j, "true");
+                    answerDAO.create(a);
+                    q.addToAnswers(a);
+                }
+            }
+        }
+
+        r = new Registration(l1, c);
+        registrationDAO.create(r);
+        r = new Registration(l2, c);
+        registrationDAO.create(r);
+        r = new Registration(s1, c);
+        registrationDAO.create(r);
+        r = new Registration(s2, c);
+        registrationDAO.create(r);
+        r = new Registration(s3, c);
+        registrationDAO.create(r);
 
     }
 
     private void clearTestData() {
-        authDAO.delete("lärare1");
-        authDAO.delete("lärare2");
-        authDAO.delete("student1");
-        authDAO.delete("student2");
-        authDAO.delete("student3");
-        
-//        registrationDAO.delete(1l);
-//        finMomentDAO.delete(2l);
-        
-
-        
-        momentDAO.delete(momentDAO.getById(1l).getId());
-        momentDAO.delete(momentDAO.getById(2l).getId());
-        momentDAO.delete(momentDAO.getById(3l).getId());
-        momentDAO.delete(momentDAO.getById(4l).getId());
-        
-        courseDAO.delete("66");
-        courseDAO.delete("67");
-        courseDAO.delete("68");
-        
-        messageDAO.delete("89");
-        messageDAO.delete("87");
-        messageDAO.delete("86");
-        
-        questionDAO.delete(89);
-        questionDAO.delete(87);
-        questionDAO.delete(86);
-        
 
     }
-
-
 
 }

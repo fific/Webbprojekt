@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -30,7 +32,7 @@ public class Course implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(nullable = false)  // unique is implied
+    @Column(nullable = false)
     protected String id;
     @Column(nullable = false)
     protected String name;
@@ -44,13 +46,12 @@ public class Course implements Serializable {
     
     //The "one" side of the relation
     //The "many" side can be found in Moment
-    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL,
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.PERSIST,
             fetch = FetchType.LAZY)
     private List<Moment> containedMoments = new ArrayList<>();
     
 
-    public Course() {
-    }
+    public Course() {}
 
     public Course(String id, String name) {
         this.id = id;
@@ -82,6 +83,10 @@ public class Course implements Serializable {
     
     public List<Moment> getMoments() {
         return containedMoments;
+    }
+    
+    public void setMoments(List<Moment> containedMoments) {
+        this.containedMoments = containedMoments;
     }
     
     public void addToMoments(Moment moment){

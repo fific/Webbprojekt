@@ -4,6 +4,7 @@ import com.united.auth.*;
 import com.united.persistence.AbstractDAO;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -50,6 +51,24 @@ public class CourseList extends AbstractDAO<Course, String> {
         groupList.add(Groups.STUDENT);
         return em.createQuery(jpql, User.class).setParameter("group", groupList).getResultList();
     }*/
+    
+    public String generatedCourseId(String id) {
+		Random rand = new Random();
+		String newId = id + "_clone";
+		List<Registration> list = new ArrayList<Registration>();
+		boolean exist = true;
+		
+		while(exist) {
+                    newId = newId + rand.nextInt(1000);
+                    
+                    String jpql = "SELECT c.id FROM Course c WHERE c.id=:id";
+                    list = em.createQuery(jpql, Registration.class).setParameter("id", newId).getResultList();
+                    
+                    if(list.isEmpty())
+			exist = false;
+		}
+		return newId;
+    }
     
     
     
