@@ -55,6 +55,12 @@ public class Question implements Serializable {
     public Question(String question) {
         this.question = question;
     }
+    
+    public Question(Long id, String question) {
+        this.id = id;
+        this.question = question;
+    }
+
 
     public Long getId() {
         return id;

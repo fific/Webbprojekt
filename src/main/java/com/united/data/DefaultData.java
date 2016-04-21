@@ -17,6 +17,8 @@ import com.united.core.Question;
 import com.united.core.QuestionList;
 import com.united.core.Registration;
 import com.united.core.RegistrationList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -81,6 +83,7 @@ public class DefaultData {
         Registration r;
         Answer a;
         Message me;
+        Long id = 0L;
 
         LOG.log(Level.INFO, "*** Add default data");
         l1 = new User("lärare1", "lärare1", "lärare1", Groups.TEACHER);
@@ -96,39 +99,48 @@ public class DefaultData {
 
         c = new Course("MM", "Multiplikation Matematik");
         courseDAO.create(c);
-
-        for (int i = 0; i < 10; i++) {
+        
+        for (int i = 0; i < 11; i++) {
             m = new Moment("Gångertabell " + i);
             momentDAO.create(m);
             c.addToMoments(m);
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < 11; j++) {
                 
                 q = new Question(i + " * " + j);
+                //System.out.println("questionid: " + id);
                 questionDAO.create(q);
                 m.addToQuestions(q);
                 a = new Answer("" + i * j, "true");
                 answerDAO.create(a);
                 q.addToAnswers(a);
-                if (i != j) {
+                
+                
+                /*if (i != j) {
                     q = new Question(j + " * " + i);
+                    q.setId(Long.parseLong("" + j + "" + i));
                     questionDAO.create(q);
                     m.addToQuestions(q);
                     a = new Answer("" + i * j, "true");
                     answerDAO.create(a);
                     q.addToAnswers(a);
-                }
+                }*/
             }
         }
 
         r = new Registration(l1, c);
+        r.setCurrentCourse("true");
         registrationDAO.create(r);
         r = new Registration(l2, c);
+        r.setCurrentCourse("true");
         registrationDAO.create(r);
         r = new Registration(s1, c);
+        r.setCurrentCourse("true");
         registrationDAO.create(r);
         r = new Registration(s2, c);
+        r.setCurrentCourse("true");
         registrationDAO.create(r);
         r = new Registration(s3, c);
+        r.setCurrentCourse("true");
         registrationDAO.create(r);
 
     }
