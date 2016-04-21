@@ -11,12 +11,12 @@
     </f:metadata>
     
     <h:head>
-        <title>Sätta som huvudkurs</title>
+        <title>Sätta som nuvarande kurs</title>
     </h:head>  
     <h:body>
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                <h3>Sätta som huvudkurs</h3>
+                <h3>Sätta som nuvarande kurs</h3>
                 
                 <h:form class="partial-form">
                     <h:panelGrid columns="2" class="table">
@@ -29,7 +29,7 @@
                     <div class="btn-group">
                         <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
                                          action="courseList?faces-redirect=true" />
-                        <h:commandButton value="Spara" actionListener="#{courseController.setCurrentCourse()}" 
+                        <h:commandButton value="Uppdatera" actionListener="#{courseController.setCurrentCourse()}" 
                                          action="courseList?faces-redirect=true" 
                                          class="btn btn-default"/>
                     </div>

@@ -70,7 +70,12 @@ public class CourseController {
     
     public void setCurrentCourse() {
         Course c = new Course(currentBB.getId(), currentBB.getName());
-        List<Registration> rl = school.getRegistrationList().getAllRegistrationsForCourse(c);
+        List<Registration> rl = school.getRegistrationList().getAllRegistrationsForUsername();
+        for(Registration r : rl) {
+           r.setCurrentCourse("false");
+           school.getRegistrationList().update(r);
+        }
+        rl = school.getRegistrationList().getAllRegistrationsForCourse(c);
         for(Registration r : rl) {
            r.setCurrentCourse("true");
            school.getRegistrationList().update(r);
