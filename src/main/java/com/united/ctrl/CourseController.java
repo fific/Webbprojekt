@@ -1,5 +1,6 @@
 package com.united.ctrl;
 
+import com.united.auth.Groups;
 import com.united.auth.User;
 import com.united.core.Course;
 import com.united.core.Registration;
@@ -68,6 +69,7 @@ public class CourseController {
        school.getCourseList().delete(id);
     }
     
+    // Bug fix: change student status while set current course.
     public void setCurrentCourse() {
         Course c = new Course(currentBB.getId(), currentBB.getName());
         List<Registration> rl = school.getRegistrationList().getAllRegistrationsForUsername();
@@ -75,11 +77,14 @@ public class CourseController {
            r.setCurrentCourse("false");
            school.getRegistrationList().update(r);
         }
+        
         rl = school.getRegistrationList().getAllRegistrationsForCourse(c);
         for(Registration r : rl) {
            r.setCurrentCourse("true");
            school.getRegistrationList().update(r);
         }
+        
+        List<User> ul = school.getUserList().getStudentsByUser();
     }
  
     @Inject
