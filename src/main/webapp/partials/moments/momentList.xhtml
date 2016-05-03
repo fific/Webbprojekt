@@ -19,7 +19,7 @@
             <ui:define name="content">
                 <h3>Moment </h3>
                 <h4>(#{momentList.courseId}) #{momentList.id}  </h4>
-                
+                <!--
                 <h:form>
                     
                     <div class="btn-group">
@@ -31,7 +31,7 @@
                             <f:ajax execute="@form" render="momentPanel" />
                         </h:commandButton>
                     </div>
-                    <!--
+                    
                     <h:panelGroup id="momentPanel" >
                         <h:dataTable var="moment" value="#{momentList.findRange()}"
                                      class="table table-striped">
@@ -64,14 +64,14 @@
                             </h:column>   
                         </h:dataTable>                
                     </h:panelGroup>
-                    -->
+                    
                      <h:button class="btn btn-primary" outcome="addMoment.xhtml"
                          value="Skapa moment">
                           <f:param name="course_id" value="#{momentList.courseId}" />           
                      </h:button>
                     
 
-                </h:form>
+                </h:form>-->
 
             </ui:define>
         </ui:composition>
