@@ -86,9 +86,9 @@ public class DefaultData {
         Long id = 0L;
 
         LOG.log(Level.INFO, "*** Add default data");
-        l1 = new User("lärare1", "lärare1", "lärare1", Groups.TEACHER);
+        l1 = new User("teacher1", "teacher1", "teacher1", Groups.TEACHER);
         authDAO.create(l1);
-        l2 = new User("lärare2", "lärare2", "lärare2", Groups.TEACHER);
+        l2 = new User("teacher2", "teacher2", "teacher2", Groups.TEACHER);
         authDAO.create(l2);
         s1 = new User("student1", "student1", "student1", Groups.STUDENT);
         authDAO.create(s1);
@@ -97,11 +97,11 @@ public class DefaultData {
         s3 = new User("student3", "student3", "student3", Groups.STUDENT);
         authDAO.create(s3);
 
-        c = new Course("MM", "Multiplikation Matematik");
+        c = new Course("MM", "Multiplication Mathematica");
         courseDAO.create(c);
         
         for (int i = 0; i < 11; i++) {
-            m = new Moment("Gångertabell " + i);
+            m = new Moment("Times table " + i);
             momentDAO.create(m);
             c.addToMoments(m);
             for (int j = 0; j < 11; j++) {
