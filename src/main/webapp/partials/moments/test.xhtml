@@ -11,11 +11,17 @@
     <f:metadata>
         <f:viewParam name="course_name" value="#{editCourse.name}"  />
     </f:metadata>
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+    <h:head>
+        <title>Moment</title>
+    </h:head>  
+    <h:body>
+        <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
+            <ui:define name="content">
+                <h3>Moment </h3>
+                <h4>(#{momentList.courseId}) #{momentList.id}  </h4>
+                
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
 </html>
