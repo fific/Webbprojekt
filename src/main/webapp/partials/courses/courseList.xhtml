@@ -7,7 +7,7 @@
     
 
     
-    <!--h:head>
+    <h:head>
         <title>Kurser</title>
     </h:head>  
     <h:body>
@@ -27,9 +27,9 @@
                     </h:commandButton>
                     </div>
                         
-                    
+                    <!-- Must have this to get an id for the ajax render attribute -->
                     <h:panelGroup id="coursePanel" >
-                        
+                        <!-- TODO Get created courses-->
                         <h:dataTable var="registration" value="#{registrationList.getRegistrations()}"
                                      class="table table-striped">
                         <h:column><f:facet name="header">Kurskod</f:facet><h:outputText value="#{registration.course.id}"/></h:column>
@@ -46,9 +46,9 @@
                         
                         <h:column>
                             <h:link value="Hantera moment" outcome="/partials/moments/momentList.xhtml">
-                                <!--<f:param name="course_id" value="#{registration.course.id}" />
-                                <f:param name="course_name" value="#{registration.course.name}" /-->
-                            <!--/h:link>
+                                <f:param name="course_id" value="#{registration.course.id}" />
+                                <f:param name="course_name" value="#{registration.course.name}" />
+                            </h:link>
                          </h:column>   
                         
                         <h:column>
@@ -74,12 +74,12 @@
                     
                         <h:button class="btn btn-primary" outcome="addCourse.xhtml"
                                 value="Skapa kurs"></h:button>
-                        < <h:button class="btn btn-primary" outcome="cloneCourse.xhtml"
-                                value="Lägga till kurs"></h:button> >
+                        <!-- <h:button class="btn btn-primary" outcome="cloneCourse.xhtml"
+                                value="Lägga till kurs"></h:button> -->
                     
                 </h:form>
 
             </ui:define>
         </ui:composition>
-    </h:body-->
+    </h:body>
 </html>
