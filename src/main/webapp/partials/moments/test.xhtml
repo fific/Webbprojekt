@@ -1,16 +1,79 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    
+    <f:metadata>
+        <f:viewParam name="course_id" value="#{momentList.courseId}"  />
+        <f:viewParam name="course_name" value="#{momentList.id}"  />
+    </f:metadata>
+    
+    <h:head>
+        <title>Moment</title>
+    </h:head>  
+    <h:body>
+        <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
+            <ui:define name="content">
+                <h3>Moment </h3>
+                <h4>(#{momentList.courseId}) #{momentList.id}  </h4>
+                
+                <h:form>
+                    
+                    <div class="btn-group">
+                        <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{momentList.prev()}">
+                            <f:ajax execute="@form" render="momentPanel" />
+                        </h:commandButton>
+
+                        <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{momentList.next()}">
+                            <f:ajax execute="@form" render="momentPanel" />
+                        </h:commandButton>
+                    </div>
+                    
+                    <h:panelGroup id="momentPanel" >
+                        <h:dataTable var="moment" value="#{momentList.findRange()}"
+                                     class="table table-striped">
+                            <h:column><f:facet name="header">Id</f:facet><h:outputText value="#{moment.id}"/></h:column>
+                            <h:column><f:facet name="header">Momentnamn</f:facet><h:outputText value="#{moment.name}"/></h:column>
+
+                            <h:column>
+                                <h:link value="Redigera moment" outcome="editMoment.xhtml">
+                                    <f:param name="id" value="#{moment.id}" />
+                                    <f:param name="name" value="#{moment.name}" />
+                                    <f:param name="course_id" value="#{momentList.courseId}" />
+                                </h:link>
+                            </h:column>           
+                            
+                            <h:column>
+                                <h:link value="Hantera frågor" outcome="/partials/questions/questionList.xhtml">
+                                    <f:param name="moment_id" value="#{moment.id}" />
+                                    <f:param name="moment_name" value="#{moment.name}" />
+                                    <f:param name="course_id" value="#{momentList.courseId}"  />
+                                    <f:param name="course_name" value="#{momentList.id}"  />
+                                </h:link>
+                            </h:column>  
+
+                            <h:column>
+                                <h:link value="Ta bort moment" outcome="deleteMoment.xhtml">
+                                    <f:param name="id" value="#{moment.id}" />
+                                    <f:param name="name" value="#{moment.name}" />
+                                    <f:param name="course_id" value="#{momentList.courseId}" />
+                                </h:link>
+                            </h:column>   
+                        </h:dataTable>                
+                    </h:panelGroup>
+                    
+                     <h:button class="btn btn-primary" outcome="addMoment.xhtml"
+                         value="Skapa moment">
+                          <f:param name="course_id" value="#{momentList.courseId}" />           
+                     </h:button>
+                    
+
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
 </html>
