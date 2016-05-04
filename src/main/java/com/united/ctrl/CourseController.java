@@ -78,13 +78,20 @@ public class CourseController {
            school.getRegistrationList().update(r);
         }
         
+        List<User> ul = school.getUserList().getStudentsByUser();
+        for(User u : ul) {
+            rl = school.getRegistrationList().getAllRegistrationsForUser(u);
+            for(Registration r : rl) {
+                r.setCurrentCourse("false");
+                school.getRegistrationList().update(r);
+            }
+        }
+        
         rl = school.getRegistrationList().getAllRegistrationsForCourse(c);
         for(Registration r : rl) {
            r.setCurrentCourse("true");
            school.getRegistrationList().update(r);
         }
-        
-        List<User> ul = school.getUserList().getStudentsByUser();
     }
  
     @Inject

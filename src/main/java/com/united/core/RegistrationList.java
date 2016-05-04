@@ -67,6 +67,12 @@ public class RegistrationList extends AbstractDAO<Registration, Long> {
                 setParameter("user", u).getResultList();
     }
     
+    public List<Registration> getAllRegistrationsForUser(User u) {
+        String jpql = "SELECT r FROM Registration r WHERE r.user=:user";
+        return em.createQuery(jpql, Registration.class).
+                setParameter("user", u).getResultList();
+    }
+    
     public List<Registration> getAllRegistrationsForCourse(Course c) {
         String jpql = "SELECT r FROM Registration r WHERE r.course=:course";
         return em.createQuery(jpql, Registration.class).
