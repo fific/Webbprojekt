@@ -6,10 +6,10 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
     <f:metadata>
-        <f:viewParam name="course_id" value="#{editCourse.id}"  />
+        <f:viewParam name="course_id" value="#{momentList.courseId}"  />
     </f:metadata>
     <f:metadata>
-        <f:viewParam name="course_name" value="#{editCourse.name}"  />
+        <f:viewParam name="course_name" value="#{momentList.id}"  />
     </f:metadata>
     <h:head>
         <title>Moment</title>
@@ -20,7 +20,31 @@
                 <h3>Moment </h3>
                 <h4>(#{momentList.courseId}) #{momentList.id}  </h4>
                 
+                <h:form>
+                    
+                    <div class="btn-group">
+                        <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{momentList.prev()}">
+                            <f:ajax execute="@form" render="momentPanel" />
+                        </h:commandButton>
 
+                        <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{momentList.next()}">
+                            <f:ajax execute="@form" render="momentPanel" />
+                        </h:commandButton>
+                    </div>
+                    
+                    <h:panelGroup id="momentPanel" >
+                        <h:dataTable var="moment" value="#{momentList.findRange()}"
+                                     class="table table-striped">
+                            <h:column><f:facet name="header">Id</f:facet><h:outputText value="#{moment.id}"/></h:column>
+                            <h:column><f:facet name="header">Momentnamn</f:facet><h:outputText value="#{moment.name}"/></h:column>
+
+                        </h:dataTable>                
+                    </h:panelGroup>
+                    
+
+                </h:form>
+                
+                
             </ui:define>
         </ui:composition>
     </h:body>
