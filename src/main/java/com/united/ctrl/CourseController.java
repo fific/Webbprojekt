@@ -20,6 +20,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  Used for Add, Edit Delete pages
@@ -69,7 +70,6 @@ public class CourseController {
        school.getCourseList().delete(id);
     }
     
-    // Bug fix: change student status while set current course.
     public void setCurrentCourse() {
         Course c = new Course(currentBB.getId(), currentBB.getName());
         List<Registration> rl = school.getRegistrationList().getAllRegistrationsForUsername();

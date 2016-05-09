@@ -34,7 +34,7 @@
                 <h:link value="Kurser" class="navbar-brand" outcome="courses" />
                 <h:link value="Statistik" class="navbar-brand" outcome="statistics" />  
                 <h:link value="Konto" class="navbar-brand" outcome="teacherlogin" />  
-                <p class="navbar-text">Välkommen #{sessionScope.user.name}</p>
+                <p class="navbar-text">Nuvarande kurs: #{currentCourse.getNameByUser()}</p>
                 <p class="navbar-text navbar-right">Inloggad som <a href="#" class="navbar-link">#{sessionScope.user.id}</a></p>
             </nav>  
             <ui:insert name="content">Content</ui:insert>

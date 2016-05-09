@@ -4,13 +4,17 @@ import com.united.auth.*;
 import com.united.persistence.AbstractDAO;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -44,13 +48,6 @@ public class CourseList extends AbstractDAO<Course, String> {
         return em.createQuery(jpql, Course.class).
                 setParameter("id", id).getSingleResult();
     }
-    /*
-    public List<User> getAllStudents() {
-        String jpql = "SELECT p FROM User p WHERE p.groups=:group";
-        List<Groups> groupList  = new ArrayList<>();
-        groupList.add(Groups.STUDENT);
-        return em.createQuery(jpql, User.class).setParameter("group", groupList).getResultList();
-    }*/
     
     public String generatedCourseId(String id) {
 		Random rand = new Random();

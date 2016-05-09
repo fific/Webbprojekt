@@ -10,13 +10,8 @@ import com.united.core.Registration;
 import com.united.core.School;
 import com.united.view.registrations.AddRegistrationBB;
 import com.united.view.registrations.DeleteRegistrationBB;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
@@ -46,8 +41,17 @@ public class RegistrationController {
        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
        Map<String, Object> sessionMap = externalContext.getSessionMap();
        User u = (User) sessionMap.get("user");
-       Registration p = new Registration(u, school.getCourseList().getById(addBB.getId()), school.getRegistrationList().getCCForTeacher(school.getCourseList().getById(addBB.getId())));
-       school.getRegistrationList().create(p);
+       
+       List<Registration> rl = school.getRegistrationList().getAllRegistrationsForUsername();
+       if(school.getRegistrationList().getCCForTeacher(school.getCourseList().getById(addBB.getId())).equals("true")) {
+            for(Registration r : rl) {
+                r.setCurrentCourse("false");
+                school.getRegistrationList().update(r);
+            }
+            school.getRegistrationList().create(new Registration(u, school.getCourseList().getById(addBB.getId()), "true"));
+       }
+       else
+           school.getRegistrationList().create(new Registration(u, school.getCourseList().getById(addBB.getId())));
     }
      
     //not working!!!
