@@ -5,7 +5,13 @@
  */
 package com.united.view.courses;
 
+import com.united.auth.User;
+import com.united.core.School;
+import java.util.Map;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.Size;
 
@@ -22,6 +28,8 @@ public class CurrentCourseBB {
     
     private String name;
     
+    @Inject
+    private School school;
     // Hopeless to validate numbers (?!?!) because, user possibly enters non-digits
     //@Pattern(regexp = "^[0-9]+(\\.[0-9]{1,2})?$", message = "{product.price}")
     //private String price;
@@ -40,6 +48,10 @@ public class CurrentCourseBB {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public String getNameByUser() {
+        return school.getRegistrationList().getCurrentCourse().getName();
     }
     
     @Override

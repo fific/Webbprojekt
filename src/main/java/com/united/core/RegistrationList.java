@@ -78,5 +78,15 @@ public class RegistrationList extends AbstractDAO<Registration, Long> {
         return em.createQuery(jpql, Registration.class).
                 setParameter("course", c).getResultList();
     }
+    
+    public Course getCurrentCourse() {
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+       Map<String, Object> sessionMap = externalContext.getSessionMap();
+       User u = (User) sessionMap.get("user");
+        
+        String jpql = "SELECT r FROM Registration r WHERE r.user=:user AND r.currentCourse='true'";
+        return em.createQuery(jpql, Registration.class).
+                setParameter("user", u).getResultList().get(0).getCourse();
+    }
    
 }
