@@ -8,6 +8,7 @@
     
     <f:metadata>
         <f:viewParam name="course_id" value="#{momentList.courseId}"  />
+        <f:viewParam name="course_name" value="#{momentList.id}"  />
     </f:metadata>
     
     <h:head>
@@ -37,12 +38,16 @@
                             <h:column><h:outputText value="#{moment.id}"/></h:column>
                             <h:column><h:outputText value="#{moment.name}"/></h:column>
 
-<!--                            <h:column>
-                                <h:link value="Status" outcome="/partials/questions/questionList.xhtml">
+                            <h:column><f:facet name="header">Status</f:facet><h:outputText value="#{statistic.finishedmoment(moment)}"/></h:column>
+
+                            <h:column>
+                                <h:link value="Se frågor" outcome="/partials/questions/studentQuestionList.xhtml">
                                     <f:param name="moment_id" value="#{moment.id}" />
                                     <f:param name="moment_name" value="#{moment.name}" />
+                                    <f:param name="course_id" value="#{momentList.courseId}"  />
+                                    <f:param name="course_name" value="#{momentList.id}"  />
                                 </h:link>
-                            </h:column>   -->
+                            </h:column> 
 
                         </h:dataTable>                
                     </h:panelGroup>

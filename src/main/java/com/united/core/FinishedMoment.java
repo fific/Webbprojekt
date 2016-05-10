@@ -4,6 +4,7 @@ import com.united.auth.User;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,6 +28,8 @@ public class FinishedMoment implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false)
+    protected String time;
 
     @ManyToOne(targetEntity = User.class, cascade = CascadeType.REMOVE)
     private User user;
@@ -35,9 +38,10 @@ public class FinishedMoment implements Serializable {
     @ManyToOne
     private Moment moment;
 
-    public FinishedMoment(User user, Moment moment) {
+    public FinishedMoment(User user, Moment moment, String time) {
         this.user = user;
         this.moment = moment;
+        this.time = time;
     }
 
     public FinishedMoment() {
@@ -65,6 +69,14 @@ public class FinishedMoment implements Serializable {
 
     public void setMoment(Moment moment) {
         this.moment = moment;
+    }
+    
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
     
         @Override
