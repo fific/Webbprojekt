@@ -55,6 +55,9 @@ public class LoginBean implements Serializable {
             } else if(u.getGroups().contains(Groups.STUDENT)) {
                 return "successStudent";
             }
+            else if(u.getGroups().contains(Groups.PARENT)) {
+                return "successParent";
+            }
         }
 
 /*        

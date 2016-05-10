@@ -23,6 +23,13 @@
             <to-view-id>/student/index.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        
+        <navigation-case>
+            <from-action>#{login.login()}</from-action>
+            <from-outcome>successParent</from-outcome>
+            <to-view-id>/Parents/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
 
         <navigation-case>
             <from-action>#{login.login()}</from-action>
