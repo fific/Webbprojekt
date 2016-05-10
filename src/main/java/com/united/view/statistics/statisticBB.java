@@ -33,7 +33,7 @@ public class statisticBB implements Serializable {
             if(a.getCorrectness().equals("true"))
                 rList.add(a);
         }
-        return (rList.size()-1)/list.size()*100 + "%";
+        return (rList.size()-1)/list.size()*100 + " %";
     }
     
     // Return yes if the moment is completed. Otherwise no.

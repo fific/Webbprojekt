@@ -1,6 +1,7 @@
 package com.united.view.registrations;
 
 
+import com.united.auth.User;
 import com.united.core.Registration;
 import com.united.core.School;
 import java.io.Serializable;
@@ -20,6 +21,8 @@ import javax.faces.view.ViewScoped;
 public class RegistrationListBB implements Serializable {
 
     private static final Logger LOG = Logger.getLogger(RegistrationListBB.class.getName());
+    
+    private User user;
 
 //    private transient School school;
     @Inject     //Is this an OK solution?
@@ -37,6 +40,10 @@ public class RegistrationListBB implements Serializable {
     public List<Registration> getRegistrations() {
         return school.getRegistrationList().getAllRegistrationsForUsername();
     }
+    
+    public List<Registration> getRegistrations(User user) {
+        return school.getRegistrationList().getAllRegistrationsForUser(user);
+    }
 
     @PostConstruct
     public void post() {
@@ -53,6 +60,14 @@ public class RegistrationListBB implements Serializable {
         if (currentPage > 0) {
             currentPage = currentPage - 1;
         }
+    }
+    
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
+    public User getUser() {
+        return user;
     }
 
 }

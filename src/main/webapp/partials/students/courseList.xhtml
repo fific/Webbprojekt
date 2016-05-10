@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <f:metadata>
+        <f:viewParam name="user" value="#{registrationList.user}" />
+    </f:metadata>
+    
+    <h:head>
+        <title>Registrerade kurser</title>
+    </h:head>  
+    <h:body>
+        <ui:composition template="/WEB-INF/studentTemplate.xhtml">
+            <ui:define name="content">
+                <h3>Registrerade kurser</h3>
+                <h4>Elev #{registrationList.getUser().getName()}</h4>
+                
+                <h:form>
+                    <!-- Must have this to get an id for the ajax render attribute -->
+                    <h:panelGroup id="registrationPanel" >
+                        <!-- TODO -->
+                        <h:dataTable var="registration" value="#{registrationList.getRegistrations(registrationList.getUser())}"
+                                     class="table table-striped">
+                            <h:column><f:facet name="header">Kurskod</f:facet><h:outputText value="#{registration.course.id}"/></h:column>
+                            <h:column><f:facet name="header">Kursnamn</f:facet><h:outputText value="#{registration.course.name}"/></h:column>
+                        
+                        <h:column><f:facet name="header">Status (avklarade moment)</f:facet><h:outputText value="#{statistic.finishedmoments(registration.course)}"/></h:column>
+                            
+                        <h:column>
+                            <h:link value="Se moment" outcome="momentList.xhtml">
+                                <f:param name="course_id" value="#{registration.course.id}" />
+                                <f:param name="course_name" value="#{registration.course.name}" />
+                            </h:link>
+                         </h:column>   
+                            
+                        </h:dataTable>                
+                    </h:panelGroup>
+                    
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

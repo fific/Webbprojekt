@@ -42,6 +42,12 @@ public class UserList extends AbstractDAO<User, String> {
         return em;
     }
     
+    public User getById(String id) {
+        String jpql = "SELECT u FROM User u WHERE u.id=:id";
+        return em.createQuery(jpql, User.class).
+                setParameter("id", id).getSingleResult();
+    }
+    
     public List<Registration> getSTRegistration() {
        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
        Map<String, Object> sessionMap = externalContext.getSessionMap();
@@ -68,7 +74,7 @@ public class UserList extends AbstractDAO<User, String> {
        List<Registration> rl = getSTRegistration();
        for(Registration r : rl) {
            user = r.getUser();
-           if(user.getGroups().get(0) == Groups.STUDENT) {
+           if(user.getGroups().get(0) == Groups.STUDENT && !sl.contains(user)) {
                sl.add(user);
            }
        }
