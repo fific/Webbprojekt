@@ -52,12 +52,11 @@ public class statisticBB implements Serializable {
     }
     
     public String finishedmoments(Course c) {
-        List<Moment> ml = school.getMomentList().getByCourse(c);
         int finishedmoments = 0;
-        for(Moment m : ml) {
+        for(Moment m : c.getMoments()) {
             if(school.getFinishedMomentList().getByMoment(m) != null)
                 finishedmoments++;
         }
-        return finishedmoments + " / " + ml.size();
+        return finishedmoments + " / " + c.getMoments().size();
     }
 }

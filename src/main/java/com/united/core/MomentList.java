@@ -41,10 +41,4 @@ public class MomentList extends AbstractDAO<Moment, Long> {
         return em.createQuery(jpql, Moment.class).
                 setParameter("id", id).getSingleResult();
     }
-    
-    public List<Moment> getByCourse(Course c) {
-        String jpql = "select m from Moment m where m.course=:course";
-        return em.createQuery(jpql, Moment.class).
-                setParameter("course", c).getResultList();
-    }
 }
