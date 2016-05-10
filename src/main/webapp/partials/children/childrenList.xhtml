@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+
+    
+    <h:head>
+        <title>Elever</title>
+    </h:head>  
+    <h:body>
+        <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
+            <ui:define name="content">
+                <h3>Alla elever</h3>
+                <h:form>
+                    <!-- No purpose having these buttons when all students are retrieved
+                    <div class="btn-group">
+                        <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{userList.prev()}">
+                            <f:ajax execute="@form" render="productPanel" />
+                        </h:commandButton>
+
+                        <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{userList.next()}">
+                            <f:ajax execute="@form" render="productPanel" />
+                        </h:commandButton>
+                    </div>
+                    -->
+                    
+                    <h:panelGroup id="productPanel" >
+                        <h:dataTable var="student" value="#{userList.findStudentRange()}"
+                                     class="table table-striped">
+                            <h:column><f:facet name="header">Användarnamn</f:facet><h:outputText value="#{student.id}"/></h:column>
+                        <h:column><f:facet name="header">Namn</f:facet><h:outputText value="#{student.name}"/></h:column>
+                        <!--<h:column><f:facet name="header">Lösenord</f:facet><h:outputText value="#{student.passwd}"/></h:column>-->
+                        
+
+                        <h:column>
+                            <h:link value="Redigera elev" outcome="editStudent.xhtml">
+                                <f:param name="id" value="#{student.id}" />
+                                <f:param name="name" value="#{student.name}" />
+                                
+                            </h:link>
+                         </h:column>   
+                        
+                        <h:column>
+                            <h:link value="Ta bort elev" outcome="deleteStudent.xhtml">
+                                <f:param name="id" value="#{student.id}" />
+                                <f:param name="name" value="#{student.name}" />
+                                <!--<f:param name="passwd" value="#{student.passwd}" />-->
+                            </h:link>
+                         </h:column>   
+                        </h:dataTable>                
+                    </h:panelGroup>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
