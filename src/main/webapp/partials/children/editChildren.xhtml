@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <!-- TODO --> 
+    <f:metadata>
+        <f:viewParam name="id" value="#{editUser.id}"  />
+        <f:viewParam name="name" value="#{editUser.name}"  />
+    </f:metadata>
+   
+    <h:head>
+        <title>Ändra elev</title>
+    </h:head>  
+    <h:body>
+
+        <ui:composition template="/WEB-INF/parentTemplate.xhtml">
+            <ui:define name="content">
+                <h3>Ändra elev</h3>
+                <h:form class="partial-form">
+                    <h:panelGrid columns="3" class="table">
+                        <h:outputLabel value="Användarnamn"/>
+                        <h:outputText value="#{editUser.id}"/> 
+                        <h:message for="id"/>
+                        <h:outputLabel value="Namn" />
+                        <h:inputText class="form-control" value="#{editUser.name}"/> 
+                        <h:message for="name"/>
+                        <h:outputLabel value="Lösenord" />
+                        <h:inputText class="form-control" value="#{editUser.password}"/> <!-- Password can be set to anything by teacher atm-->
+                        <h:message for="password"/> 
+                    </h:panelGrid>
+                    
+                    <div class="btn-group">
+                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
+                                         action="chlidrenList?faces-redirect=true" />
+                        <h:commandButton value="Spara" actionListener="#{userController.updateStudent()}" 
+                                         action="childrenList?faces-redirect=true" 
+                                         class="btn btn-default"/>
+                    </div>
+                </h:form>
+                 
+                 
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
