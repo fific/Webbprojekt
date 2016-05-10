@@ -9,7 +9,7 @@
         <title>Dina barn</title>
     </h:head>  
     <h:body>
-        <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
+        <ui:composition template="/WEB-INF/parentTemplate.xhtml">
             <ui:define name="content">
                 <h3>Barn</h3>
                 <h:form>
@@ -23,7 +23,7 @@
                         
 
                         <h:column>
-                            <h:link value="Redigera ditt barns kontaktuppgifter" outcome="editStudent.xhtml">
+                            <h:link value="Redigera ditt barns kontaktuppgifter" outcome="editChildren.xhtml">
                                 <f:param name="id" value="#{student.id}" />
                                 <f:param name="name" value="#{student.name}" />
                                 
