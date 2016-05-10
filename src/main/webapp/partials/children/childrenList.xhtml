@@ -4,28 +4,15 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    
-
-    
+       
     <h:head>
-        <title>Elever</title>
+        <title>Dina barn</title>
     </h:head>  
     <h:body>
         <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
-                <h3>Alla elever</h3>
+                <h3>Barn</h3>
                 <h:form>
-                    <!-- No purpose having these buttons when all students are retrieved
-                    <div class="btn-group">
-                        <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{userList.prev()}">
-                            <f:ajax execute="@form" render="productPanel" />
-                        </h:commandButton>
-
-                        <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{userList.next()}">
-                            <f:ajax execute="@form" render="productPanel" />
-                        </h:commandButton>
-                    </div>
-                    -->
                     
                     <h:panelGroup id="productPanel" >
                         <h:dataTable var="student" value="#{userList.findStudentRange()}"
@@ -36,15 +23,22 @@
                         
 
                         <h:column>
-                            <h:link value="Redigera elev" outcome="editStudent.xhtml">
+                            <h:link value="Redigera ditt barns kontaktuppgifter" outcome="editStudent.xhtml">
                                 <f:param name="id" value="#{student.id}" />
                                 <f:param name="name" value="#{student.name}" />
                                 
                             </h:link>
-                         </h:column>   
+                         </h:column>  
                         
                         <h:column>
-                            <h:link value="Ta bort elev" outcome="deleteStudent.xhtml">
+                            <h:link value="Se statistik" outcome="courseList.xhtml">
+                                <f:param name="user" value="#{student}" />
+                                
+                            </h:link>
+                         </h:column> 
+                        
+                        <h:column>
+                            <h:link value="Ta bort det här barnet från listan" outcome="deleteStudent.xhtml">
                                 <f:param name="id" value="#{student.id}" />
                                 <f:param name="name" value="#{student.name}" />
                                 <!--<f:param name="passwd" value="#{student.passwd}" />-->
