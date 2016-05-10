@@ -33,6 +33,9 @@ public class School {
      private MomentList momentList;
      
      @Inject
+     private FinishedMomentList finishedmomentList;
+     
+     @Inject
      private QuestionList questionList;
      
      @Inject
@@ -57,6 +60,10 @@ public class School {
     
     public MomentList getMomentList() {
         return momentList;
+    }
+    
+    public FinishedMomentList getFinishedMomentList() {
+        return finishedmomentList;
     }
     
      public QuestionList getQuestionList() {

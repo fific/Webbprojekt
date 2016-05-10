@@ -51,7 +51,14 @@ public class CurrentCourseBB {
     }
     
     public String getNameByUser() {
-        return school.getRegistrationList().getCurrentCourse().getName();
+        if(school.getRegistrationList().getCurrentCourse() == null){
+            return "";
+        }
+           
+        else {
+            return school.getRegistrationList().getCurrentCourse().getName();
+        }
+            
     }
     
     @Override

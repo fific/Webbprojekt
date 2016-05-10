@@ -13,6 +13,7 @@ import javax.ejb.Stateless;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -85,8 +86,12 @@ public class RegistrationList extends AbstractDAO<Registration, Long> {
        User u = (User) sessionMap.get("user");
         
         String jpql = "SELECT r FROM Registration r WHERE r.user=:user AND r.currentCourse='true'";
-        return em.createQuery(jpql, Registration.class).
-                setParameter("user", u).getResultList().get(0).getCourse();
+        try {
+            return em.createQuery(jpql, Registration.class).setParameter("user", u).getSingleResult().getCourse();
+        }
+        catch(NoResultException e) {
+            return null;
+        }
     }
    
 }

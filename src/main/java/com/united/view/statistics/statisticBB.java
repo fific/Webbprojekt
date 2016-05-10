@@ -35,4 +35,29 @@ public class statisticBB implements Serializable {
         }
         return (rList.size()-1)/list.size()*100 + "%";
     }
+    
+    // Return yes if the moment is completed. Otherwise no.
+    public String finishedmoment(Moment m) {
+        if(school.getFinishedMomentList().getByMoment(m) == null)
+            return "Ej avklarad";
+        else 
+            return "Avklarad";
+    }
+    
+    public String usedTime(Moment m) {
+        if(school.getFinishedMomentList().getByMoment(m) == null)
+            return "-";
+        else 
+            return school.getFinishedMomentList().getByMoment(m).getTime();
+    }
+    
+    public String finishedmoments(Course c) {
+        List<Moment> ml = school.getMomentList().getByCourse(c);
+        int finishedmoments = 0;
+        for(Moment m : ml) {
+            if(school.getFinishedMomentList().getByMoment(m) != null)
+                finishedmoments++;
+        }
+        return finishedmoments + " / " + ml.size();
+    }
 }

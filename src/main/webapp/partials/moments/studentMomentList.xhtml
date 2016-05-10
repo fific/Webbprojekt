@@ -35,11 +35,12 @@
                     <h:panelGroup id="momentPanel" >
                         <h:dataTable var="moment" value="#{momentList.findRange()}"
                                      class="table table-striped">
-                            <h:column><h:outputText value="#{moment.id}"/></h:column>
-                            <h:column><h:outputText value="#{moment.name}"/></h:column>
+                            <h:column><f:facet name="header">Momentkod</f:facet><h:outputText value="#{moment.id}"/></h:column>
+                            <h:column><f:facet name="header">Momentnamn</f:facet><h:outputText value="#{moment.name}"/></h:column>
 
                             <h:column><f:facet name="header">Status</f:facet><h:outputText value="#{statistic.finishedmoment(moment)}"/></h:column>
-
+                            <h:column><f:facet name="header">Använd tid</f:facet><h:outputText value="#{statistic.usedTime(moment)}"/></h:column>
+                            
                             <h:column>
                                 <h:link value="Se frågor" outcome="/partials/questions/studentQuestionList.xhtml">
                                     <f:param name="moment_id" value="#{moment.id}" />
