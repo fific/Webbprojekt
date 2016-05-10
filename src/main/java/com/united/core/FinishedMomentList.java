@@ -46,6 +46,10 @@ public class FinishedMomentList extends AbstractDAO<FinishedMoment, Long> {
        Map<String, Object> sessionMap = externalContext.getSessionMap();
        User u = (User) sessionMap.get("user");
         
+        return getByMomentUser(m, u);
+    }
+    
+    public FinishedMoment getByMomentUser(Moment m, User u) {
         String jpql = "select fm from FinishedMoment fm where fm.moment=:moment and fm.user=:user";
         try {
             return em.createQuery(jpql, FinishedMoment.class).
@@ -56,6 +60,4 @@ public class FinishedMomentList extends AbstractDAO<FinishedMoment, Long> {
             return null;
         }
     }
-    
-    
 }

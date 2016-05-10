@@ -11,16 +11,18 @@
         <f:viewParam name="moment_name" value="#{questionList.id}" />
         <f:viewParam name="course_id" value="#{momentList.courseId}"  />
         <f:viewParam name="course_name" value="#{momentList.id}"  />
+        <f:viewParam name="id" value="#{registrationList.userid}" />
+        <f:viewParam name="name" value="#{registrationList.username}" />
     </f:metadata>
     
     <h:head>
         <title>Frågor</title>
     </h:head>  
     <h:body>
-        <ui:composition template="/WEB-INF/studentTemplate.xhtml">
+        <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
                 <h3> Frågor</h3>
-                <h4>(#{momentList.courseId}) #{momentList.id} - #{questionList.id} </h4>
+                <h4>Elev #{registrationList.username} - (#{momentList.courseId}) #{momentList.id} - #{questionList.id} </h4>
 
 
                 <h:form>
@@ -44,7 +46,7 @@
                             
                             <h:column><f:facet name="header">Fråga</f:facet><h:outputText value="#{question.question}"/></h:column>
                             
-                            <h:column><f:facet name="header">Procentsats rätt</f:facet><h:outputText value="#{statistic.getQuestionStatistic(question)}"/></h:column>
+                            <h:column><f:facet name="header">Procentsats rätt</f:facet><h:outputText value="#{statistic.getQuestionStatistic(question, registrationList.userid)}"/></h:column>
                             
                             </h:dataTable>
                         

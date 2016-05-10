@@ -6,23 +6,24 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     
     <f:metadata>
-        <f:viewParam name="user" value="#{registrationList.user}" />
+        <f:viewParam name="id" value="#{registrationList.userid}" />
+        <f:viewParam name="name" value="#{registrationList.username}" />
     </f:metadata>
     
     <h:head>
         <title>Registrerade kurser</title>
     </h:head>  
     <h:body>
-        <ui:composition template="/WEB-INF/studentTemplate.xhtml">
+        <ui:composition template="/WEB-INF/teacherTemplate.xhtml">
             <ui:define name="content">
                 <h3>Registrerade kurser</h3>
-                <h4>Elev #{registrationList.getUser().getName()}</h4>
+                <h4>Elev #{registrationList.username}</h4>
                 
                 <h:form>
                     <!-- Must have this to get an id for the ajax render attribute -->
                     <h:panelGroup id="registrationPanel" >
                         <!-- TODO -->
-                        <h:dataTable var="registration" value="#{registrationList.getRegistrations(registrationList.getUser())}"
+                        <h:dataTable var="registration" value="#{registrationList.getRegistrations(registrationList.userid)}"
                                      class="table table-striped">
                             <h:column><f:facet name="header">Kurskod</f:facet><h:outputText value="#{registration.course.id}"/></h:column>
                             <h:column><f:facet name="header">Kursnamn</f:facet><h:outputText value="#{registration.course.name}"/></h:column>
@@ -33,6 +34,8 @@
                             <h:link value="Se moment" outcome="momentList.xhtml">
                                 <f:param name="course_id" value="#{registration.course.id}" />
                                 <f:param name="course_name" value="#{registration.course.name}" />
+                                <f:param name="id" value="#{registrationList.userid}" />
+                                <f:param name="name" value="#{registrationList.username}" />
                             </h:link>
                          </h:column>   
                             

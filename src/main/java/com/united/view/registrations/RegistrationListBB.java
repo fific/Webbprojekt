@@ -22,7 +22,8 @@ public class RegistrationListBB implements Serializable {
 
     private static final Logger LOG = Logger.getLogger(RegistrationListBB.class.getName());
     
-    private User user;
+    private String userid;
+    private String username;
 
 //    private transient School school;
     @Inject     //Is this an OK solution?
@@ -41,8 +42,8 @@ public class RegistrationListBB implements Serializable {
         return school.getRegistrationList().getAllRegistrationsForUsername();
     }
     
-    public List<Registration> getRegistrations(User user) {
-        return school.getRegistrationList().getAllRegistrationsForUser(user);
+    public List<Registration> getRegistrations(String userid) {
+        return school.getRegistrationList().getAllRegistrationsForUser(school.getUserList().getById(userid));
     }
 
     @PostConstruct
@@ -62,12 +63,20 @@ public class RegistrationListBB implements Serializable {
         }
     }
     
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
     
-    public User getUser() {
-        return user;
+    public String getUserid() {
+        return userid;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    public String getUsername() {
+        return username;
     }
 
 }

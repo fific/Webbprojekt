@@ -34,8 +34,8 @@
                         
                         <h:column>
                             <h:link value="Se statistik" outcome="courseList.xhtml">
-                                <f:param name="user" value="#{student}" />
-                                
+                                <f:param name="id" value="#{student.id}" />
+                                <f:param name="name" value="#{student.name}" />
                             </h:link>
                          </h:column> 
                         
