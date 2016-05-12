@@ -1,5 +1,6 @@
 package com.united.view.statistics;
 
+import com.united.auth.Groups;
 import com.united.auth.User;
 import com.united.core.Answer;
 import com.united.core.Course;
@@ -17,7 +18,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 @Named("statistic")
@@ -31,8 +31,31 @@ public class statisticBB implements Serializable {
     private School school;
     
     public String getCourseStatistic(Course c) {
-        
-        return "";
+        List<Registration> rList = school.getRegistrationList().getAllRegistrationsForCourse(c);
+        int student = 0;
+        int studentFinishedCourse = 0;
+        for(Registration r : rList) {
+            if(r.getUser().getGroups().get(0) == Groups.STUDENT) {
+                student++;
+                if(finishedMoments(c, r.getUser().getId()))
+                    studentFinishedCourse++;
+            }
+        }
+        return studentFinishedCourse + " / " + student;
+    }
+    
+    public String getMomentStatistic(Moment m) {
+        List<Registration> rList = school.getRegistrationList().getAllRegistrationsForCourse(m.getCourse());
+        int student = 0;
+        int studentFinishedMoment = 0;
+        for(Registration r : rList) {
+            if(r.getUser().getGroups().get(0) == Groups.STUDENT) {
+                student++;
+                if((finishedmoment(m, r.getUser().getId())).equals("Avklarad"))
+                    studentFinishedMoment++;
+            }
+        }
+        return studentFinishedMoment + " / " + student;
     }
     
     public String getQuestionStatisticTeacher(Question q) {
@@ -45,11 +68,11 @@ public class statisticBB implements Serializable {
             if(a.getCorrectness().equals("true"))
                 rList.add(a);
         }
-        return (rList.size()-1)/list.size()*100 + " %";
+        return Math.round(((float)rList.size()-1)/(float)list.size()*100) + " %";
     }
     
     public String getQuestionStatistic(Question q) {
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+       ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
        Map<String, Object> sessionMap = externalContext.getSessionMap();
        User u = (User) sessionMap.get("user");
         
@@ -114,5 +137,14 @@ public class statisticBB implements Serializable {
                 finishedmoments++;
         }
         return finishedmoments + " / " + c.getMoments().size();
+    }
+    
+    public boolean finishedMoments(Course c, String userid) {
+        int finishedmoments = 0;
+        for(Moment m : c.getMoments()) {
+            if(school.getFinishedMomentList().getByMomentUser(m, school.getUserList().getById(userid)) != null)
+                finishedmoments++;
+        }
+        return finishedmoments == c.getMoments().size();
     }
 }

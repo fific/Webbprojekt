@@ -56,7 +56,7 @@ public class QuestionController {
         Question m = school.getQuestionList().getById(id);
         m.setQuestion(editBB.getQuestion());
         
-        Answer a = school.getAnswerList().getById(m);
+        Answer a = school.getAnswerList().getById(m).get(0);
         a.setAnswer(editBB.getAnswer());
         school.getAnswerList().update(a);
         school.getQuestionList().update(m); 

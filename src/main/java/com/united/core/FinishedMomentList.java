@@ -39,7 +39,6 @@ public class FinishedMomentList extends AbstractDAO<FinishedMoment, Long> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
      
     public FinishedMoment getByMoment(Moment m) {
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();

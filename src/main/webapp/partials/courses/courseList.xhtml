@@ -34,7 +34,7 @@
                                      class="table table-striped">
                         <h:column><f:facet name="header">Kurskod</f:facet><h:outputText value="#{registration.course.id}"/></h:column>
                         <h:column><f:facet name="header">Kursnamn</f:facet><h:outputText value="#{registration.course.name}"/></h:column>
-                        <h:column><f:facet name="header">Procentsats av elever som har klarat kursen</f:facet><h:outputText value="#{statistic.getCourseStatistic(registration.course)}"/></h:column>
+                        <h:column><f:facet name="header">Elever som har klarat kurs</f:facet><h:outputText value="#{statistic.getCourseStatistic(registration.course)}"/></h:column>
                         
                         <h:column>
                             <h:link value="Redigera kurs" outcome="editCourse.xhtml">
