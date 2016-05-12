@@ -68,7 +68,7 @@ public class statisticBB implements Serializable {
             if(a.getCorrectness().equals("true"))
                 rList.add(a);
         }
-        return Math.round(((float)rList.size()-1)/(float)list.size()*100) + " %";
+        return (int)(((float)rList.size()-1)/((float)list.size()-1)*100) + " %";
     }
     
     public String getQuestionStatistic(Question q) {
@@ -89,7 +89,7 @@ public class statisticBB implements Serializable {
             if(a.getCorrectness().equals("true"))
                 rList.add(a);
         } 
-        return Math.round(((float)rList.size()-1)/(float)list.size()*100) + " %";
+        return (int)((float)rList.size()/(float)list.size()*100) + " %";
     }
     
     // Return yes if the moment is completed. Otherwise no.
