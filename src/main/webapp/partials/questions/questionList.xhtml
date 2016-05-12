@@ -46,6 +46,8 @@
                             
                             <h:column><f:facet name="header">Svar</f:facet><h:outputText value="#{answer.findCorrectAnswer(question)}"/></h:column>
                             
+                            <h:column><f:facet name="header">Elever som har klarat frågan</f:facet><h:outputText value="#{statistic.getQuestionStatisticTeacher(question)}"/></h:column>
+                            
                              <h:column>
                                 <h:link value="Redigera fråga" outcome="editQuestion.xhtml">
                                     <f:param name="id" value="#{question.id}" />

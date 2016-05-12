@@ -30,6 +30,24 @@ public class statisticBB implements Serializable {
     @Inject
     private School school;
     
+    public String getCourseStatistic(Course c) {
+        
+        return "";
+    }
+    
+    public String getQuestionStatisticTeacher(Question q) {
+        String jpql = "select a from Answer a where a.question=:question";
+        List<Answer> list = em.createQuery(jpql, Answer.class).setParameter("question", q).getResultList();
+        List<Answer> rList = new ArrayList<>();
+        if(list.isEmpty())
+            return "-";
+        for(Answer a : list) {
+            if(a.getCorrectness().equals("true"))
+                rList.add(a);
+        }
+        return (rList.size()-1)/list.size()*100 + " %";
+    }
+    
     public String getQuestionStatistic(Question q) {
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
        Map<String, Object> sessionMap = externalContext.getSessionMap();
@@ -43,13 +61,12 @@ public class statisticBB implements Serializable {
         List<Answer> list = em.createQuery(jpql, Answer.class).setParameter("question", q).setParameter("user", school.getUserList().getById(userid)).getResultList();
         List<Answer> rList = new ArrayList<>();
         if(list.isEmpty())
-            return "0 %";
+            return "-";
         for(Answer a : list) {
             if(a.getCorrectness().equals("true"))
                 rList.add(a);
-        }
-        System.out.println("debug: list total length: " + list.size() + ". rlist.size: " + rList.size());
-        return (rList.size()-1)/list.size()*100 + " %";
+        } 
+        return Math.round(((float)rList.size()-1)/(float)list.size()*100) + " %";
     }
     
     // Return yes if the moment is completed. Otherwise no.
@@ -85,6 +102,15 @@ public class statisticBB implements Serializable {
         int finishedmoments = 0;
         for(Moment m : c.getMoments()) {
             if(school.getFinishedMomentList().getByMoment(m) != null)
+                finishedmoments++;
+        }
+        return finishedmoments + " / " + c.getMoments().size();
+    }
+    
+    public String finishedmoments(Course c, String userid) {
+        int finishedmoments = 0;
+        for(Moment m : c.getMoments()) {
+            if(school.getFinishedMomentList().getByMomentUser(m, school.getUserList().getById(userid)) != null)
                 finishedmoments++;
         }
         return finishedmoments + " / " + c.getMoments().size();

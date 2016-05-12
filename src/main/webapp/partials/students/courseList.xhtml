@@ -28,7 +28,7 @@
                             <h:column><f:facet name="header">Kurskod</f:facet><h:outputText value="#{registration.course.id}"/></h:column>
                             <h:column><f:facet name="header">Kursnamn</f:facet><h:outputText value="#{registration.course.name}"/></h:column>
                         
-                        <h:column><f:facet name="header">Status (avklarade moment)</f:facet><h:outputText value="#{statistic.finishedmoments(registration.course)}"/></h:column>
+                        <h:column><f:facet name="header">Status (avklarade moment)</f:facet><h:outputText value="#{statistic.finishedmoments(registration.course, registrationList.userid)}"/></h:column>
                             
                         <h:column>
                             <h:link value="Se moment" outcome="momentList.xhtml">

@@ -37,7 +37,8 @@
                                      class="table table-striped">
                             <h:column><f:facet name="header">Momentid</f:facet><h:outputText value="#{moment.id}"/></h:column>
                             <h:column><f:facet name="header">Momentnamn</f:facet><h:outputText value="#{moment.name}"/></h:column>
-
+                            <h:column><f:facet name="header">Elever som har klarat moment</f:facet><h:outputText value="#{statistic.getQuestionStatisticTeacher(question)}"/></h:column>
+                            
                             <h:column>
                                 <h:link value="Redigera moment" outcome="editMoment.xhtml">
                                     <f:param name="id" value="#{moment.id}" />
