@@ -6,6 +6,7 @@
 package com.united.core;
 
 import com.united.persistence.AbstractDAO;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -39,9 +40,9 @@ public class AnswerList extends AbstractDAO<Answer, Integer> {
     }
     
      
-    public Answer getById(Question question) {
+    public List<Answer> getById(Question question) {
         String jpql = "select a from Answer a where a.question=:question AND a.correctness=true";
         return em.createQuery(jpql, Answer.class).
-                setParameter("question", question).getSingleResult();
+                setParameter("question", question).getResultList();
     }
 }

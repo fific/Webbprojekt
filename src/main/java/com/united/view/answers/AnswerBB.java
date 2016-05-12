@@ -5,17 +5,12 @@
  */
 package com.united.view.answers;
 
-import com.united.core.Answer;
 import com.united.core.AnswerList;
-import com.united.core.Moment;
-import com.united.core.MomentList;
 import com.united.core.Question;
 import com.united.core.QuestionList;
 import com.united.core.School;
 import java.io.Serializable;
-import java.util.List;
 import java.util.logging.Logger;
-import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -44,6 +39,6 @@ public class AnswerBB implements Serializable {
     private QuestionList questions;
 
     public String findCorrectAnswer(Question question) {
-        return answers.getById(question).getAnswer();
+        return answers.getById(question).get(0).getAnswer();
     }
 }
