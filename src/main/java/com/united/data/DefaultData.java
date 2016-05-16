@@ -134,13 +134,13 @@ public class DefaultData {
         r.setCurrentCourse("true");
         registrationDAO.create(r);
         r = new Registration(s1, c);
-        r.setCurrentCourse("false");
+        r.setCurrentCourse("true");
         registrationDAO.create(r);
         r = new Registration(s2, c);
-        r.setCurrentCourse("false");
+        r.setCurrentCourse("true");
         registrationDAO.create(r);
         r = new Registration(s3, c);
-        r.setCurrentCourse("false");
+        r.setCurrentCourse("true");
         registrationDAO.create(r);
 
     }
