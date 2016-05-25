@@ -43,7 +43,7 @@ public class CourseController {
    
      public void newCourse() {
        //LOG.log(Level.INFO, "Backing bean " + addBB);
-       Course c = new Course(addBB.getId(), addBB.getName());
+       Course c = new Course(addBB.getId(), addBB.getName(), 0);
        school.getCourseList().create(c);
        
        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
@@ -55,12 +55,12 @@ public class CourseController {
     }
 
      public void updateCourse() {
-       Course c = new Course(Objects.toString(editBB.getId()), editBB.getName());
+       Course c = new Course(Objects.toString(editBB.getId()), editBB.getName(), school.getCourseList().getById(editBB.getId()).getVersion()+1);
        school.getCourseList().update(c);    
     }
 
     public void deleteCourse() {
-       Course c = new Course(Objects.toString(delBB.getId()), delBB.getName());
+       Course c = new Course(Objects.toString(delBB.getId()), delBB.getName(), school.getCourseList().getById(delBB.getId()).getVersion());
        List<Registration> rl = school.getRegistrationList().getAllRegistrationsForCourse(c);
        for(Registration r : rl) {
            school.getRegistrationList().delete(r.getId());
@@ -71,7 +71,7 @@ public class CourseController {
     }
     
     public void setCurrentCourse() {
-        Course c = new Course(currentBB.getId(), currentBB.getName());
+        Course c = new Course(currentBB.getId(), currentBB.getName(), school.getCourseList().getById(currentBB.getId()).getVersion());
         List<Registration> rl = school.getRegistrationList().getAllRegistrationsForUsername();
         for(Registration r : rl) {
            r.setCurrentCourse("false");

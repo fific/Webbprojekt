@@ -48,10 +48,10 @@ public class Course implements Serializable {
 
     public Course() {}
 
-    public Course(String id, String name) {
+    public Course(String id, String name, int version) {
         this.id = id;
         this.name = name;
-        version = 0;
+        this.version = version;
     }
 
     public String getId() {
@@ -76,6 +76,10 @@ public class Course implements Serializable {
 
     public void setVersion(int version) {
         this.version = version;
+    }
+    
+    public void addVersion() {
+        version++;
     }
     
     public void removeMoment(Moment moment) {

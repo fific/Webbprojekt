@@ -38,8 +38,8 @@ public class MomentController {
     public void newMoment(String courseId) {     
         Moment p = new Moment(addBB.getName());
         Course c = school.getCourseList().getById(courseId);
-        
         c.addToMoments(p);
+        c.addVersion();
         school.getCourseList().update(c);
     }
 
@@ -48,8 +48,11 @@ public class MomentController {
        
         Moment m = school.getMomentList().getById(momentID);
         m.setName(editBB.getName());
+        Course c = m.getCourse();
+        c.addVersion();
         
         school.getMomentList().update(m);    
+        school.getCourseList().update(c); 
     }
 
     public void deleteMoment(String courseId) {
@@ -58,6 +61,7 @@ public class MomentController {
         Moment m = school.getMomentList().getById(id);
         Course c = school.getCourseList().getById(courseId);
         c.removeMoment(m);
+        c.addVersion();
         school.getCourseList().update(c);    
     }
 

@@ -60,7 +60,7 @@ public class RegistrationController {
        Map<String, Object> sessionMap = externalContext.getSessionMap();
        User u = (User) sessionMap.get("user");
        
-       Course c = new Course(school.getCourseList().generatedCourseId(school.getCourseList().getById(addBB.getId()).getId()), school.getCourseList().getById(addBB.getId()).getName());
+       Course c = new Course(school.getCourseList().generatedCourseId(school.getCourseList().getById(addBB.getId()).getId()), school.getCourseList().getById(addBB.getId()).getName(), school.getCourseList().getById(addBB.getId()).getVersion());
        Moment newM;
        for(Moment m : school.getCourseList().getById(addBB.getId()).getMoments()) {
            newM = new Moment(m.getName());

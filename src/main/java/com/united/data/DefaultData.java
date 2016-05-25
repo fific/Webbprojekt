@@ -97,7 +97,7 @@ public class DefaultData {
         s3 = new User("student3", "student3", "student3", Groups.STUDENT);
         authDAO.create(s3);
 
-        c = new Course("MM", "Multiplication Mathematica");
+        c = new Course("MM", "Multiplication Mathematica", 0);
         courseDAO.create(c);
         
         for (int i = 0; i < 11; i++) {

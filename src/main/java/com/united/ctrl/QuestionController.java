@@ -43,9 +43,13 @@ public class QuestionController {
        Answer a = new Answer(addBB.getAnswer(), "true");
        Question q = new Question(addBB.getQuestion());
        Moment m =  school.getMomentList().getById(momeId);
+       Course c = m.getCourse();
        
        q.addToAnswers(a);
        m.addToQuestions(q);
+       c.addVersion();
+       
+       school.getCourseList().update(c); 
        school.getMomentList().update(m);
     }
      
@@ -58,6 +62,11 @@ public class QuestionController {
         
         Answer a = school.getAnswerList().getById(m).get(0);
         a.setAnswer(editBB.getAnswer());
+        
+        Course c = m.getMoment().getCourse();
+        c.addVersion();
+       
+        school.getCourseList().update(c);
         school.getAnswerList().update(a);
         school.getQuestionList().update(m); 
          
@@ -68,11 +77,14 @@ public class QuestionController {
         Long id = Long.parseLong(delBB.getId());
         Long momeId = Long.parseLong(momentId);
 
-        Question m = school.getQuestionList().getById(id);
-        Moment c = school.getMomentList().getById(momeId);
-
-        c.removeQuestion(m);
-        school.getMomentList().update(c);  
+        Question q = school.getQuestionList().getById(id);
+        Moment m = school.getMomentList().getById(momeId);
+        Course c = m.getCourse();
+        
+        c.addVersion();
+        m.removeQuestion(q);
+        school.getCourseList().update(c);
+        school.getMomentList().update(m);  
        
     }
 
