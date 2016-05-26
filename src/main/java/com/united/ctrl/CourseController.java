@@ -55,7 +55,9 @@ public class CourseController {
     }
 
      public void updateCourse() {
-       Course c = new Course(Objects.toString(editBB.getId()), editBB.getName(), school.getCourseList().getById(editBB.getId()).getVersion()+1);
+       Course c = school.getCourseList().getById(editBB.getId());
+       c.setName(editBB.getName());
+       c.addVersion();
        school.getCourseList().update(c);    
     }
 
