@@ -103,6 +103,9 @@ public class Moment implements Serializable {
         return questions;
     }
     
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
 
     @Override
     public int hashCode() {
