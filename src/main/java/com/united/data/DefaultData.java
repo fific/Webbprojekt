@@ -76,7 +76,7 @@ public class DefaultData {
     }
 
     private void createTestData() {
-        User l1, l2, s1, s2, s3, t;
+        User l1, l2, s1, s2, s3;
         Course c;
         Moment m;
         Question q;
@@ -96,8 +96,6 @@ public class DefaultData {
         authDAO.create(s2);
         s3 = new User("student3", "student3", "student3", Groups.STUDENT);
         authDAO.create(s3);
-        t = new User("test", "test", "test", Groups.STUDENT);
-        authDAO.create(t);
 
         c = new Course("MM", "Multiplication Mathematica", 0);
         courseDAO.create(c);
@@ -117,7 +115,6 @@ public class DefaultData {
             }
         }
         
-        /*
         r = new Registration(l1, c);
         r.setCurrentCourse("true");
         registrationDAO.create(r);
@@ -131,10 +128,6 @@ public class DefaultData {
         r.setCurrentCourse("true");
         registrationDAO.create(r);
         r = new Registration(s3, c);
-        r.setCurrentCourse("true");
-        registrationDAO.create(r);
-        */
-        r = new Registration(t, c);
         r.setCurrentCourse("true");
         registrationDAO.create(r);
     }
