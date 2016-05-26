@@ -63,7 +63,7 @@ public class DefaultData {
     @PostConstruct
     public void post() {
         LOG.log(Level.INFO, "*** Default data alive");
-        createTestData();   // KOMMENTERA UT första Run, dvs om inga tables finns än.
+        //createTestData();   // KOMMENTERA UT första Run, dvs om inga tables finns än.
         //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
         //Samma sak nere i clearTestData();
     }
@@ -71,12 +71,12 @@ public class DefaultData {
     @PreDestroy
     public void destroy() {
         LOG.log(Level.INFO, "*** Default data will be destroyed");
-        clearTestData();    // KOMMENTERA UT första Run, dvs om inga tables finns än.
+        //clearTestData();    // KOMMENTERA UT första Run, dvs om inga tables finns än.
         //Blir massa fel annars. När det finns tables i databasen, kommentera tillbaks
     }
 
     private void createTestData() {
-        User l1, l2, s1, s2, s3;
+        User l1, l2, s1, s2, s3, t;
         Course c;
         Moment m;
         Question q;
@@ -96,6 +96,8 @@ public class DefaultData {
         authDAO.create(s2);
         s3 = new User("student3", "student3", "student3", Groups.STUDENT);
         authDAO.create(s3);
+        t = new User("test", "test", "test", Groups.STUDENT);
+        authDAO.create(t);
 
         c = new Course("MM", "Multiplication Mathematica", 0);
         courseDAO.create(c);
@@ -115,6 +117,7 @@ public class DefaultData {
             }
         }
         
+        /*
         r = new Registration(l1, c);
         r.setCurrentCourse("true");
         registrationDAO.create(r);
@@ -128,6 +131,10 @@ public class DefaultData {
         r.setCurrentCourse("true");
         registrationDAO.create(r);
         r = new Registration(s3, c);
+        r.setCurrentCourse("true");
+        registrationDAO.create(r);
+        */
+        r = new Registration(t, c);
         r.setCurrentCourse("true");
         registrationDAO.create(r);
     }
