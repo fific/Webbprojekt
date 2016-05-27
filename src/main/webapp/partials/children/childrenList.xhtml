@@ -23,7 +23,7 @@
                         
 
                         <h:column>
-                            <h:link value="Redigera ditt barns kontaktuppgifter" outcome="editChildren.xhtml">
+                            <h:link value="Redigera barnets kontaktuppgifter" outcome="editChildren.xhtml">
                                 <f:param name="id" value="#{Parent_child.child.id}" />
                                 <f:param name="name" value="#{Parent_child.child.name}" />
                                 
@@ -31,8 +31,9 @@
                          </h:column>  
                         
                         <h:column>
-                            <h:link value="Se statistik" outcome="courseList.xhtml">
-                                <f:param name="user" value="#{Parent_child.child}" />
+                            <h:link value="Se statistik" outcome="childrenCourseList.xhtml">
+                                   <f:param name="id" value="#{Parent_child.child.id}" />
+                                   <f:param name="name" value="#{Parent_child.child.name}" />
                                 
                             </h:link>
                          </h:column> 
