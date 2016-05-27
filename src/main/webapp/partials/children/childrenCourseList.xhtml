@@ -17,13 +17,30 @@
         <ui:composition template="/WEB-INF/parentTemplate.xhtml">
             <ui:define name="content">
                 <h3>Registrerade kurser</h3>
-                <!--h4>Elev #{registrationList.username}</h4-->
+                <h4>Elev #{registrationList.username}</h4>
                 
                 <h:form>
                     <!-- Must have this to get an id for the ajax render attribute -->
                     <h:panelGroup id="registrationPanel" >
                         <!-- TODO -->
-                                      
+                        <h:dataTable var="registration" value="#{registrationList.getRegistrations(registrationList.userid)}"
+                                            class="table table-striped">
+                            <h:column><f:facet name="header">Kurskod</f:facet><h:outputText value="#{registration.course.id}"/></h:column>
+                            <h:column><f:facet name="header">Kursnamn</f:facet><h:outputText value="#{registration.course.name}"/></h:column>
+
+                        <h:column><f:facet name="header">Status (avklarade moment)</f:facet><h:outputText value="#{statistic.finishedmoments(registration.course, registrationList.userid)}"/></h:column>
+
+                        <h:column>
+                            <h:link value="Se moment" outcome="childrenMomentList.xhtml">
+                                <f:param name="course_id" value="#{registration.course.id}" />
+                                <f:param name="course_name" value="#{registration.course.name}" />
+                                <f:param name="id" value="#{registrationList.userid}" />
+                                <f:param name="name" value="#{registrationList.username}" />
+                            </h:link>
+                         </h:column> 
+                        
+                        </h:dataTable>                
+
                     </h:panelGroup>
                     
                 </h:form>
