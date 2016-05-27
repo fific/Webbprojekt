@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Anslut till förälder</title>
+    </h:head>   
+    <h:body>
+        
+        <ui:composition template="/WEB-INF/studentTemplate.xhtml">
+
+            <ui:define name="content">
+                <h3>Tillgängliga föräldrar</h3>
+                <h:form>   
+                    <div class="btn-group">
+                        <h:commandButton class="btn btn-default" value="Föregående" actionListener="#{courseList.prev()}">
+                            <f:ajax execute="@form" render="coursePanel" />
+                        </h:commandButton>
+
+                        <h:commandButton class="btn btn-default" value="Nästa" actionListener="#{courseList.next()}">
+                            <f:ajax execute="@form" render="coursePanel" />
+                        </h:commandButton>
+                    </div>
+                    
+                    <!-- Must have this to get an id for the ajax render attribute -->
+                    <h:panelGroup id="coursePanel">
+                        <h:outputText>FöräldraID</h:outputText>
+                        <h:outputText>Föräldranamn</h:outputText>
+                        <!-- Alla kurser som är skapad -->
+                        <h:dataTable var="user" value="#{userList.getAllParents()}"
+                                     class="table table-striped">
+                        <h:column><f:facet name="header">FöräldraID</f:facet><h:outputText value="#{user.id}"/></h:column>
+                        <h:column><f:facet name="header">Föräldranamn</f:facet><h:outputText value="#{user.name}"/></h:column>  
+                        <!--<h:column><h:commandButton value="Anslut till #{course.id}" actionListener="#{registrationController.newRegistration()}" 
+                                         action="registrationList?faces-redirect=true" 
+                                         class="btn btn-default"/></h:column>-->
+
+                        </h:dataTable>                
+                    </h:panelGroup>
+                        <div class="alert alert-info" role="alert">Skriv in föräldraID och tryck på anslut för att visa en förälder dina resultat.</div>
+                        <h:outputLabel value="FöräldraID"/>
+                        <h:inputText class="form-control" id="parent_child" value="#{addParent_child.id}"></h:inputText>
+                        <h:message for="parent_child"/>
+                    <div class="btn-group">
+                        <h:commandButton value="Tillbaka" immediate="true" class="btn btn-default "
+                                         action="parent_childList?faces-redirect=true" />
+                        <h:commandButton value="Anslut till" actionListener="#{parent_childController.newParent_child()}" 
+                                         action="parent_childList?faces-redirect=true"
+                                         class="btn btn-default"/>
+                                         
+                                         
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -13,6 +13,7 @@
     <class>com.united.core.FinishedMoment</class>
     <class>com.united.core.Registration</class>
     <class>com.united.core.Answer</class>
+    <class>com.united.core.Parent_child</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>

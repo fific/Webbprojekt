@@ -88,6 +88,12 @@ public class UserList extends AbstractDAO<User, String> {
         return em.createQuery(jpql, User.class).setParameter("group", groupList).getResultList();
     }
     
+     public List<User> getAllParents() {
+        String jpql = "SELECT p FROM User p WHERE p.groups=:group";
+        List<Groups> groupList  = new ArrayList<>();
+        groupList.add(Groups.PARENT);
+        return em.createQuery(jpql, User.class).setParameter("group", groupList).getResultList();
+    }
     public List<User> getAllTeachers() {
         String jpql = "SELECT p FROM User p WHERE p.groups=:group";
         List<Groups> groupList  = new ArrayList<>();

@@ -32,7 +32,8 @@
         <div id="content">
             <nav class="navbar navbar-default" id="banner" role="navigation">
                 <h:link value="Kurser" class="navbar-brand" outcome="studentregistrations" />
-                <h:link value="Konto" class="navbar-brand" outcome="studentlogin" />  
+                <h:link value="Konto" class="navbar-brand" outcome="studentlogin" />
+                <h:link value="Föräldrar" class="navbar-brand" outcome="parentregistrations" />
                 <p class="navbar-text">Nuvarande kurs: #{currentCourse.getNameByUser()}</p>
                 <p class="navbar-text navbar-right">Inloggad som <a href="#" class="navbar-link">#{sessionScope.user.id}</a></p>
             </nav>

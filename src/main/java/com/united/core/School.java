@@ -43,6 +43,9 @@ public class School {
      
      @Inject
      private AnswerList answerList;
+     
+      @Inject
+     private Parent_childList parent_childList;
 
      
     
@@ -52,6 +55,10 @@ public class School {
    
     public UserList getUserList() {
         return userList;
+    }
+    
+     public Parent_childList getParent_childList() {
+        return parent_childList;
     }
     
     public CourseList getCourseList() {
@@ -78,7 +85,6 @@ public class School {
         return answerList;
     }
      
-
     public SingletonSchool getSchool() {
         throw new UnsupportedOperationException("Not supported yet."); 
     }

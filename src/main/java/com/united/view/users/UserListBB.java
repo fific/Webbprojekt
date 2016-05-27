@@ -2,11 +2,13 @@ package com.united.view.users;
 
 import com.united.auth.User;
 import com.united.auth.UserList;
+import com.united.core.Registration;
 import com.united.core.School;
 import com.united.core.SingletonSchool;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -29,6 +31,9 @@ public class UserListBB implements Serializable {
     
     @Inject
     private UserList users;
+    
+    @Inject     //Is this an OK solution?
+    private School school;
 
     public List<User> findAll() {
         return users.findAll();
@@ -40,6 +45,12 @@ public class UserListBB implements Serializable {
     
     public List<User> findStudentRange() {
         return users.getStudentsByUser();
+    }
+    
+     public List<User> getAllParents() {
+                LOG.log(Level.INFO, "Koden i UserListBB.getUser() körs");
+
+        return school.getUserList().getAllParents();
     }
 
     @PostConstruct

@@ -80,6 +80,11 @@
            <from-outcome>studentregistrations</from-outcome>
            <to-view-id>/partials/registrations/registrationList.xhtml</to-view-id>
        </navigation-case>
+       
+        <navigation-case>
+           <from-outcome>parentregistrations</from-outcome>
+           <to-view-id>/partials/parent_child/parent_childList.xhtml</to-view-id>
+       </navigation-case>
 
        <navigation-case>
            <from-outcome>students</from-outcome>
@@ -89,6 +94,11 @@
        <navigation-case>
            <from-outcome>children</from-outcome>
            <to-view-id>/partials/children/childrenList.xhtml</to-view-id>
+       </navigation-case>
+       
+       <navigation-case>
+           <from-outcome>parents</from-outcome>
+           <to-view-id>/partials/parent_child/parent_childList.xhtml</to-view-id>
        </navigation-case>
 
         <navigation-case>

@@ -15,33 +15,33 @@
                 <h:form>
                     
                     <h:panelGroup id="productPanel" >
-                        <h:dataTable var="student" value="#{userList.findStudentRange()}"
+                        <h:dataTable var="Parent_child" value="#{parent_childList.getChildren()}"
                                      class="table table-striped">
-                            <h:column><f:facet name="header">Användarnamn</f:facet><h:outputText value="#{student.id}"/></h:column>
-                        <h:column><f:facet name="header">Namn</f:facet><h:outputText value="#{student.name}"/></h:column>
-                        <!--<h:column><f:facet name="header">Lösenord</f:facet><h:outputText value="#{student.passwd}"/></h:column>-->
+                            <h:column><f:facet name="header">Användarnamn</f:facet><h:outputText value="#{Parent_child.child.id}"/></h:column>
+                        <h:column><f:facet name="header">Namn</f:facet><h:outputText value="#{Parent_child.child.name}"/></h:column>
+                        <!--<h:column><f:facet name="header">Lösenord</f:facet><h:outputText value="#{Parent_child.child.passwd}"/></h:column>-->
                         
 
                         <h:column>
                             <h:link value="Redigera ditt barns kontaktuppgifter" outcome="editChildren.xhtml">
-                                <f:param name="id" value="#{student.id}" />
-                                <f:param name="name" value="#{student.name}" />
+                                <f:param name="id" value="#{Parent_child.child.id}" />
+                                <f:param name="name" value="#{Parent_child.child.name}" />
                                 
                             </h:link>
                          </h:column>  
                         
                         <h:column>
                             <h:link value="Se statistik" outcome="courseList.xhtml">
-                                <f:param name="user" value="#{student}" />
+                                <f:param name="user" value="#{Parent_child.child}" />
                                 
                             </h:link>
                          </h:column> 
                         
                         <h:column>
                             <h:link value="Ta bort det här barnet från listan" outcome="deleteStudent.xhtml">
-                                <f:param name="id" value="#{student.id}" />
-                                <f:param name="name" value="#{student.name}" />
-                                <!--<f:param name="passwd" value="#{student.passwd}" />-->
+                                <f:param name="id" value="#{Parent_child.child.id}" />
+                                <f:param name="name" value="#{Parent_child.child.name}" />
+                                <!--<f:param name="passwd" value="#{Parent_child.child.passwd}" />-->
                             </h:link>
                          </h:column>   
                         </h:dataTable>                
