@@ -40,6 +40,8 @@ public class UserController {
         System.out.println("-------getId: " + addBB.getId() + ". getName: " + addBB.getName());
         User p = new User(addBB.getId(), addBB.getPasswd(), addBB.getName(), addBB.getGroups());
         school.getUserList().create(p);
+        Registration r = new Registration(p, school.getCourseList().getById("MM"), "true");
+        school.getRegistrationList().create(r);
     }
 
     public void updateUser() {
