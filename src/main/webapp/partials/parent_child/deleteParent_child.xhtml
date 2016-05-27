@@ -1,16 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{deleteParent_child.id}"  />
+        <f:viewParam name="name" value="#{deleteParent_child.name}"  />
+    </f:metadata>
+    
+    <h:head>
+        <title>Ta bort en förälder</title>
+    </h:head>  
+    <h:body>
+        <ui:composition template="/WEB-INF/studentTemplate.xhtml">
+            <ui:define name="content">
+                <h3>Ta bort en förälder</h3>
+                
+                <h:form class="partial-form">
+                    <h:panelGrid columns="2" class="table">
+                        <h:outputLabel value="Förälderid"/>
+                        <h:outputText value="#{deleteParent_child.id}"/> 
+                        <h:outputLabel value="Föräldernamn" />
+                        <h:outputText id="name" value="#{deleteParent_child.name}"/>
+                    </h:panelGrid>
+                    <div class="btn-group">
+                        <h:commandButton value="Avbryt" immediate="true" class="btn btn-default"
+                                         action="parent_childList?faces-redirect=true" />
+                        <h:commandButton value="Ta bort" actionListener="#{parent_childController.deleteParent()}" 
+                                         action="parent_childList?faces-redirect=true" 
+                                         class="btn btn-default"/>
+                    </div>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
 </html>

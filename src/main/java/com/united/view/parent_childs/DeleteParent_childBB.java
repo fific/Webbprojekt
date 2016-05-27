@@ -1,5 +1,6 @@
 package com.united.view.parent_childs;
 
+import com.united.auth.Groups;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import com.united.auth.User;
@@ -13,36 +14,41 @@ import com.united.auth.User;
 @RequestScoped 
 public class DeleteParent_childBB {
 
-    private String parent;
-    private String child;
+    private String id;
+    private String name;
+    private String password;
+    private Groups groups;
     
-    private Long id; //registration id
-    
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
-
-    public String getParent() {
-        return parent;
+    
+    public String getName() {
+        return name;
     }
 
-    public void setParent(String parent) {
-        this.parent = parent;
-    }
-
-    public String getChild() {
-        return child;
-    }
-
-    public void setChild(String child) {
-        this.child = child;
+    public void setName(String name) {
+        this.name = name;
     }
     
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
     
-    
+    public Groups getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Groups groups) {
+        this.groups = groups;
+    }
 }
 

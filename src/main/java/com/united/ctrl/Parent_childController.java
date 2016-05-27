@@ -75,10 +75,9 @@ public class Parent_childController {
         school.getParent_childList().create(new Parent_child(child, parent));
     }
 
-    public void deleteParent_child() {
-       Long id = delBB.getId();
-       LOG.log(Level.INFO, "***DEL ID {0}", id);
-       //school.getRegistrationList().deleteRegistrationById(id);
+    public void deleteParent() {
+       String parentid = delBB.getId();
+       Long id = school.getParent_childList().deleteParent_child(school.getUserList().getById(parentid)).getId();
        school.getParent_childList().delete(id);
     }
 

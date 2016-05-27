@@ -63,7 +63,6 @@ public class RegistrationController {
            school.getRegistrationList().create(new Registration(u, selectedCourse));
      }
      
-    //not working!!!
     public void cloneCourseRegistration() {
        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
        Map<String, Object> sessionMap = externalContext.getSessionMap();
@@ -109,8 +108,6 @@ public class RegistrationController {
        newML = new ArrayList<>();
        school.getCourseList().update(c);
        
-       //Registration p = new Registration(u, c, school.getRegistrationList().getCCForTeacher(school.getCourseList().getById(addBB.getId())));
-       //school.getRegistrationList().create(p);
        newRegistrationForSelectedCourse(u, c);
     }
 

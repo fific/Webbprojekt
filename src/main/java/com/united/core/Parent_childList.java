@@ -42,26 +42,6 @@ public class Parent_childList extends AbstractDAO<Parent_child, Long> {
     protected EntityManager getEntityManager() {
         return em;
     }
-         
-    public List<Parent_child> getById(Long id) {
-        String jpql = "SELECT p FROM Parent_child p WHERE p.id=:id";
-        /*return em.createQuery(jpql, Parent_child.class).
-                setParameter("id", id).getResultList();*/
-        LOG.log(Level.INFO, "Parent_childList getById kördes");
-        return null;
-    }
-    // osäker på om denna fungerar
-    public List<Parent_child> getAllParent_childForUser() {
-       ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-       Map<String, Object> sessionMap = externalContext.getSessionMap();
-       User u = (User) sessionMap.get("parent");
-        
-        String jpql = "SELECT p FROM Parent_child p WHERE p.parent=:user";
-        //return em.createQuery(jpql, Parent_child.class).
-          //      setParameter("user", u).getResultList();
-                  LOG.log(Level.INFO, "Parent_childList getAllParent_childForUser kördes");
-                  return null;
-    }
     
     public List<Parent_child> getAllParentsForChild() {
        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
@@ -72,7 +52,6 @@ public class Parent_childList extends AbstractDAO<Parent_child, Long> {
         String jpql = "SELECT c FROM Parent_child c WHERE c.child=:child";
         return em.createQuery(jpql, Parent_child.class).
                 setParameter("child", child).getResultList();
-        //return null;
     }
     
       public List<Parent_child> getAllChildrenForParent() {
@@ -84,17 +63,6 @@ public class Parent_childList extends AbstractDAO<Parent_child, Long> {
         String jpql = "SELECT c FROM Parent_child c WHERE c.parent=:parent";
         return em.createQuery(jpql, Parent_child.class).
                 setParameter("parent", parent).getResultList();
-        //return null;
-    }
-      
-      
-    public List<Parent_child> getAllParent_ChildForParent(User u) {
-        String jpql = "SELECT x FROM Parent_child x WHERE x.child=:user";
-        //return em.createQuery(jpql, Parent_child.class).
-                //setParameter("user", u).getResultList();
-        LOG.log(Level.INFO, "Parent_childList getAllParent_ChildForParent kördes");
-        return null;
-
     }
     
     public List<Parent_child> getAllParentsForChild(User child) {
@@ -102,7 +70,17 @@ public class Parent_childList extends AbstractDAO<Parent_child, Long> {
                 LOG.log(Level.INFO, "Parent_childList getAllParent_ChildForChild kördes");
         return em.createQuery(jpql, Parent_child.class).
                 setParameter("child", child).getResultList();
-            //return null;
+    }
+    
+    public Parent_child deleteParent_child(User parent) {
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+       Map<String, Object> sessionMap = externalContext.getSessionMap();
+       User u = (User) sessionMap.get("user");
+       
+       String jpql = "SELECT x FROM Parent_child x WHERE x.child=:child AND x.parent=:parent";
+        return em.createQuery(jpql, Parent_child.class).
+                setParameter("child", u).
+                setParameter("parent", parent).getSingleResult();
     }
       
 }

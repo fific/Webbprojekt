@@ -18,46 +18,18 @@
                 <h:form>
                 
                    <h:panelGroup id="coursePanel" >
-                        <!-- TODO Get created courses-->
                         <h:dataTable var="Parent_child" value="#{parent_childList.getParents()}"
                                      class="table table-striped">
                             <h:column><f:facet name="header">FöräldraID</f:facet><h:outputText value="#{Parent_child.parent.id}"/></h:column>
                             <h:column><f:facet name="header">Föräldranamn</f:facet><h:outputText value="#{Parent_child.parent.name}"/></h:column>
-                        <!--h:column><f:facet name="header">Elever som har klarat kurs</f:facet><h:outputText value="#{statistic.getCourseStatistic(registration.course)}"/></h:column-->
                         
-                        <!--h:column>
-                            <h:link value="Redigera kurs" outcome="editCourse.xhtml">
-                                <f:param name="course_id" value="#{registration.course.id}" />
-                                <f:param name="course_name" value="#{registration.course.name}" />
-
+                        <h:column>
+                            <h:link value="Ta bort förälder" outcome="deleteParent_child.xhtml">
+                                <f:param name="id" value="#{Parent_child.parent.id}" />
+                                <f:param name="name" value="#{Parent_child.parent.name}" />
                             </h:link>
                          </h:column>   
                         
-                        <h:column>
-                            <h:link value="Hantera moment" outcome="/partials/moments/momentList.xhtml">
-                                <f:param name="course_id" value="#{registration.course.id}" />
-                                <f:param name="course_name" value="#{registration.course.name}" />
-                            </h:link>
-                         </h:column>   
-                        
-                        <h:column>
-                            <h:link value="Sätta som nuvarande kurs" outcome="setCurrentCourse.xhtml">
-                                <f:param name="course_id" value="#{registration.course.id}" />
-                                <f:param name="course_name" value="#{registration.course.name}" />
-                            </h:link>
-                         </h:column> 
-                        
-                        <h:column>
-                            <h:link value="Ta bort kurs" outcome="deleteCourse.xhtml">
-                                <f:param name="id" value="#{registration.course.id}" />
-                                <f:param name="name" value="#{registration.course.name}" />
-
-                            </h:link>
-                         </h:column-->   
-                         
-                            
-                            
-                            
                         </h:dataTable>                
                     </h:panelGroup>
                 
