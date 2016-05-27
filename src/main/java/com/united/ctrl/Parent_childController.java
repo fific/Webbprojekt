@@ -80,6 +80,12 @@ public class Parent_childController {
        Long id = school.getParent_childList().deleteParent_child(school.getUserList().getById(parentid)).getId();
        school.getParent_childList().delete(id);
     }
+    
+    public void deleteChild() {
+       String childid = delBB.getId();
+       Long id = school.getParent_childList().deleteChild(school.getUserList().getById(childid)).getId();
+       school.getParent_childList().delete(id);
+    }
 
     @Inject
     public void setAddBB(AddParent_childBB addBB) {

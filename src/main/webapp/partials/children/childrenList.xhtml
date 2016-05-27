@@ -39,10 +39,9 @@
                          </h:column> 
                         
                         <h:column>
-                            <h:link value="Ta bort det här barnet från listan" outcome="deleteStudent.xhtml">
+                            <h:link value="Ta bort det här barnet från listan" outcome="deleteChildren.xhtml">
                                 <f:param name="id" value="#{Parent_child.child.id}" />
                                 <f:param name="name" value="#{Parent_child.child.name}" />
-                                <!--<f:param name="passwd" value="#{Parent_child.child.passwd}" />-->
                             </h:link>
                          </h:column>   
                         </h:dataTable>                
